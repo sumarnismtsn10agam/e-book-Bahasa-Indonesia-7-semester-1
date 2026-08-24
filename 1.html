@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 1: Teks Deskripsi | Bahasa Indonesia Kelas 7</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0B0F19;
+            --bg-card: #151B2B;
+            --bg-input: #1E2538;
+            --gold-primary: #D4AF37;
+            --gold-light: #F4E4BC;
+            --gold-dark: #AA8C2C;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --border-color: #2A3449;
+            --success: #10B981;
+            --error: #EF4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+
+        .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+        .gold-text {
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Navigation */
+        .nav-header {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover { color: var(--gold-primary); }
+
+        /* Content Sections */
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding: 48px 32px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, transparent 100%);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chapter-header::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 10rem;
+            color: rgba(212, 175, 55, 0.05);
+            line-height: 1;
+        }
+
+        .chapter-header h1 { font-size: 2.5rem; margin-bottom: 16px; }
+        .chapter-header p { color: var(--text-secondary); max-width: 700px; margin: 0 auto; font-size: 1.1rem; }
+
+        .content-section {
+            margin-bottom: 48px;
+            padding: 32px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .content-section h2 {
+            font-size: 1.6rem;
+            color: var(--gold-primary);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        .content-section h3 { font-size: 1.25rem; margin: 28px 0 16px; color: var(--gold-light); }
+        .content-section p { margin-bottom: 16px; color: var(--text-secondary); text-align: justify; }
+
+        .definition-box {
+            background: rgba(212, 175, 55, 0.08);
+            border-left: 4px solid var(--gold-primary);
+            padding: 24px;
+            border-radius: 0 8px 8px 0;
+            margin: 24px 0;
+        }
+
+        .expert-quote {
+            font-style: italic;
+            color: var(--text-primary);
+            border-left: 2px solid var(--gold-dark);
+            padding-left: 16px;
+            margin: 20px 0;
+            color: var(--gold-light);
+        }
+
+        .example-box {
+            background: var(--bg-input);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px dashed var(--border-color);
+            margin: 24px 0;
+        }
+
+        .example-box strong { color: var(--gold-primary); }
+
+        /* Luxury Table */
+        .luxury-table-wrapper {
+            overflow-x: auto;
+            margin: 24px 0;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .luxury-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        .luxury-table th {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            font-weight: 600;
+            text-align: left;
+            padding: 16px;
+            border-bottom: 2px solid var(--gold-dark);
+        }
+
+        .luxury-table td {
+            padding: 16px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .luxury-table tr:last-child td { border-bottom: none; }
+        .luxury-table tr:hover td { background: rgba(255, 255, 255, 0.02); color: var(--text-primary); }
+
+        /* Text Analysis Box */
+        .text-analysis {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .analysis-card {
+            background: var(--bg-input);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 3px solid var(--gold-primary);
+        }
+
+        .analysis-card h4 { color: var(--gold-primary); margin-bottom: 8px; font-size: 1rem; }
+        .analysis-card p { margin: 0; font-size: 0.95rem; }
+
+        /* Keywords */
+        .keywords-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 32px 0;
+            justify-content: center;
+        }
+
+        .keyword-tag {
+            background: var(--bg-input);
+            color: var(--gold-primary);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .keyword-tag:hover {
+            background: var(--gold-primary);
+            color: var(--bg-dark);
+            cursor: default;
+        }
+
+        /* Quiz Styles */
+        .quiz-container {
+            background: var(--bg-card);
+            border: 1px solid var(--gold-primary);
+            border-radius: 12px;
+            padding: 40px;
+            margin-top: 60px;
+        }
+
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--text-secondary); font-size: 0.9rem; }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus { outline: none; border-color: var(--gold-primary); }
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+        .question-block {
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .question-text { font-weight: 600; margin-bottom: 16px; color: var(--text-primary); }
+
+        .points-badge {
+            float: right;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .options label {
+            display: block;
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text-secondary);
+        }
+
+        .options label:hover { border-color: var(--gold-primary); color: var(--text-primary); }
+        .options input[type="radio"] { margin-right: 12px; accent-color: var(--gold-primary); }
+        .options input[type="radio"]:checked + span { color: var(--gold-primary); font-weight: 500; }
+        .options label:has(input[type="radio"]:checked) {
+            border-color: var(--gold-primary);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        textarea.form-control { min-height: 120px; resize: vertical; }
+
+        .btn-group { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+
+        .btn {
+            padding: 14px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-primary) 100%);
+            color: var(--bg-dark);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--bg-input);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover { border-color: var(--gold-primary); color: var(--gold-primary); }
+
+        .result-box {
+            display: none;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 32px;
+            text-align: center;
+        }
+
+        .result-box h3 { color: var(--success); margin-bottom: 16px; }
+        .score-display { display: flex; justify-content: center; gap: 40px; margin: 24px 0; }
+        .score-item h4 { font-size: 2rem; color: var(--gold-primary); }
+        .score-item p { font-size: 0.9rem; color: var(--text-secondary); }
+
+        .disclaimer { font-size: 0.8rem; color: var(--text-secondary); margin-top: 16px; font-style: italic; }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 80px;
+        }
+
+        footer a { color: var(--gold-primary); text-decoration: none; }
+
+        /* References Section */
+        .references {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 16px;
+            padding-left: 20px;
+        }
+        .references li { margin-bottom: 8px; }
+
+        @media (max-width: 640px) {
+            .form-row { grid-template-columns: 1fr; }
+            .score-display { flex-direction: column; gap: 20px; }
+            .btn-group { flex-direction: column; }
+            .btn { width: 100%; }
+            .chapter-header h1 { font-size: 1.8rem; }
+        }
+
+        @media print {
+            body { background: white; color: black; }
+            .nav-header, .btn-group, footer, .quiz-container { display: none; }
+            .content-section { border: 1px solid #ccc; background: white; color: black; }
+            .gold-text { color: #333; -webkit-text-fill-color: #333; }
+            .luxury-table th { background: #eee; color: black; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav-header">
+            <a href="index.html" class="nav-link">← Daftar Isi</a>
+            <span style="color: var(--text-secondary); font-size: 0.9rem;">Bahasa Indonesia Kelas VII</span>
+            <a href="2.html" class="nav-link">Pertemuan 2 →</a>
+        </nav>
+
+        <!-- Chapter Header -->
+        <div class="chapter-header">
+            <h1>💬 <span class="gold-text">Pertemuan 1</span></h1>
+            <h2 style="font-size: 1.8rem; margin-bottom: 16px; color: var(--text-primary);">Menganalisis Gagasan dan Pesan dari Teks Deskripsi</h2>
+            <p>Memahami cara mengidentifikasi gagasan utama, struktur, dan pesan tersirat maupun tersurat dalam sebuah teks deskripsi untuk membangun kemampuan literasi yang kuat dan kritis.</p>
+            <p style="margin-top: 20px; font-size: 0.9rem; color: var(--gold-primary); font-weight: 600;">Capaian Pembelajaran: Peserta didik mampu menganalisis informasi berupa gagasan dan pesan dari teks deskripsi lisan dan tulis.</p>
+        </div>
+
+        <!-- Content A: Pengertian & Teori -->
+        <div class="content-section">
+            <h2>A. Hakikat dan Pengertian Teks Deskripsi</h2>
+            <p>Teks deskripsi adalah teks yang menggambarkan atau melukiskan suatu objek, tempat, peristiwa, atau pengalaman secara terperinci dan hidup. Tujuannya adalah agar pembaca seolah-olah dapat melihat, mendengar, merasakan, atau mengalami sendiri apa yang digambarkan oleh penulis.</p>
+            
+            <div class="expert-quote">
+                "Deskripsi adalah karangan yang menggambarkan suatu objek berdasarkan hasil pengamatan, perasaan, dan pengalaman penulis secara detail dan konkret, sehingga pembaca seolah-olah melihat, mendengar, dan merasakannya." 
+                <br><span style="font-size: 0.85rem; color: var(--text-secondary);">— Gorys Keraf (2004), <em>Diksi dan Gaya Bahasa</em></span>
+            </div>
+
+            <div class="definition-box">
+                <strong>📌 DEFINISI INTI</strong><br>
+                Teks Deskripsi adalah karangan yang memindahkan kesan hasil pengamatan penulis terhadap suatu objek kepada pembaca, dengan tujuan menciptakan imajinasi atau khayalan yang hidup di benak pembaca.
+            </div>
+
+            <h3>Tujuan Utama Teks Deskripsi:</h3>
+            <ul style="color: var(--text-secondary); margin-left: 20px; margin-bottom: 16px;">
+                <li><strong style="color: var(--text-primary);">Menggambarkan Objek:</strong> Menjelaskan ciri-ciri fisik (warna, ukuran, bentuk) dan non-fisik (suasana, kesan) secara spesifik.</li>
+                <li><strong style="color: var(--text-primary);">Membangun Imajinasi:</strong> Membawa pembaca seolah-olah merasakan langsung keberadaan objek tersebut.</li>
+                <li><strong style="color: var(--text-primary);">Menyampaikan Pesan:</strong> Menyisipkan amanat atau sikap penulis terhadap objek yang dideskripsikan (misalnya, kekaguman atau keprihatinan).</li>
+            </ul>
+        </div>
+
+        <!-- Content B: Struktur Teks (Dengan Tabel) -->
+        <div class="content-section">
+            <h2>B. Struktur Teks Deskripsi</h2>
+            <p>Teks deskripsi yang utuh dan baik umumnya dibangun oleh tiga struktur utama yang saling berkaitan. Pemahaman terhadap struktur ini adalah kunci untuk menganalisis gagasan dalam teks.</p>
+            
+            <div class="luxury-table-wrapper">
+                <table class="luxury-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Bagian Struktur</th>
+                            <th style="width: 40%;">Fungsi dan Isi</th>
+                            <th style="width: 35%;">Ciri Kebahasaan yang Dominan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1. Identifikasi</strong><br><em>(Pernyataan Umum)</em></td>
+                            <td>Berisi nama objek yang dideskripsikan, lokasi, sejarah singkat, atau pernyataan umum pengantar tentang objek tersebut.</td>
+                            <td>Kata benda umum, kalimat definisi, kata depan tempat.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2. Deskripsi Bagian</strong></td>
+                            <td>Inti teks. Berisi perincian bagian-bagian objek secara detail (warna, bentuk, ukuran, suasana, bunyi, atau aroma) berdasarkan pengamatan panca indra.</td>
+                            <td>Kata sifat, kata khusus, majas (personifikasi/simile), kalimat rincian.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3. Simpulan / Kesan</strong><br><em>(Opsional)</em></td>
+                            <td>Berisi kesan umum, ringkasan, atau pandangan pribadi penulis terhadap objek yang dideskripsikan sebagai penutup teks.</td>
+                            <td>Kata keterangan sikap, kalimat simpulan, konjungsi penutup.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Content C: Unsur Kebahasaan -->
+        <div class="content-section">
+            <h2>C. Unsur Kebahasaan Teks Deskripsi</h2>
+            <p>Untuk membuat deskripsi menjadi "hidup", penulis menggunakan pilihan kata (diksi) yang spesifik dan gaya bahasa yang menarik.</p>
+            
+            <div class="example-box">
+                <h3 style="margin-top: 0;">1. Kata Umum vs. Kata Khusus</h3>
+                <p>Kata khusus memberikan gambaran yang lebih tajam dan detail dibandingkan kata umum.</p>
+                <div class="luxury-table-wrapper">
+                    <table class="luxury-table">
+                        <tr><th>Kata Umum</th><th>Kata Khusus (Lebih Deskriptif)</th></tr>
+                        <tr><td>Bunga</td><td>Mawar merah merekah dengan kelopak beludru</td></tr>
+                        <tr><td>Burung</td><td>Elang jawa yang menukik tajam</td></tr>
+                        <tr><td>Berjalan</td><td>Berjingkat pelan di atas rerumputan basah</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="example-box">
+                <h3 style="margin-top: 0;">2. Majas (Gaya Bahasa)</h3>
+                <ul style="color: var(--text-secondary); margin-left: 20px;">
+                    <li><strong style="color: var(--text-primary);">Personifikasi:</strong> Menghidupkan benda mati. <em>Contoh: "Angin malam <strong>berbisik lembut</strong> di sela-sela jendela."</em></li>
+                    <li><strong style="color: var(--text-primary);">Simile:</strong> Perbandingan menggunakan kata penghubung. <em>Contoh: "Air danau itu <strong>sejernih</strong> kaca."</em></li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h3 style="margin-top: 0;">3. Kalimat Rincian</h3>
+                <p>Kalimat yang memerinci bagian-bagian objek untuk memperkuat gambaran. <br>
+                <em>Contoh: "Pasar itu sangat ramai. <strong>Pedagang sayur berteriak menawarkan dagangan, pembeli saling tawar-menawar, dan aroma rempah menyengat hidung.</strong>"</em> (Bagian yang ditebalkan adalah kalimat rincian).</p>
+            </div>
+        </div>
+
+        <!-- Content D: Analisis Gagasan & Pesan -->
+        <div class="content-section">
+            <h2>D. Menganalisis Gagasan dan Pesan</h2>
+            <p>Analisis teks tidak hanya berhenti pada memahami struktur, tetapi juga menggali <strong>Gagasan Utama</strong> dan <strong>Pesan</strong> yang ingin disampaikan penulis.</p>
+            
+            <div class="luxury-table-wrapper">
+                <table class="luxury-table">
+                    <thead>
+                        <tr>
+                            <th>Konsep</th>
+                            <th>Penjelasan</th>
+                            <th>Cara Menemukannya</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Gagasan Utama</strong><br><em>(Ide Pokok)</em></td>
+                            <td>Inti pembicaraan dalam satu paragraf atau teks secara keseluruhan.</td>
+                            <td>Cari kalimat yang paling umum, biasanya di awal (deduktif) atau akhir (induktif) paragraf.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pesan Tersurat</strong></td>
+                            <td>Pesan yang tertulis jelas dan langsung dapat dipahami dari teks.</td>
+                            <td>Baca kalimat perintah, saran, atau kesimpulan yang ditulis eksplisit oleh penulis.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pesan Tersirat</strong></td>
+                            <td>Pesan tersembunyi yang harus disimpulkan oleh pembaca berdasarkan deskripsi yang dibangun.</td>
+                            <td>Analisis pilihan kata (diksi) dan majas. Misal: deskripsi hutan gundul menyiratkan pesan <em>kepedulian lingkungan</em>.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Content E: Bedah Teks Lengkap -->
+        <div class="content-section">
+            <h2>E. Contoh Teks dan Bedah Teks</h2>
+            <p>Berikut adalah contoh teks deskripsi utuh beserta analisis strukturnya untuk memudahkan pemahaman.</p>
+            
+            <div class="example-box" style="border-left: 4px solid var(--gold-primary); border-style: solid;">
+                <h3 style="text-align: center; margin-top: 0; color: var(--text-primary);">Keajaiban Danau Toba</h3>
+                <p style="text-indent: 20px;"><strong>(1)</strong> Danau Toba adalah sebuah danau vulkanik raksasa yang terletak di tengah Pulau Sumatera, Provinsi Sumatera Utara. Danau ini merupakan danau terbesar di Indonesia dan Asia Tenggara, dengan sebuah pulau vulkanik di tengahnya yang dikenal sebagai Pulau Samosir. <strong>(2)</strong> Air danau yang luas membentang biru kehijauan, seolah-olah menyatu dengan langit di ufuk barat. Di sekelilingnya, perbukitan hijau berdiri kokoh, memeluk danau dengan lembut. Angin sepoi-sepoi yang bertiup membawa kesegaran, sementara suara ombak kecil yang memecah di tepi pantai menciptakan simfoni alam yang menenangkan jiwa. <strong>(3)</strong> Keindahan Danau Toba bukan hanya tentang pemandangan, tetapi juga tentang ketenangan yang ia tawarkan kepada siapa pun yang datang. Tempat ini adalah bukti nyata keagungan alam Nusantara yang wajib kita jaga kelestariannya.</p>
+            </div>
+
+            <div class="text-analysis">
+                <div class="analysis-card">
+                    <h4>📍 1. Identifikasi (Kalimat 1)</h4>
+                    <p>Memperkenalkan objek (Danau Toba), lokasi (Sumatera Utara), dan fakta umum (danau vulkanik terbesar).</p>
+                </div>
+                <div class="analysis-card">
+                    <h4>🔍 2. Deskripsi Bagian (Kalimat 2)</h4>
+                    <p>Merinci warna air (biru kehijauan), suasana (perbukitan hijau memeluk, angin sepoi-sepoi), dan bunyi (simfoni alam). Menggunakan <strong>majas personifikasi</strong> ("memeluk dengan lembut").</p>
+                </div>
+                <div class="analysis-card">
+                    <h4>🎯 3. Simpulan / Kesan (Kalimat 3)</h4>
+                    <p>Kesan umum penulis: Danau Toba menawarkan ketenangan dan merupakan keagungan alam yang wajib dijaga.</p>
+                </div>
+                <div class="analysis-card" style="border-left-color: var(--success);">
+                    <h4>💡 4. Gagasan Utama & Pesan</h4>
+                    <p><strong>Gagasan Utama:</strong> Keindahan alam dan suasana menenangkan di Danau Toba.<br>
+                    <strong>Pesan Tersirat:</strong> Ajakan untuk menghargai dan melestarikan keindahan alam warisan Indonesia.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Keywords & Quote -->
+        <div class="keywords-section">
+            <span class="keyword-tag">Teks Deskripsi</span>
+            <span class="keyword-tag">Gagasan Utama</span>
+            <span class="keyword-tag">Pesan Tersirat</span>
+            <span class="keyword-tag">Struktur Teks</span>
+            <span class="keyword-tag">Majas Personifikasi</span>
+            <span class="keyword-tag">Kata Khusus</span>
+            <span class="keyword-tag">Kalimat Rincian</span>
+        </div>
+
+        <!-- Referensi -->
+        <div class="content-section">
+            <h2>F. Referensi & Bacaan Lanjutan</h2>
+            <ul class="references">
+                <li>Kemdikbudristek. (2022). <em>Buku Bahasa Indonesia Kelas VII SMP/MTs (Edisi Revisi)</em>. Jakarta: Pusat Perbukuan.</li>
+                <li>Keraf, Gorys. (2004). <em>Diksi dan Gaya Bahasa</em>. Jakarta: Gramedia Pustaka Utama.</li>
+                <li>Tarigan, Henry Guntur. (2013). <em>Menulis Sebagai Suatu Keterampilan Berbahasa</em>. Bandung: Angkasa.</li>
+            </ul>
+        </div>
+
+        <!-- UJI FORMATIF -->
+        <div class="quiz-container" id="uji-formatif">
+            <div class="quiz-header">
+                <h2 style="color: var(--gold-primary); margin-bottom: 8px;">📝 Uji Formatif Pertemuan 1</h2>
+                <p style="color: var(--text-secondary);">Materi: Gagasan dan pesan dari teks deskripsi, struktur, dan unsur kebahasaan.</p>
+            </div>
+
+            <form id="quizForm">
+                <!-- Identitas -->
+                <div class="content-section" style="background: var(--bg-input); border: none;">
+                    <h3 style="margin-top: 0; color: var(--gold-primary);">📋 Identitas Siswa</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nama Lengkap *</label>
+                            <input type="text" id="nama" class="form-control" required placeholder="Masukkan nama lengkap">
+                        </div>
+                        <div class="form-group">
+                            <label>No. Absen / NIS *</label>
+                            <input type="text" id="nis" class="form-control" required placeholder="Contoh: 12345">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Kelas *</label>
+                            <select id="kelas" class="form-control" required>
+                                <option value="">Pilih Kelas</option>
+                                <option value="VII-A">VII-A</option>
+                                <option value="VII-B">VII-B</option>
+                                <option value="VII-C">VII-C</option>
+                                <option value="VII-D">VII-D</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Semester *</label>
+                            <select id="semester" class="form-control" required>
+                                <option value="1 (Ganjil)">1 (Ganjil)</option>
+                                <option value="2 (Genap)">2 (Genap)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bagian A: Pilihan Ganda -->
+                <h3 style="margin: 32px 0 16px; color: var(--text-primary);">📋 Bagian A: Pilihan Ganda</h3>
+                
+                <div class="question-block">
+                    <p class="question-text">1. Apa tujuan utama dari teks deskripsi? <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="A"> <span>A. Menceritakan urutan peristiwa secara kronologis</span></label>
+                        <label><input type="radio" name="q1" value="B"> <span>B. Meyakinkan pembaca terhadap suatu pendapat</span></label>
+                        <label><input type="radio" name="q1" value="C"> <span>C. Menggambarkan objek secara terperinci sehingga pembaca seolah merasakannya</span></label>
+                        <label><input type="radio" name="q1" value="D"> <span>D. Menjelaskan langkah-langkah melakukan sesuatu</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">2. Bagian struktur teks deskripsi yang berisi perincian bagian objek (warna, bentuk, suasana) disebut... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="A"> <span>A. Deskripsi Bagian</span></label>
+                        <label><input type="radio" name="q2" value="B"> <span>B. Identifikasi</span></label>
+                        <label><input type="radio" name="q2" value="C"> <span>C. Simpulan</span></label>
+                        <label><input type="radio" name="q2" value="D"> <span>D. Orientasi</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">3. "Angin berbisik lembut di telinga, membelai rambutku dengan dinginnya malam." Kalimat ini menggunakan majas... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="A"> <span>A. Hiperbola</span></label>
+                        <label><input type="radio" name="q3" value="B"> <span>B. Personifikasi</span></label>
+                        <label><input type="radio" name="q3" value="C"> <span>C. Simile</span></label>
+                        <label><input type="radio" name="q3" value="D"> <span>D. Metafora</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">4. Manakah di bawah ini yang merupakan contoh <strong>kata khusus</strong>? <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q4" value="A"> <span>A. Bunga</span></label>
+                        <label><input type="radio" name="q4" value="B"> <span>B. Kendaraan</span></label>
+                        <label><input type="radio" name="q4" value="C"> <span>C. Pohon</span></label>
+                        <label><input type="radio" name="q4" value="D"> <span>D. Mawar merah merekah</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">5. "Pantai Parangtritis memiliki pasir hitam yang membentang luas. Ombaknya menghantam karang dengan gagah." Gagasan utama kutipan tersebut adalah... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q5" value="A"> <span>A. Keindahan dan suasana Pantai Parangtritis</span></label>
+                        <label><input type="radio" name="q5" value="B"> <span>B. Sejarah terbentuknya Pantai Parangtritis</span></label>
+                        <label><input type="radio" name="q5" value="C"> <span>C. Bahaya ombak di Pantai Parangtritis</span></label>
+                        <label><input type="radio" name="q5" value="D"> <span>D. Lokasi wisata di sekitar pantai</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">6. Kata depan (preposisi) yang tepat untuk melengkapi kalimat: "Kupeletakan buku itu ... atas meja belajar" adalah... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q6" value="A"> <span>A. ke</span></label>
+                        <label><input type="radio" name="q6" value="B"> <span>B. dari</span></label>
+                        <label><input type="radio" name="q6" value="C"> <span>C. di</span></label>
+                        <label><input type="radio" name="q6" value="D"> <span>D. pada</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">7. Pesan tersirat dalam sebuah teks deskripsi tentang hutan yang gundul biasanya adalah... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q7" value="A"> <span>A. Hutan adalah tempat yang menyeramkan</span></label>
+                        <label><input type="radio" name="q7" value="B"> <span>B. Ajakan untuk menjaga kelestarian alam dan tidak menebang pohon sembarangan</span></label>
+                        <label><input type="radio" name="q7" value="C"> <span>C. Hutan tidak memiliki manfaat bagi manusia</span></label>
+                        <label><input type="radio" name="q7" value="D"> <span>D. Penebangan hutan adalah pekerjaan yang mudah</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">8. Struktur teks deskripsi yang bersifat opsional (boleh ada, boleh tidak) namun memberikan kesan penutup adalah... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q8" value="A"> <span>A. Identifikasi</span></label>
+                        <label><input type="radio" name="q8" value="B"> <span>B. Deskripsi Bagian</span></label>
+                        <label><input type="radio" name="q8" value="C"> <span>C. Simpulan / Kesan Umum</span></label>
+                        <label><input type="radio" name="q8" value="D"> <span>D. Reorientasi</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">9. Ciri kebahasaan yang menggambarkan sifat atau keadaan objek secara detail disebut... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q9" value="A"> <span>A. Kata Kerja</span></label>
+                        <label><input type="radio" name="q9" value="B"> <span>B. Kata Ganti</span></label>
+                        <label><input type="radio" name="q9" value="C"> <span>C. Kata Sambung</span></label>
+                        <label><input type="radio" name="q9" value="D"> <span>D. Kata Sifat</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">10. "Sekolahku bersih. Ruang kelasnya terang. Halaman sekolah ditanami berbagai bunga yang harum." Kutipan ini termasuk bagian struktur... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q10" value="A"> <span>A. Identifikasi</span></label>
+                        <label><input type="radio" name="q10" value="B"> <span>B. Deskripsi Bagian</span></label>
+                        <label><input type="radio" name="q10" value="C"> <span>C. Simpulan</span></label>
+                        <label><input type="radio" name="q10" value="D"> <span>D. Reorientasi</span></label>
+                    </div>
+                </div>
+
+                <!-- Bagian B: Essay -->
+                <h3 style="margin: 32px 0 16px; color: var(--text-primary);">✍️ Bagian B: Essay</h3>
+
+                <div class="question-block">
+                    <p class="question-text">1. Jelaskan perbedaan antara gagasan utama dan pesan dalam sebuah teks deskripsi! <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay1" class="form-control" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">2. Sebutkan dan jelaskan 3 struktur utama teks deskripsi! <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay2" class="form-control" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">3. Buatlah satu kalimat deskripsi yang menggunakan majas personifikasi tentang "Matahari pagi"! <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay3" class="form-control" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">4. Mengapa penulis teks deskripsi disarankan menggunakan "kata khusus" daripada "kata umum"? Berikan contoh perbandingannya! <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay4" class="form-control" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">5. Bacalah kalimat berikut: "Kamar itu berantakan. Pakaian berserakan di lantai. Meja belajar penuh debu." Tentukan pesan tersirat dari deskripsi tersebut! <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay5" class="form-control" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <!-- Result Box -->
+                <div class="result-box" id="resultBox">
+                    <h3>📊 Hasil Uji Formatif</h3>
+                    <div class="score-display">
+                        <div class="score-item">
+                            <h4 id="scoreMCQ">0</h4>
+                            <p>Pilihan Ganda (/100)</p>
+                        </div>
+                        <div class="score-item">
+                            <h4 id="scoreEssay">0</h4>
+                            <p>Essay (/100)</p>
+                        </div>
+                        <div class="score-item">
+                            <h4 id="scoreFinal" class="gold-text">0</h4>
+                            <p>Skor Akhir (/200)</p>
+                        </div>
+                    </div>
+                    <p class="disclaimer">*Catatan: Skor Essay adalah estimasi otomatis berdasarkan kelengkapan jawaban (jumlah karakter). Penilaian akhir atas substansi jawaban tetap berada di tangan guru pengampu.</p>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary" onclick="hitungNilai()">✉️ KIRIM JAWABAN & LIHAT HASIL</button>
+                    <button type="button" class="btn btn-secondary" onclick="unduhPDF()">📥 UNDUH PDF LENGKAP</button>
+                    <button type="button" class="btn btn-secondary" onclick="unduhTXT()">📄 UNDUH SKOR (TXT)</button>
+                    <button type="button" class="btn btn-secondary" onclick="kirimEmail()">📧 KIRIM KE EMAIL GURU</button>
+                    <button type="button" class="btn btn-secondary" onclick="mulaiUlang()">🔄 MULAI ULANG</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div style="margin-bottom: 16px;">
+                <a href="index.html" class="nav-link" style="margin: 0 10px;">📖 Daftar Isi</a>
+                <a href="2.html" class="nav-link" style="margin: 0 10px;">Selanjutnya → Pertemuan 2</a>
+            </div>
+            <p>&copy; 2026 <span class="gold-text">Sumarnis, S. Pd.</span> — MTsN 10 Agam. Hak Cipta Dilindungi Undang-Undang.</p>
+            <p style="margin-top: 8px;">Email: <a href="mailto:Sumarnisanis04@yahoo.com">Sumarnisanis04@yahoo.com</a></p>
+        </footer>
+    </div>
+
+    <!-- JavaScript Logic for Quiz -->
+    <script>
+        // Kunci Jawaban Pilihan Ganda
+        const kunciJawaban = {
+            q1: 'C', q2: 'A', q3: 'B', q4: 'D', q5: 'A',
+            q6: 'C', q7: 'B', q8: 'C', q9: 'D', q10: 'B'
+        };
+
+        let finalScoreData = {
+            nama: '',
+            nis: '',
+            kelas: '',
+            semester: '',
+            skorMCQ: 0,
+            skorEssay: 0,
+            skorAkhir: 0
+        };
+
+        function hitungNilai() {
+            // Validasi Identitas
+            const nama = document.getElementById('nama').value.trim();
+            const nis = document.getElementById('nis').value.trim();
+            const kelas = document.getElementById('kelas').value;
+            
+            if (!nama || !nis || !kelas) {
+                alert('Harap lengkapi Identitas Siswa (Nama, NIS, dan Kelas) sebelum mengirim jawaban!');
+                return;
+            }
+
+            // Hitung Pilihan Ganda
+            let benarMCQ = 0;
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected && selected.value === kunciJawaban[`q${i}`]) {
+                    benarMCQ++;
+                }
+            }
+            const skorMCQ = benarMCQ * 10;
+
+            // Hitung Essay (Simulasi berbasis panjang jawaban untuk demo)
+            let skorEssay = 0;
+            for (let i = 1; i <= 5; i++) {
+                const jawaban = document.getElementById(`essay${i}`).value.trim();
+                if (jawaban.length > 40) {
+                    skorEssay += 20; // Jawaban dianggap lengkap dan baik
+                } else if (jawaban.length > 15) {
+                    skorEssay += 10; // Jawaban pendek
+                }
+            }
+
+            const skorAkhir = skorMCQ + skorEssay;
+
+            // Simpan data
+            finalScoreData = { nama, nis, kelas, semester: document.getElementById('semester').value, skorMCQ, skorEssay, skorAkhir };
+
+            // Tampilkan Hasil
+            document.getElementById('scoreMCQ').innerText = skorMCQ;
+            document.getElementById('scoreEssay').innerText = skorEssay;
+            document.getElementById('scoreFinal').innerText = skorAkhir;
+            
+            const resultBox = document.getElementById('resultBox');
+            resultBox.style.display = 'block';
+            resultBox.scrollIntoView({ behavior: 'smooth' });
+
+            alert(`Terima kasih, ${nama}! Jawaban Anda telah diproses. Silakan lihat hasil di bagian bawah.`);
+        }
+
+        function unduhTXT() {
+            if (finalScoreData.skorAkhir === 0 && finalScoreData.nama === '') {
+                alert('Silakan kerjakan dan klik "KIRIM JAWABAN & LIHAT HASIL" terlebih dahulu.');
+                return;
+            }
+
+            const textContent = `
+HASIL UJI FORMATIF - BAHASA INDONESIA KELAS 7
+Pertemuan 1: Menganalisis Teks Deskripsi
+----------------------------------------
+Nama    : ${finalScoreData.nama}
+NIS     : ${finalScoreData.nis}
+Kelas   : ${finalScoreData.kelas}
+Semester: ${finalScoreData.semester}
+----------------------------------------
+Skor Pilihan Ganda : ${finalScoreData.skorMCQ} / 100
+Skor Essay (Est.)  : ${finalScoreData.skorEssay} / 100
+SKOR AKHIR         : ${finalScoreData.skorAkhir} / 200
+----------------------------------------
+Catatan: Skor Essay adalah estimasi otomatis berdasarkan panjang jawaban.
+Dibuat oleh: Sumarnis, S. Pd. | MTsN 10 Agam
+            `.trim();
+
+            const blob = new Blob([textContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Skor_UjiFormatif_1_${finalScoreData.nama.replace(/\s+/g, '_')}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function unduhPDF() {
+            if (finalScoreData.skorAkhir === 0 && finalScoreData.nama === '') {
+                alert('Silakan kerjakan dan klik "KIRIM JAWABAN & LIHAT HASIL" terlebih dahulu.');
+                return;
+            }
+            window.print();
+        }
+
+        function kirimEmail() {
+            if (finalScoreData.skorAkhir === 0 && finalScoreData.nama === '') {
+                alert('Silakan kerjakan dan klik "KIRIM JAWABAN & LIHAT HASIL" terlebih dahulu.');
+                return;
+            }
+
+            const subject = `Hasil Uji Formatif Pertemuan 1 - ${finalScoreData.nama} (${finalScoreData.kelas})`;
+            const body = `Yth. Ibu Sumarnis, S. Pd.,\n\nBerikut adalah hasil uji formatif saya:\n\nNama: ${finalScoreData.nama}\nNIS: ${finalScoreData.nis}\nKelas: ${finalScoreData.kelas}\n\nSkor Pilihan Ganda: ${finalScoreData.skorMCQ}\nSkor Essay (Estimasi): ${finalScoreData.skorEssay}\nSkor Akhir: ${finalScoreData.skorAkhir}\n\nTerima kasih.`;
+            
+            window.location.href = `mailto:Sumarnisanis04@yahoo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        function mulaiUlang() {
+            if (confirm('Apakah Anda yakin ingin mengosongkan semua jawaban dan memulai ulang?')) {
+                document.getElementById('quizForm').reset();
+                document.getElementById('resultBox').style.display = 'none';
+                finalScoreData = { nama: '', nis: '', kelas: '', semester: '', skorMCQ: 0, skorEssay: 0, skorAkhir: 0 };
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>

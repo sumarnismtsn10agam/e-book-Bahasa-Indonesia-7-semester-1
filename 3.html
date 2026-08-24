@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 3: Kosakata Baru dan Makna Denotatif | Bahasa Indonesia Kelas 7</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0B0F19;
+            --bg-card: #151B2B;
+            --bg-input: #1E2538;
+            --gold-primary: #D4AF37;
+            --gold-light: #F4E4BC;
+            --gold-dark: #AA8C2C;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --border-color: #2A3449;
+            --success: #10B981;
+            --error: #EF4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+
+        .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+        .gold-text {
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Navigation */
+        .nav-header {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover { color: var(--gold-primary); }
+
+        /* Content Sections */
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding: 48px 32px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, transparent 100%);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chapter-header::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 10rem;
+            color: rgba(212, 175, 55, 0.05);
+            line-height: 1;
+        }
+
+        .chapter-header h1 { font-size: 2.5rem; margin-bottom: 16px; }
+        .chapter-header p { color: var(--text-secondary); max-width: 700px; margin: 0 auto; font-size: 1.1rem; }
+
+        .content-section {
+            margin-bottom: 48px;
+            padding: 32px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .content-section h2 {
+            font-size: 1.6rem;
+            color: var(--gold-primary);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        .content-section h3 { font-size: 1.25rem; margin: 28px 0 16px; color: var(--gold-light); }
+        .content-section p { margin-bottom: 16px; color: var(--text-secondary); text-align: justify; }
+
+        .definition-box {
+            background: rgba(212, 175, 55, 0.08);
+            border-left: 4px solid var(--gold-primary);
+            padding: 24px;
+            border-radius: 0 8px 8px 0;
+            margin: 24px 0;
+        }
+
+        .expert-quote {
+            font-style: italic;
+            color: var(--text-primary);
+            border-left: 2px solid var(--gold-dark);
+            padding-left: 16px;
+            margin: 20px 0;
+            color: var(--gold-light);
+        }
+
+        .example-box {
+            background: var(--bg-input);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px dashed var(--border-color);
+            margin: 24px 0;
+        }
+
+        .example-box strong { color: var(--gold-primary); }
+
+        /* Luxury Table */
+        .luxury-table-wrapper {
+            overflow-x: auto;
+            margin: 24px 0;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .luxury-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        .luxury-table th {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            font-weight: 600;
+            text-align: left;
+            padding: 16px;
+            border-bottom: 2px solid var(--gold-dark);
+        }
+
+        .luxury-table td {
+            padding: 16px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .luxury-table tr:last-child td { border-bottom: none; }
+        .luxury-table tr:hover td { background: rgba(255, 255, 255, 0.02); color: var(--text-primary); }
+
+        /* Vocabulary Card */
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+            margin: 24px 0;
+        }
+
+        .vocab-card {
+            background: var(--bg-input);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .vocab-card:hover {
+            border-color: var(--gold-primary);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px -10px rgba(212, 175, 55, 0.3);
+        }
+
+        .vocab-word {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--gold-primary);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .vocab-class {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .vocab-meaning {
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .vocab-example {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+
+        /* Text Analysis Box */
+        .text-analysis {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .analysis-card {
+            background: var(--bg-input);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 3px solid var(--gold-primary);
+        }
+
+        .analysis-card h4 { color: var(--gold-primary); margin-bottom: 8px; font-size: 1rem; }
+        .analysis-card p { margin: 0; font-size: 0.95rem; }
+
+        /* Keywords */
+        .keywords-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 32px 0;
+            justify-content: center;
+        }
+
+        .keyword-tag {
+            background: var(--bg-input);
+            color: var(--gold-primary);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .keyword-tag:hover {
+            background: var(--gold-primary);
+            color: var(--bg-dark);
+            cursor: default;
+        }
+
+        /* Quiz Styles */
+        .quiz-container {
+            background: var(--bg-card);
+            border: 1px solid var(--gold-primary);
+            border-radius: 12px;
+            padding: 40px;
+            margin-top: 60px;
+        }
+
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--text-secondary); font-size: 0.9rem; }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus { outline: none; border-color: var(--gold-primary); }
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+        .question-block {
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .question-text { font-weight: 600; margin-bottom: 16px; color: var(--text-primary); }
+
+        .points-badge {
+            float: right;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .options label {
+            display: block;
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text-secondary);
+        }
+
+        .options label:hover { border-color: var(--gold-primary); color: var(--text-primary); }
+        .options input[type="radio"] { margin-right: 12px; accent-color: var(--gold-primary); }
+        .options input[type="radio"]:checked + span { color: var(--gold-primary); font-weight: 500; }
+        .options label:has(input[type="radio"]:checked) {
+            border-color: var(--gold-primary);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        textarea.form-control { min-height: 120px; resize: vertical; }
+
+        .btn-group { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+
+        .btn {
+            padding: 14px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-primary) 100%);
+            color: var(--bg-dark);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--bg-input);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover { border-color: var(--gold-primary); color: var(--gold-primary); }
+
+        .result-box {
+            display: none;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 32px;
+            text-align: center;
+        }
+
+        .result-box h3 { color: var(--success); margin-bottom: 16px; }
+        .score-display { display: flex; justify-content: center; gap: 40px; margin: 24px 0; }
+        .score-item h4 { font-size: 2rem; color: var(--gold-primary); }
+        .score-item p { font-size: 0.9rem; color: var(--text-secondary); }
+
+        .disclaimer { font-size: 0.8rem; color: var(--text-secondary); margin-top: 16px; font-style: italic; }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 80px;
+        }
+
+        footer a { color: var(--gold-primary); text-decoration: none; }
+
+        .references {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 16px;
+            padding-left: 20px;
+        }
+        .references li { margin-bottom: 8px; }
+
+        /* Tip Box */
+        .tip-box {
+            background: rgba(16, 185, 129, 0.08);
+            border-left: 4px solid var(--success);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 24px 0;
+        }
+
+        .tip-box strong { color: var(--success); }
+
+        @media (max-width: 640px) {
+            .form-row { grid-template-columns: 1fr; }
+            .score-display { flex-direction: column; gap: 20px; }
+            .btn-group { flex-direction: column; }
+            .btn { width: 100%; }
+            .chapter-header h1 { font-size: 1.8rem; }
+            .vocab-grid { grid-template-columns: 1fr; }
+        }
+
+        @media print {
+            body { background: white; color: black; }
+            .nav-header, .btn-group, footer, .quiz-container { display: none; }
+            .content-section { border: 1px solid #ccc; background: white; color: black; }
+            .gold-text { color: #333; -webkit-text-fill-color: #333; }
+            .luxury-table th { background: #eee; color: black; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav-header">
+            <a href="2.html" class="nav-link">← Pertemuan 2</a>
+            <span style="color: var(--text-secondary); font-size: 0.9rem;">Bahasa Indonesia Kelas VII</span>
+            <a href="4.html" class="nav-link">Pertemuan 4 →</a>
+        </nav>
+
+        <!-- Chapter Header -->
+        <div class="chapter-header">
+            <h1>📖 <span class="gold-text">Pertemuan 3</span></h1>
+            <h2 style="font-size: 1.8rem; margin-bottom: 16px; color: var(--text-primary);">Menggunakan Kosakata Baru yang Memiliki Makna Denotatif</h2>
+            <p>Memperluas perbendaharaan kata dengan mempelajari makna sebenarnya (denotatif) dari kosakata baru, serta memahami perbedaannya dengan makna konotatif dan kiasan untuk membangun kemampuan berbahasa yang presisi dan kaya.</p>
+            <p style="margin-top: 20px; font-size: 0.9rem; color: var(--gold-primary); font-weight: 600;">Capaian Pembelajaran: Peserta didik mampu menggunakan kosakata baru yang memiliki makna denotatif secara tepat dalam konteks kalimat.</p>
+        </div>
+
+        <!-- Content A: Pengertian & Teori -->
+        <div class="content-section">
+            <h2>A. Hakikat Makna Denotatif</h2>
+            <p>Setiap kata dalam bahasa Indonesia memiliki makna. Namun, makna sebuah kata tidak selalu tunggal. Salah satu jenis makna yang paling mendasar dan objektif adalah <strong>makna denotatif</strong>, yaitu makna yang sesuai dengan pengertian sebenarnya, tanpa ada tambahan nilai rasa atau tafsiran lain.</p>
+            
+            <div class="expert-quote">
+                "Makna denotatif adalah makna yang langsung merujuk pada hal yang ditunjukkan oleh kata itu, tanpa ada kaitan dengan nilai rasa atau makna kiasan. Makna ini disebut juga makna referensial atau makna kamus." 
+                <br><span style="font-size: 0.85rem; color: var(--text-secondary);">— Abdul Chaer (2015), <em>Linguistik Umum</em></span>
+            </div>
+
+            <div class="definition-box">
+                <strong>📌 DEFINISI INTI</strong><br>
+                <strong>Makna Denotatif</strong> adalah makna sebenarnya atau makna asli suatu kata yang sesuai dengan hasil pengamatan panca indra, tanpa ada tambahan nilai rasa, emosi, atau kiasan. Makna ini dapat ditemukan dalam kamus (KBBI) dan bersifat objektif.
+            </div>
+
+            <h3>Ciri-Ciri Makna Denotatif:</h3>
+            <ul style="color: var(--text-secondary); margin-left: 20px; margin-bottom: 16px;">
+                <li><strong style="color: var(--text-primary);">Objektif:</strong> Maknanya sama bagi semua orang, tidak dipengaruhi perasaan atau latar belakang.</li>
+                <li><strong style="color: var(--text-primary);">Sesuai Fakta:</strong> Merujuk pada benda, peristiwa, atau keadaan yang nyata.</li>
+                <li><strong style="color: var(--text-primary);">Dapat Diverifikasi:</strong> Maknanya dapat dibuktikan melalui pengamatan langsung atau kamus.</li>
+                <li><strong style="color: var(--text-primary);">Netral:</strong> Tidak mengandung nilai rasa positif maupun negatif.</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 Tips Mudah Mengenali Makna Denotatif:</strong><br>
+                Jika Anda dapat <em>melihat, mendengar, mencium, meraba, atau merasakan</em> sesuatu secara langsung sesuai dengan arti kata tersebut, maka kata itu digunakan dalam makna denotatif.
+            </div>
+        </div>
+
+        <!-- Content B: Perbandingan Jenis Makna -->
+        <div class="content-section">
+            <h2>B. Perbedaan Makna Denotatif, Konotatif, dan Kiasan</h2>
+            <p>Untuk memahami makna denotatif secara utuh, kita perlu membandingkannya dengan dua jenis makna lain yang sering muncul dalam bahasa: <strong>konotatif</strong> dan <strong>kiasan</strong>.</p>
+            
+            <div class="luxury-table-wrapper">
+                <table class="luxury-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 18%;">Aspek</th>
+                            <th style="width: 27%;">Denotatif</th>
+                            <th style="width: 27%;">Konotatif</th>
+                            <th style="width: 28%;">Kiasan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Pengertian</strong></td>
+                            <td>Makna sebenarnya sesuai kamus.</td>
+                            <td>Makna tambahan yang mengandung nilai rasa.</td>
+                            <td>Makna bukan sebenarnya, bersifat perumpamaan.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sifat</strong></td>
+                            <td>Objektif, netral, faktual.</td>
+                            <td>Subjektif, emosional.</td>
+                            <td>Imajinatif, simbolik.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Contoh Kata</strong></td>
+                            <td>"Tangan" = anggota badan dari bahu sampai jari.</td>
+                            <td>"Tangan kanan" = orang kepercayaan.</td>
+                            <td>"Tangan besi" = kepemimpinan keras.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Konteks</strong></td>
+                            <td>Teks ilmiah, berita, laporan.</td>
+                            <td>Sastra, percakapan, opini.</td>
+                            <td>Puisi, peribahasa, ungkapan.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="example-box">
+                <h3 style="margin-top: 0;">📝 Contoh Perbandingan dalam Kalimat:</h3>
+                <p><strong>1. Kata "Bunga"</strong></p>
+                <ul style="color: var(--text-secondary); margin-left: 20px; margin-bottom: 16px;">
+                    <li><strong style="color: var(--gold-primary);">Denotatif:</strong> "Ibu membeli <em>bunga mawar</em> di pasar." (makna sebenarnya: tanaman berbunga)</li>
+                    <li><strong style="color: var(--gold-primary);">Konotatif:</strong> "Dia adalah <em>bunga desa</em> di kampung ini." (makna tambahan: gadis tercantik)</li>
+                    <li><strong style="color: var(--gold-primary);">Kiasan:</strong> "Tabungan itu ber<em>bunga</em> tinggi." (makna bukan sebenarnya: tambahan uang/interest)</li>
+                </ul>
+                <p><strong>2. Kata "Kursi"</strong></p>
+                <ul style="color: var(--text-secondary); margin-left: 20px;">
+                    <li><strong style="color: var(--gold-primary);">Denotatif:</strong> "Ayah duduk di <em>kursi</em> ruang tamu." (makna sebenarnya: tempat duduk)</li>
+                    <li><strong style="color: var(--gold-primary);">Kiasan:</strong> "Ia memperebutkan <em>kursi</em> jabatan itu." (makna bukan sebenarnya: kedudukan/posisi)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Content C: Strategi Belajar Kosakata Baru -->
+        <div class="content-section">
+            <h2>C. Strategi Mengembangkan Kosakata Baru</h2>
+            <p>Memiliki perbendaharaan kata yang luas adalah kunci untuk berkomunikasi dengan efektif dan menulis dengan kaya. Berikut adalah strategi yang dapat diterapkan siswa untuk mengembangkan kosakata baru bermakna denotatif:</p>
+            
+            <div class="luxury-table-wrapper">
+                <table class="luxury-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Strategi</th>
+                            <th style="width: 40%;">Penjelasan</th>
+                            <th style="width: 35%;">Contoh Penerapan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1. Membaca Rutin</strong></td>
+                            <td>Membaca buku, artikel, atau berita memperkenalkan kata-kata baru dalam konteks alami.</td>
+                            <td>Membaca novel remaja, majalah sains, atau artikel Koran anak.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2. Kamus Sahabat</strong></td>
+                            <td>Selalu siapkan KBBI (cetak atau daring) untuk mencari arti kata yang belum dipahami.</td>
+                            <td>Buka <em>kbbi.kemdikbud.go.id</em> saat menemukan kata asing.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3. Catatan Kosakata</strong></td>
+                            <td>Membuat buku catatan khusus untuk mencatat kata baru beserta maknanya.</td>
+                            <td>Menulis 5 kata baru setiap hari beserta contoh kalimatnya.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4. Konteks Kalimat</strong></td>
+                            <td>Memahami kata baru melalui konteks kalimat tempat kata itu muncul.</td>
+                            <td>Menebak makna "gerimis" dari kalimat "Hujan gerimis turun perlahan."</td>
+                        </tr>
+                        <tr>
+                            <td><strong>5. Latihan Aktif</strong></td>
+                            <td>Menggunakan kata baru dalam percakapan atau tulisan setiap hari.</td>
+                            <td>Memasukkan kata "fajar" dalam cerita pendek yang ditulis.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Content D: Kosakata Baru untuk Siswa Kelas 7 -->
+        <div class="content-section">
+            <h2>D. Bank Kosakata Baru Bermakna Denotatif</h2>
+            <p>Berikut adalah kumpulan kosakata baru yang sering muncul dalam teks deskripsi dan kehidupan sehari-hari, lengkap dengan makna denotatif dan contoh penggunaannya.</p>
+            
+            <div class="vocab-grid">
+                <div class="vocab-card">
+                    <div class="vocab-word">Fajar</div>
+                    <div class="vocab-class">Nomina (kata benda)</div>
+                    <div class="vocab-meaning">Waktu pagi hari sebelum matahari terbit; cahaya kemerahan di langit sebelum matahari muncul.</div>
+                    <div class="vocab-example">"Para nelayan berangkat melaut saat <em>fajar</em> masih menyingsing."</div>
+                </div>
+
+                <div class="vocab-card">
+                    <div class="vocab-word">Senja</div>
+                    <div class="vocab-class">Nomina (kata benda)</div>
+                    <div class="vocab-meaning">Waktu ketika matahari mulai terbenam; cahaya merah di langit saat matahari turun.</div>
+                    <div class="vocab-example">"Kami menikmati pemandangan <em>senja</em> di tepi pantai."</div>
+                </div>
+
+                <div class="vocab-card">
+                    <div class="vocab-word">Gerimis</div>
+                    <div class="vocab-class">Nomina (kata benda)</div>
+                    <div class="vocab-meaning">Hujan yang sangat halus dan rintik-rintik.</div>
+                    <div class="vocab-example">"<em>Gerimis</em> membasahi jendela kamarku sore ini."</div>
+                </div>
+
+                <div class="vocab-card">
+                    <div class="vocab-word">Arus</div>
+                    <div class="vocab-class">Nomina (kata benda)</div>
+                    <div class="vocab-meaning">Aliran air (di sungai atau laut) yang bergerak ke satu arah.</div>
+                    <div class="vocab-example">"<em>Arus</em> sungai itu sangat deras setelah hujan semalam."</div>
+                </div>
+
+                <div class="vocab-card">
+                    <div class="vocab-word">Niskala</div>
+                    <div class="vocab-class">Adjektiva (kata sifat)</div>
+                    <div class="vocab-meaning">Tidak berwujud; tidak dapat diraba atau dilihat (abstrak).</div>
+                    <div class="vocab-example">"Cinta dan kasih sayang adalah hal yang <em>niskala</em>, namun nyata dirasakan."</div>
+                </div>
+
+                <div class="vocab-card">
+                    <div class="vocab-word">Niskala</div>
+                    <div class="vocab-class">Adjektiva (kata sifat)</div>
+                    <div class="vocab-meaning">Tidak berwujud; tidak dapat diraba atau dilihat (abstrak).</div>
+                    <div class="vocab-example">"Cinta dan kasih sayang adalah hal yang <em>niskala</em>, namun nyata dirasakan."</div>
+                </div>
+
+                <div class="vocab-card">
+                    <div class="vocab-word">Hening</div>
+                    <div class="vocab-class">Adjektiva (kata sifat)</div>
+                    <div class="vocab-meaning">Sunyi; tidak ada suara sama sekali.</div>
+                    <div class="vocab-example">"Suasana masjid begitu <em>hening</em> saat waktu sahur."</div>
+                </div>
+
+                <div class="vocab-card">
+                    <div class="vocab-word">Lestari</div>
+                    <div class="vocab-class">Adjektiva (kata sifat)</div>
+                    <div class="vocab-meaning">Tetap ada; tidak berubah; kekal (biasanya merujuk pada alam atau budaya).</div>
+                    <div class="vocab-example">"Kita wajib menjaga hutan agar tetap <em>lestari</em> untuk generasi mendatang."</div>
+                </div>
+
+                <div class="vocab-card">
+                    <div class="vocab-word">Niskala</div>
+                    <div class="vocab-class">Adjektiva (kata sifat)</div>
+                    <div class="vocab-meaning">Tidak berwujud; tidak dapat diraba atau dilihat (abstrak).</div>
+                    <div class="vocab-example">"Cinta dan kasih sayang adalah hal yang <em>niskala</em>, namun nyata dirasakan."</div>
+                </div>
+
+                <div class="vocab-card">
+                    <div class="vocab-word">Renjana</div>
+                    <div class="vocab-class">Nomina (kata benda)</div>
+                    <div class="vocab-meaning">Rasa hati yang kuat; semangat; gairah; perasaan cinta yang mendalam.</div>
+                    <div class="vocab-example">"Ia melukis dengan penuh <em>renjana</em> terhadap alam Nusantara."</div>
+                </div>
+
+                <div class="vocab-card">
+                    <div class="vocab-word">Niskala</div>
+                    <div class="vocab-class">Adjektiva (kata sifat)</div>
+                    <div class="vocab-meaning">Tidak berwujud; tidak dapat diraba atau dilihat (abstrak).</div>
+                    <div class="vocab-example">"Cinta dan kasih sayang adalah hal yang <em>niskala</em>, namun nyata dirasakan."</div>
+                </div>
+
+                <div class="vocab-card">
+                    <div class="vocab-word">Niskala</div>
+                    <div class="vocab-class">Adjektiva (kata sifat)</div>
+                    <div class="vocab-meaning">Tidak berwujud; tidak dapat diraba atau dilihat (abstrak).</div>
+                    <div class="vocab-example">"Cinta dan kasih sayang adalah hal yang <em>niskala</em>, namun nyata dirasakan."</div>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <strong>💡 Catatan Penting:</strong><br>
+                Kosakata di atas adalah sebagian kecil dari kekayaan bahasa Indonesia. Siswa disarankan untuk terus mengeksplorasi KBBI dan mencatat minimal 3-5 kata baru setiap hari untuk memperluas perbendaharaan kata.
+            </div>
+        </div>
+
+        <!-- Content E: Bedah Teks dengan Analisis Kosakata -->
+        <div class="content-section">
+            <h2>E. Bedah Teks: Analisis Makna Denotatif</h2>
+            <p>Berikut adalah contoh teks deskripsi yang kaya akan kosakata bermakna denotatif. Perhatikan bagaimana setiap kata dipilih secara cermat untuk menggambarkan objek secara tepat.</p>
+            
+            <div class="example-box" style="border-left: 4px solid var(--gold-primary); border-style: solid;">
+                <h3 style="text-align: center; margin-top: 0; color: var(--text-primary);">Pagi di Puncak Bukit Tinggi</h3>
+                <p style="text-indent: 20px;">Saat <strong style="color: var(--gold-primary);">fajar</strong> mulai menyingsing, kabut tipis masih menyelimuti lembah di bawah bukit. Udara pagi terasa <strong style="color: var(--gold-primary);">sejuk</strong> dan <strong style="color: var(--gold-primary);">hening</strong>, hanya sesekali terdengar kicauan burung yang bersahut-sahutan. <strong style="color: var(--gold-primary);">Gerimis</strong> halus membasahi dedaunan, membuat permukaannya berkilau tertimpa cahaya matahari yang mulai mengintip. Di kejauhan, <strong style="color: var(--gold-primary);">arus</strong> sungai kecil mengalir tenang membelah perbukitan hijau. Pemandangan ini mengingatkan kita betapa pentingnya menjaga alam agar tetap <strong style="color: var(--gold-primary);">lestari</strong> untuk generasi mendatang.</p>
+            </div>
+
+            <div class="text-analysis">
+                <div class="analysis-card">
+                    <h4>📚 1. Analisis Kata "Fajar"</h4>
+                    <p><strong>Makna Denotatif:</strong> Waktu pagi hari sebelum matahari terbit; cahaya kemerahan di langit.<br>
+                    <strong>Analisis:</strong> Penulis menggunakan "fajar" untuk menunjukkan waktu secara spesifik (bukan sekadar "pagi"), sehingga pembaca dapat membayangkan suasana cahaya kemerahan di langit.</p>
+                </div>
+                <div class="analysis-card">
+                    <h4>📚 2. Analisis Kata "Hening"</h4>
+                    <p><strong>Makna Denotatif:</strong> Sunyi; tidak ada suara sama sekali.<br>
+                    <strong>Analisis:</strong> Kata "hening" lebih tepat daripada "sepi" karena "hening" bermakna netral dan positif (ketenangan), sedangkan "sepi" dapat berkonotasi negatif (kesepian).</p>
+                </div>
+                <div class="analysis-card">
+                    <h4>📚 3. Analisis Kata "Gerimis"</h4>
+                    <p><strong>Makna Denotatif:</strong> Hujan yang sangat halus dan rintik-rintik.<br>
+                    <strong>Analisis:</strong> Penggunaan "gerimis" (bukan "hujan") memberikan gambaran yang lebih detail tentang intensitas curah hujan, sehingga pembaca dapat membayangkan rintik-rintik halus yang membasahi daun.</p>
+                </div>
+                <div class="analysis-card">
+                    <h4>📚 4. Analisis Kata "Arus"</h4>
+                   

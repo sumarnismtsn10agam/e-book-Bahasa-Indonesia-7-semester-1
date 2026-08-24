@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 2: Gaya Penulisan Teks Deskripsi di Media Sosial | Bahasa Indonesia Kelas 7</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0B0F19;
+            --bg-card: #151B2B;
+            --bg-input: #1E2538;
+            --gold-primary: #D4AF37;
+            --gold-light: #F4E4BC;
+            --gold-dark: #AA8C2C;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --border-color: #2A3449;
+            --success: #10B981;
+            --error: #EF4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+
+        .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+        .gold-text {
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Navigation */
+        .nav-header {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover { color: var(--gold-primary); }
+
+        /* Content Sections */
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding: 48px 32px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, transparent 100%);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chapter-header::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 10rem;
+            color: rgba(212, 175, 55, 0.05);
+            line-height: 1;
+        }
+
+        .chapter-header h1 { font-size: 2.5rem; margin-bottom: 16px; }
+        .chapter-header p { color: var(--text-secondary); max-width: 700px; margin: 0 auto; font-size: 1.1rem; }
+
+        .content-section {
+            margin-bottom: 48px;
+            padding: 32px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .content-section h2 {
+            font-size: 1.6rem;
+            color: var(--gold-primary);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        .content-section h3 { font-size: 1.25rem; margin: 28px 0 16px; color: var(--gold-light); }
+        .content-section p { margin-bottom: 16px; color: var(--text-secondary); text-align: justify; }
+
+        .definition-box {
+            background: rgba(212, 175, 55, 0.08);
+            border-left: 4px solid var(--gold-primary);
+            padding: 24px;
+            border-radius: 0 8px 8px 0;
+            margin: 24px 0;
+        }
+
+        .expert-quote {
+            font-style: italic;
+            color: var(--text-primary);
+            border-left: 2px solid var(--gold-dark);
+            padding-left: 16px;
+            margin: 20px 0;
+            color: var(--gold-light);
+        }
+
+        .example-box {
+            background: var(--bg-input);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px dashed var(--border-color);
+            margin: 24px 0;
+        }
+
+        .example-box strong { color: var(--gold-primary); }
+
+        /* Social Media Post Simulation */
+        .social-post {
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 24px 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .social-post-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .social-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--bg-dark);
+            font-weight: 700;
+        }
+
+        .social-username {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        .social-handle {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .social-content {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .social-hashtag { color: var(--gold-primary); }
+        .social-emoji { font-size: 1.1rem; }
+
+        .social-footer {
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            gap: 20px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        /* Luxury Table */
+        .luxury-table-wrapper {
+            overflow-x: auto;
+            margin: 24px 0;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .luxury-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        .luxury-table th {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            font-weight: 600;
+            text-align: left;
+            padding: 16px;
+            border-bottom: 2px solid var(--gold-dark);
+        }
+
+        .luxury-table td {
+            padding: 16px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .luxury-table tr:last-child td { border-bottom: none; }
+        .luxury-table tr:hover td { background: rgba(255, 255, 255, 0.02); color: var(--text-primary); }
+
+        /* Text Analysis Box */
+        .text-analysis {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .analysis-card {
+            background: var(--bg-input);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 3px solid var(--gold-primary);
+        }
+
+        .analysis-card h4 { color: var(--gold-primary); margin-bottom: 8px; font-size: 1rem; }
+        .analysis-card p { margin: 0; font-size: 0.95rem; }
+
+        /* Keywords */
+        .keywords-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 32px 0;
+            justify-content: center;
+        }
+
+        .keyword-tag {
+            background: var(--bg-input);
+            color: var(--gold-primary);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .keyword-tag:hover {
+            background: var(--gold-primary);
+            color: var(--bg-dark);
+            cursor: default;
+        }
+
+        /* Quiz Styles */
+        .quiz-container {
+            background: var(--bg-card);
+            border: 1px solid var(--gold-primary);
+            border-radius: 12px;
+            padding: 40px;
+            margin-top: 60px;
+        }
+
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--text-secondary); font-size: 0.9rem; }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus { outline: none; border-color: var(--gold-primary); }
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+        .question-block {
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .question-text { font-weight: 600; margin-bottom: 16px; color: var(--text-primary); }
+
+        .points-badge {
+            float: right;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .options label {
+            display: block;
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text-secondary);
+        }
+
+        .options label:hover { border-color: var(--gold-primary); color: var(--text-primary); }
+        .options input[type="radio"] { margin-right: 12px; accent-color: var(--gold-primary); }
+        .options input[type="radio"]:checked + span { color: var(--gold-primary); font-weight: 500; }
+        .options label:has(input[type="radio"]:checked) {
+            border-color: var(--gold-primary);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        textarea.form-control { min-height: 120px; resize: vertical; }
+
+        .btn-group { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+
+        .btn {
+            padding: 14px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-primary) 100%);
+            color: var(--bg-dark);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--bg-input);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover { border-color: var(--gold-primary); color: var(--gold-primary); }
+
+        .result-box {
+            display: none;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 32px;
+            text-align: center;
+        }
+
+        .result-box h3 { color: var(--success); margin-bottom: 16px; }
+        .score-display { display: flex; justify-content: center; gap: 40px; margin: 24px 0; }
+        .score-item h4 { font-size: 2rem; color: var(--gold-primary); }
+        .score-item p { font-size: 0.9rem; color: var(--text-secondary); }
+
+        .disclaimer { font-size: 0.8rem; color: var(--text-secondary); margin-top: 16px; font-style: italic; }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 80px;
+        }
+
+        footer a { color: var(--gold-primary); text-decoration: none; }
+
+        .references {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 16px;
+            padding-left: 20px;
+        }
+        .references li { margin-bottom: 8px; }
+
+        @media (max-width: 640px) {
+            .form-row { grid-template-columns: 1fr; }
+            .score-display { flex-direction: column; gap: 20px; }
+            .btn-group { flex-direction: column; }
+            .btn { width: 100%; }
+            .chapter-header h1 { font-size: 1.8rem; }
+        }
+
+        @media print {
+            body { background: white; color: black; }
+            .nav-header, .btn-group, footer, .quiz-container { display: none; }
+            .content-section { border: 1px solid #ccc; background: white; color: black; }
+            .gold-text { color: #333; -webkit-text-fill-color: #333; }
+            .luxury-table th { background: #eee; color: black; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav-header">
+            <a href="1.html" class="nav-link">← Pertemuan 1</a>
+            <span style="color: var(--text-secondary); font-size: 0.9rem;">Bahasa Indonesia Kelas VII</span>
+            <a href="3.html" class="nav-link">Pertemuan 3 →</a>
+        </nav>
+
+        <!-- Chapter Header -->
+        <div class="chapter-header">
+            <h1>📱 <span class="gold-text">Pertemuan 2</span></h1>
+            <h2 style="font-size: 1.8rem; margin-bottom: 16px; color: var(--text-primary);">Menginterpretasi Gaya Penulisan Teks Deskripsi di Media Sosial</h2>
+            <p>Menelaah bagaimana teks deskripsi dikemas dalam platform media sosial seperti Instagram, Facebook, Twitter/X, dan TikTok, serta memahami gaya bahasa, emoji, hashtag, dan strategi komunikasi digital yang digunakan penulis untuk memikat pembaca.</p>
+            <p style="margin-top: 20px; font-size: 0.9rem; color: var(--gold-primary); font-weight: 600;">Capaian Pembelajaran: Peserta didik mampu menginterpretasi gaya penulisan teks deskripsi di media sosial dengan kritis dan kreatif.</p>
+        </div>
+
+        <!-- Content A: Pengertian & Teori -->
+        <div class="content-section">
+            <h2>A. Hakikat Interpretasi Gaya Penulisan</h2>
+            <p>Interpretasi adalah proses menafsirkan atau memberikan pemahaman terhadap suatu teks berdasarkan analisis mendalam terhadap unsur-unsur yang terkandung di dalamnya. Dalam konteks media sosial, interpretasi gaya penulisan berarti membaca dan memahami <strong>cara penulis menyampaikan pesan</strong> melalui pilihan kata, struktur kalimat, penggunaan emoji, hashtag, dan elemen visual lainnya.</p>
+            
+            <div class="expert-quote">
+                "Gaya penulisan adalah cerminan kepribadian penulis. Setiap pilihan kata, tanda baca, dan elemen visual adalah keputusan sadar untuk membentuk kesan tertentu di benak pembaca." 
+                <br><span style="font-size: 0.85rem; color: var(--text-secondary);">— Henry Guntur Tarigan (2008), <em>Menulis Sebagai Suatu Keterampilan Berbahasa</em></span>
+            </div>
+
+            <div class="definition-box">
+                <strong>📌 DEFINISI INTI</strong><br>
+                Interpretasi gaya penulisan teks deskripsi di media sosial adalah kegiatan menafsirkan cara penulis menggambarkan objek, suasana, atau pengalaman melalui fitur-fitur khas media sosial (caption, emoji, hashtag, mention) untuk memahami pesan, emosi, dan tujuan komunikasi yang ingin disampaikan.
+            </div>
+
+            <h3>Mengapa Penting Mempelajari Gaya Penulisan di Media Sosial?</h3>
+            <ul style="color: var(--text-secondary); margin-left: 20px; margin-bottom: 16px;">
+                <li><strong style="color: var(--text-primary);">Literasi Digital:</strong> Membantu siswa menjadi konsumen informasi yang kritis dan cerdas di era digital.</li>
+                <li><strong style="color: var(--text-primary);">Kecakapan Berkomunikasi:</strong> Melatih kemampuan menyesuaikan gaya bahasa dengan konteks dan audiens.</li>
+                <li><strong style="color: var(--text-primary);">Kreativitas Berbahasa:</strong> Menginspirasi siswa untuk menghasilkan konten positif dan estetis di media sosial.</li>
+                <li><strong style="color: var(--text-primary);">Etika Digital:</strong> Memahami batasan antara ekspresi kreatif dan pelanggaran norma berbahasa.</li>
+            </ul>
+        </div>
+
+        <!-- Content B: Karakteristik Media Sosial -->
+        <div class="content-section">
+            <h2>B. Karakteristik Teks Deskripsi di Media Sosial</h2>
+            <p>Teks deskripsi di media sosial memiliki ciri khas yang membedakannya dari teks deskripsi konvensional (seperti dalam buku atau koran). Perbedaan ini dipengaruhi oleh keterbatasan ruang, sifat interaktif, dan budaya digital.</p>
+            
+            <div class="luxury-table-wrapper">
+                <table class="luxury-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Aspek</th>
+                            <th style="width: 37%;">Teks Deskripsi Konvensional</th>
+                            <th style="width: 38%;">Teks Deskripsi Media Sosial</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Panjang Teks</strong></td>
+                            <td>Cenderung panjang, detail, dan utuh.</td>
+                            <td>Singkat, padat, langsung pada inti (karena batas karakter).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Gaya Bahasa</strong></td>
+                            <td>Formal, baku, sesuai PUEBI.</td>
+                            <td>Semi-formal hingga kasual, sering menggunakan bahasa gaul atau singkatan.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Unsur Visual</strong></td>
+                            <td>Minim, hanya mengandalkan kata-kata.</td>
+                            <td>Kaya emoji, hashtag (#), mention (@), dan tautan.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Interaksi</strong></td>
+                            <td>Satu arah (pembaca pasif).</td>
+                            <td>Dua arah (ada kolom komentar, like, share).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tujuan</strong></td>
+                            <td>Memberi informasi atau menghibur secara mendalam.</td>
+                            <td>Menarik perhatian cepat, membangun engagement, mempromosikan.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Content C: Jenis Gaya Penulisan -->
+        <div class="content-section">
+            <h2>C. Jenis-Jenis Gaya Penulisan di Media Sosial</h2>
+            <p>Penulis media sosial menggunakan berbagai gaya penulisan tergantung pada tujuan, audiens, dan platform yang digunakan. Berikut adalah empat gaya utama yang sering ditemui:</p>
+            
+            <div class="luxury-table-wrapper">
+                <table class="luxury-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 20%;">Gaya Penulisan</th>
+                            <th style="width: 35%;">Ciri Khas</th>
+                            <th style="width: 45%;">Contoh Kalimat</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1. Formal</strong></td>
+                            <td>Baku, struktur kalimat lengkap, minim emoji, cocok untuk akun resmi (pemerintah, institusi, berita).</td>
+                            <td>"Danau Toba merupakan danau vulkanik terbesar di Asia Tenggara yang terletak di Provinsi Sumatera Utara."</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2. Semi-Formal</strong></td>
+                            <td>Relaks namun tetap sopan, sedikit emoji, cocok untuk akun edukasi, travel blogger, atau konten inspiratif.</td>
+                            <td>"Pemandangan Danau Toba pagi ini sungguh memukau 🌄 Kabut tipis menyelimuti permukaan air, menciptakan suasana yang magis."</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3. Kasual / Gaul</strong></td>
+                            <td>Bahasa sehari-hari, banyak singkatan (yg, bgt, bgt), emoji berlebihan, cocok untuk akun pribadi remaja.</td>
+                            <td>"Gila sih Danau Toba beneran seindah itu 😭✨ Gak nyangka Indonesia punya tempat se-keren ini! #RacunTravel"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4. Puitis / Sastrawi</strong></td>
+                            <td>Menggunakan majas, diksi indah, bernuansa sastra, cocok untuk akun fotografi atau konten reflektif.</td>
+                            <td>"Di hembusan angin Toba, aku mendengar bisik rindu yang tak pernah padam. Airnya memantulkan langit, dan langit memeluknya dalam diam."</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Content D: Unsur Khas Media Sosial -->
+        <div class="content-section">
+            <h2>D. Unsur Khas Teks Deskripsi di Media Sosial</h2>
+            <p>Media sosial memiliki "bahasa" tersendiri yang tidak ditemukan dalam teks konvensional. Memahami unsur-unsur ini adalah kunci untuk menginterpretasi gaya penulisan secara utuh.</p>
+            
+            <div class="example-box">
+                <h3 style="margin-top: 0;">1. Emoji sebagai Pengganti Ekspresi</h3>
+                <p>Emoji berfungsi menggantikan ekspresi wajah, nada suara, atau suasana yang sulit diungkapkan dengan kata-kata. Dalam teks deskripsi, emoji memperkuat kesan visual dan emosional.</p>
+                <ul style="color: var(--text-secondary); margin-left: 20px;">
+                    <li>🌄 → menggambarkan pemandangan pagi yang indah</li>
+                    <li>✨ → memberi kesan magis, istimewa, atau berkilau</li>
+                    <li>😭 → mengungkapkan kekaguman yang luar biasa (dalam konteks positif)</li>
+                    <li>🔥 → menyatakan sesuatu yang luar biasa keren atau populer</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h3 style="margin-top: 0;">2. Hashtag (#) sebagai Pengelompok Topik</h3>
+                <p>Hashtag berfungsi untuk mengelompokkan konten berdasarkan topik, memudahkan pencarian, dan memperluas jangkauan audiens. Dalam teks deskripsi, hashtag juga berfungsi sebagai <strong>penegas tema</strong>.</p>
+                <p><strong>Contoh:</strong> <span style="color: var(--gold-primary);">#WonderfulIndonesia #DanauToba #PesonaSumatera #TravelIndonesia</span></p>
+            </div>
+
+            <div class="example-box">
+                <h3 style="margin-top: 0;">3. Mention (@) sebagai Ajakan Interaksi</h3>
+                <p>Mention digunakan untuk menandai akun lain, mengajak kolaborasi, atau memberikan kredit kepada sumber. Ini menciptakan sifat <strong>interaktif</strong> yang khas media sosial.</p>
+                <p><strong>Contoh:</strong> "Terima kasih @kemenparekraf sudah memfasilitasi perjalanan ini! 🙏"</p>
+            </div>
+
+            <div class="example-box">
+                <h3 style="margin-top: 0;">4. Call to Action (CTA)</h3>
+                <p>Kalimat ajakan di akhir caption untuk memancing interaksi pembaca, seperti pertanyaan, ajakan berkomentar, atau ajakan berkunjung.</p>
+                <p><strong>Contoh:</strong> "Kalian sudah pernah ke Danau Toba belum? Share pengalaman kalian di kolom komentar ya! 👇"</p>
+            </div>
+        </div>
+
+        <!-- Content E: Bedah Caption Media Sosial -->
+        <div class="content-section">
+            <h2>E. Contoh dan Bedah Caption Media Sosial</h2>
+            <p>Berikut adalah contoh caption Instagram tentang destinasi wisata, lengkap dengan analisis gaya penulisan, unsur kebahasaan, dan tujuan komunikasinya.</p>
+            
+            <div class="social-post">
+                <div class="social-post-header">
+                    <div class="social-avatar">PW</div>
+                    <div>
+                        <div class="social-username">pesonawisata_id</div>
+                        <div class="social-handle">Sumatera Utara, Indonesia</div>
+                    </div>
+                </div>
+                <div class="social-content">
+                    <p><span class="social-emoji">🌄</span> <strong>Keajaiban Pagi di Danau Toba</strong></p>
+                    <p style="margin-top: 12px;">Matahari baru saja mengintip dari balik bukit, menyapu kabut tipis yang menyelimuti permukaan danau. Air yang tenang memantulkan warna jingga keemasan, menciptakan lukisan alam yang tak terlukiskan oleh kuas mana pun. <span class="social-emoji">✨</span></p>
+                    <p style="margin-top: 12px;">Angin sejuk membawa aroma tanah basah dan suara samar perahu nelayan yang mulai beraktivitas. Momen ini adalah pengingat bahwa Indonesia memiliki keindahan yang patut disyukuri dan dijaga. <span class="social-emoji">🙏</span></p>
+                    <p style="margin-top: 12px;">Kalian sudah pernah merasakan pagi di Danau Toba? Ceritakan pengalaman kalian di kolom komentar ya! 👇</p>
+                    <p style="margin-top: 12px;">
+                        <span class="social-hashtag">#WonderfulIndonesia</span> 
+                        <span class="social-hashtag">#DanauToba</span> 
+                        <span class="social-hashtag">#PesonaSumatera</span> 
+                        <span class="social-hashtag">#TravelIndonesia</span> 
+                        <span class="social-hashtag">#MorningVibes</span>
+                    </p>
+                </div>
+                <div class="social-footer">
+                    <span>❤️ 2.451 suka</span>
+                    <span>💬 128 komentar</span>
+                    <span>📤 Bagikan</span>
+                </div>
+            </div>
+
+            <div class="text-analysis">
+                <div class="analysis-card">
+                    <h4>🎨 1. Gaya Penulisan</h4>
+                    <p>Menggunakan gaya <strong>semi-formal dengan sentuhan puitis</strong>. Bahasa yang digunakan baku namun tidak kaku, dengan pilihan diksi yang indah ("mengintip", "menyapu kabut", "tak terlukiskan oleh kuas mana pun").</p>
+                </div>
+                <div class="analysis-card">
+                    <h4>🖼️ 2. Unsur Deskriptif</h4>
+                    <p>Penulis melibatkan <strong>panca indra</strong> secara lengkap:</p>
+                    <ul style="color: var(--text-secondary); margin-left: 20px; margin-top: 8px;">
+                        <li><strong style="color: var(--text-primary);">Penglihatan:</strong> "warna jingga keemasan", "kabut tipis"</li>
+                        <li><strong style="color: var(--text-primary);">Perasaan (kulit):</strong> "angin sejuk"</li>
+                        <li><strong style="color: var(--text-primary);">Penciuman:</strong> "aroma tanah basah"</li>
+                        <li><strong style="color: var(--text-primary);">Pendengaran:</strong> "suara samar perahu nelayan"</li>
+                    </ul>
+                </div>
+                <div class="analysis-card">
+                    <h4>💬 3. Fungsi Emoji</h4>
+                    <p>Emoji ditempatkan secara strategis untuk <strong>memperkuat emosi</strong> dan <strong>memecah kepadatan teks</strong>:</p>
+                    <ul style="color: var(--text-secondary); margin-left: 20px; margin-top: 8px;">
+                        <li>🌄 → menegaskan suasana pagi di alam</li>
+                        <li>✨ → memberi kesan magis dan kekaguman</li>
+                        <li>🙏 → menyampaikan rasa syukur dan ajakan reflektif</li>
+                        <li>👇 → call to action yang ramah</li>
+                    </ul>
+                </div>
+                <div class="analysis-card">
+                    <h4>🏷️ 4. Fungsi Hashtag</h4>
+                    <p>Lima hashtag digunakan untuk:</p>
+                    <ul style="color: var(--text-secondary); margin-left: 20px; margin-top: 8px;">
+                        <li>Memperluas jangkauan audiens di luar pengikut akun.</li>
+                        <li>Mengelompokkan konten dalam topik pariwisata nasional.</li>
+                        <li>Menegaskan identitas konten sebagai promosi wisata Indonesia.</li>
+                    </ul>
+                </div>
+                <div class="analysis-card" style="border-left-color: var(--success);">
+                    <h4>🎯 5. Tujuan Komunikatif & Pesan</h4>
+                    <p><strong>Tujuan:</strong> Mempromosikan Danau Toba sebagai destinasi wisata, membangun engagement dengan audiens, dan menyisipkan pesan pelestarian alam.<br>
+                    <strong>Pesan Tersirat:</strong> Ajakan untuk bersyukur atas keindahan alam Indonesia dan menjaganya bersama-sama.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Keywords & Quote -->
+        <div class="keywords-section">
+            <span class="keyword-tag">Interpretasi</span>
+            <span class="keyword-tag">Gaya Penulisan</span>
+            <span class="keyword-tag">Media Sosial</span>
+            <span class="keyword-tag">Caption</span>
+            <span class="keyword-tag">Emoji</span>
+            <span class="keyword-tag">Hashtag</span>
+            <span class="keyword-tag">Mention</span>
+            <span class="keyword-tag">Call to Action</span>
+            <span class="keyword-tag">Literasi Digital</span>
+        </div>
+
+        <div class="content-section" style="text-align: center; padding: 40px;">
+            <p style="font-family: 'Playfair Display', serif; font-size: 1.3rem; font-style: italic; color: var(--gold-light); margin-bottom: 12px;">"Di era digital, setiap jempol yang mengetik adalah penulis. Setiap caption yang dibagikan adalah karya. Maka, tulislah dengan bijak."</p>
+            <cite style="color: var(--text-secondary); font-size: 0.9rem; font-style: normal;">— Refleksi Literasi Digital</cite>
+        </div>
+
+        <!-- Referensi -->
+        <div class="content-section">
+            <h2>F. Referensi & Bacaan Lanjutan</h2>
+            <ul class="references">
+                <li>Kemdikbudristek. (2022). <em>Buku Bahasa Indonesia Kelas VII SMP/MTs (Edisi Revisi)</em>. Jakarta: Pusat Perbukuan.</li>
+                <li>Tarigan, Henry Guntur. (2008). <em>Menulis Sebagai Suatu Keterampilan Berbahasa</em>. Bandung: Angkasa.</li>
+                <li>Keraf, Gorys. (2004). <em>Diksi dan Gaya Bahasa</em>. Jakarta: Gramedia Pustaka Utama.</li>
+                <li>Nasrullah, Rulli. (2015). <em>Media Sosial: Perspektif Komunikasi, Budaya, dan Sosioteknologi</em>. Bandung: Simbiosa Rekatama Media.</li>
+                <li>Kominfo RI. (2021). <em>Panduan Beretika di Media Sosial untuk Pelajar</em>. Jakarta: Kementerian Komunikasi dan Informatika.</li>
+            </ul>
+        </div>
+
+        <!-- UJI FORMATIF -->
+        <div class="quiz-container" id="uji-formatif">
+            <div class="quiz-header">
+                <h2 style="color: var(--gold-primary); margin-bottom: 8px;">📝 Uji Formatif Pertemuan 2</h2>
+                <p style="color: var(--text-secondary);">Materi: Interpretasi gaya penulisan teks deskripsi di media sosial, unsur khas (emoji, hashtag, mention), dan analisis caption.</p>
+            </div>
+
+            <form id="quizForm">
+                <!-- Identitas -->
+                <div class="content-section" style="background: var(--bg-input); border: none;">
+                    <h3 style="margin-top: 0; color: var(--gold-primary);">📋 Identitas Siswa</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nama Lengkap *</label>
+                            <input type="text" id="nama" class="form-control"

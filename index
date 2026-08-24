@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bahasa Indonesia Kelas 7 | Sumarnis, S. Pd.</title>
+    
+    <!-- Google Fonts: Playfair Display (Luxury Serif) & Inter (Modern Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0B0F19;
+            --bg-card: #151B2B;
+            --gold-primary: #D4AF37;
+            --gold-light: #F4E4BC;
+            --gold-dark: #AA8C2C;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --border-color: #2A3449;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        /* Utility */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .gold-text {
+            color: var(--gold-primary);
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .btn-luxury {
+            display: inline-block;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-primary) 100%);
+            color: var(--bg-dark);
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--gold-primary);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .btn-luxury:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(212, 175, 55, 0.4);
+            background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-light) 100%);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 80px 0;
+            position: relative;
+            background: radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 40%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .book-cover-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .book-cover {
+            max-width: 380px;
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 
+                0 25px 50px -12px rgba(0, 0, 0, 0.8),
+                0 0 0 1px rgba(212, 175, 55, 0.3),
+                0 0 30px rgba(212, 175, 55, 0.1);
+            transition: transform 0.4s ease;
+            /* Placeholder background if image is missing */
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            aspect-ratio: 3/4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-primary);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .book-cover:hover {
+            transform: translateY(-10px) rotateY(-5deg);
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            font-weight: 300;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* GANTI FOTO PENULIS DI SINI: Ubah src="foto-penulis.png" */
+        .author-photo {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--gold-primary);
+            background-color: var(--bg-card);
+        }
+
+        .author-details h4 {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .author-details p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .author-details a {
+            color: var(--gold-primary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .author-details a:hover {
+            color: var(--gold-light);
+            text-decoration: underline;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Pertemuan Grid */
+        .pertemuan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .pertemuan-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 28px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 180px;
+        }
+
+        .pertemuan-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .pertemuan-card:hover {
+            border-color: var(--gold-primary);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+        }
+
+        .pertemuan-card:hover::before {
+            opacity: 1;
+        }
+
+        .pertemuan-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.9rem;
+            color: var(--gold-primary);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .badge {
+            font-size: 0.7rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .badge-uts {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            border: 1px solid var(--gold-primary);
+        }
+
+        .badge-uas {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            border: 1px solid var(--gold-primary);
+        }
+
+        .pertemuan-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .pertemuan-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            margin-top: auto;
+        }
+
+        .pertemuan-link:hover {
+            color: var(--gold-primary);
+            gap: 12px;
+        }
+
+        .pertemuan-link::after {
+            content: '→';
+            transition: transform 0.3s;
+        }
+
+        .pertemuan-link:hover::after {
+            transform: translateX(4px);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--gold-primary);
+            text-decoration: none;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .author-info {
+                justify-content: center;
+                text-align: left;
+            }
+
+            .book-cover {
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .pertemuan-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="book-cover-container fade-in">
+                    <!-- GANTI COVER BUKU DI SINI: Pastikan file 'cover-buku.png' berada di folder yang sama -->
+                    <img src="cover-buku.png" alt="Cover Buku Bahasa Indonesia Kelas 7" class="book-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="book-cover" style="display: none;">
+                        <div>
+                            <div style="font-size: 3rem; margin-bottom: 10px;">📖</div>
+                            <div>Bahasa Indonesia<br>Kelas 7</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-content fade-in">
+                    <h1>Bahasa Indonesia <br><span class="gold-text">Kelas 7</span></h1>
+                    <p class="subtitle">Panduan komprehensif dan elegan untuk menguasai teks deskripsi, puisi rakyat, cerita fantasi, dan teks prosedur dengan pendekatan modern dan kreatif.</p>
+                    
+                    <div class="author-info">
+                        <!-- GANTI FOTO PENULIS DI SINI: Pastikan file 'foto-penulis.png' berada di folder yang sama -->
+                        <img src="foto-penulis.png" alt="Sumarnis, S. Pd." class="author-photo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'64\' height=\'64\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23D4AF37\' stroke-width=\'1\'%3E%3Cpath d=\'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\'/%3E%3Ccircle cx=\'12\' cy=\'7\' r=\'4\'/%3E%3C/svg%3E';">
+                        <div class="author-details">
+                            <h4>Sumarnis, S. Pd.</h4>
+                            <p>MTsN 10 Agam</p>
+                            <a href="mailto:Sumarnisanis04@yahoo.com">Sumarnisanis04@yahoo.com</a>
+                        </div>
+                    </div>
+
+                    <a href="#daftar-pertemuan" class="btn-luxury">Jelajahi Materi</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Daftar Pertemuan Section -->
+    <section id="daftar-pertemuan">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Struktur <span class="gold-text">Pembelajaran</span></h2>
+                <p>34 Pertemuan terstruktur yang dirancang untuk membangun kompetensi literasi dan numerasi kebahasaan secara bertahap dan mendalam.</p>
+            </div>
+
+            <div class="pertemuan-grid" id="pertemuan-container">
+                <!-- Kartu pertemuan akan di-generate oleh JavaScript untuk kerapian, 
+                     namun Anda bisa melihat struktur datanya di bagian script bawah -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 <span class="gold-text">Sumarnis, S. Pd.</span> | MTsN 10 Agam. Hak Cipta Dilindungi.</p>
+            <p style="margin-top: 8px; font-size: 0.8rem;">Kontak: <a href="mailto:Sumarnisanis04@yahoo.com">Sumarnisanis04@yahoo.com</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Data 34 Pertemuan (Dimodifikasi dari file upload dengan penambahan UTS & UAS)
+        const pertemuanData = [
+            { id: 1, title: "Menganalisis informasi berupa gagasan dan pesan dari teks deskripsi." },
+            { id: 2, title: "Menginterpretasi gaya penulisan teks deskripsi di media sosial." },
+            { id: 3, title: "Menggunakan kosakata baru yang memiliki makna denotatif." },
+            { id: 4, title: "Menganalisis penggunaan kalimat perincian dan majas personifikasi." },
+            { id: 5, title: "Mempresentasikan gagasan secara lisan." },
+            { id: 6, title: "Mengevaluasi kualitas informasi visual dan tekstual dalam sebuah pamflet wisata." },
+            { id: 7, title: "Menganalisis dan membandingkan gagasan dari dua teks deskripsi lisan." },
+            { id: 8, title: "Menulis ulang kalimat dengan menerapkan kaidah kebahasaan." },
+            { id: 9, title: "Menulis gagasan dan pengalamannya dalam bentuk teks deskripsi." },
+            { id: 10, title: "Mempresentasikan hasil tulisannya dan memberikan tanggapan." },
+            { id: 11, title: "Menganalisis gagasan, pandangan, arahan, dan/atau pesan dari puisi rakyat." },
+            { id: 12, title: "Menganalisis unsur intrinsik puisi rakyat (bait, baris, suku kata, pola rima, dan pesan)." },
+            { id: 13, title: "Menulis gagasan dan imajinasi dalam bentuk puisi rakyat secara kreatif." },
+            { id: 14, title: "Menyajikan ungkapan kepedulian dari puisi rakyat." },
+            { id: 15, title: "Menganalisis informasi berupa gagasan, pandangan, arahan, dan/atau pesan dari teks cerita fantasi." },
+            { id: 16, title: "Ujian Tengah Semester (UTS)", isUts: true },
+            { id: 17, title: "Menginterpretasi informasi untuk mengungkapkan kepedulian dan/atau pendapat pro/kontra dari teks cerita fantasi." },
+            { id: 18, title: "Mengevaluasi kualitas dan/atau kredibilitas dari teks cerita fantasi." },
+            { id: 19, title: "Menganalisis penokohan (protagonis, antagonis, sifat, perilaku) dalam cerita fantasi." },
+            { id: 20, title: "Menggunakan kosakata baru (majas sarkasme, makna denotatif, konotatif, kiasan) dalam analisis teks." },
+            { id: 21, title: "Menganalisis struktur kalimat langsung dan tidak langsung dalam teks naratif." },
+            { id: 22, title: "Mengubah kalimat langsung menjadi kalimat tidak langsung dan sebaliknya." },
+            { id: 23, title: "Menulis gagasan, pengalaman, dan/atau imajinasi dalam bentuk cerita fantasi." },
+            { id: 24, title: "Menyajikan ungkapan kepedulian dan/atau pendapat pro/kontra dalam cerita fantasi." },
+            { id: 25, title: "Menganalisis informasi berupa gagasan dan arahan dari teks prosedur untuk menemukan makna tersurat." },
+            { id: 26, title: "Mengevaluasi kualitas penyajian informasi dalam bentuk infografik." },
+            { id: 27, title: "Menggunakan kosakata baru yang memiliki makna denotatif untuk menulis kalimat." },
+            { id: 28, title: "Menginterpretasi informasi dari teks prosedur dengan menghubungkannya pada pengalaman pribadi." },
+            { id: 29, title: "Menganalisis perbedaan tujuan penulisan pada dua teks prosedur yang berbeda." },
+            { id: 30, title: "Menganalisis dan menerapkan unsur kebahasaan teks prosedur." },
+            { id: 31, title: "Menganalisis gagasan dan arahan dari teks prosedur berbentuk lisan." },
+            { id: 32, title: "Menulis gagasan dan arahan dalam bentuk rancangan teks prosedur secara logis dan kreatif." },
+            { id: 33, title: "Mempresentasikan gagasan sebagai solusi dan menyajikan ungkapan kepedulian dalam bentuk teks multimodel." },
+            { id: 34, title: "Ujian Akhir Semester (UAS)", isUas: true }
+        ];
+
+        // Render Pertemuan Cards
+        const container = document.getElementById('pertemuan-container');
+        
+        pertemuanData.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'pertemuan-card fade-in';
+            
+            let badgeHtml = '';
+            if (item.isUts) badgeHtml = '<span class="badge badge-uts">UTS</span>';
+            if (item.isUas) badgeHtml = '<span class="badge badge-uas">UAS</span>';
+
+            card.innerHTML = `
+                <div>
+                    <div class="pertemuan-number">
+                        <span>Pertemuan ${item.id}</span>
+                        ${badgeHtml}
+                    </div>
+                    <h3 class="pertemuan-title">${item.title}</h3>
+                </div>
+                <a href="${item.id}.html" target="_blank" class="pertemuan-link">
+                    Buka Materi
+                </a>
+            `;
+            
+            container.appendChild(card);
+        });
+
+        // Intersection Observer untuk Animasi Fade-In saat Scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Hanya animasi sekali
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth Scroll untuk anchor link
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
