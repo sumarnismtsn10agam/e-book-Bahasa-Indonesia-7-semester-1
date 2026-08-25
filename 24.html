@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 24: Analisis Teks Prosedur | Bahasa Indonesia Kelas 7</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0B0F19;
+            --bg-card: #151B2B;
+            --bg-input: #1E2538;
+            --gold-primary: #D4AF37;
+            --gold-light: #F4E4BC;
+            --gold-dark: #AA8C2C;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --border-color: #2A3449;
+            --success: #10B981;
+            --error: #EF4444;
+            --info: #3B82F6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+
+        .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+        .gold-text {
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Navigation */
+        .nav-header {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover { color: var(--gold-primary); }
+
+        /* Chapter Header */
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding: 48px 32px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, transparent 100%);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chapter-header::before {
+            content: '📋';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            opacity: 0.2;
+        }
+
+        .chapter-header h1 { font-size: 2.5rem; margin-bottom: 16px; }
+        .chapter-header p { color: var(--text-secondary); max-width: 700px; margin: 0 auto; font-size: 1.1rem; }
+
+        .content-section {
+            margin-bottom: 48px;
+            padding: 32px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .content-section h2 {
+            font-size: 1.6rem;
+            color: var(--gold-primary);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        .content-section h3 { font-size: 1.25rem; margin: 28px 0 16px; color: var(--gold-light); }
+        .content-section p { margin-bottom: 16px; color: var(--text-secondary); text-align: justify; }
+
+        .definition-box {
+            background: rgba(212, 175, 55, 0.08);
+            border-left: 4px solid var(--gold-primary);
+            padding: 24px;
+            border-radius: 0 8px 8px 0;
+            margin: 24px 0;
+        }
+
+        .expert-quote {
+            font-style: italic;
+            color: var(--text-primary);
+            border-left: 2px solid var(--gold-dark);
+            padding-left: 16px;
+            margin: 20px 0;
+            color: var(--gold-light);
+        }
+
+        .example-box {
+            background: var(--bg-input);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px dashed var(--border-color);
+            margin: 24px 0;
+        }
+
+        .example-box strong { color: var(--gold-primary); }
+
+        /* Procedure Step Card */
+        .step-card {
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 16px 0;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            transition: all 0.3s;
+        }
+
+        .step-card:hover {
+            border-color: var(--gold-primary);
+            transform: translateX(5px);
+        }
+
+        .step-number {
+            background: var(--gold-primary);
+            color: var(--bg-dark);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .step-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* Luxury Table */
+        .luxury-table-wrapper {
+            overflow-x: auto;
+            margin: 24px 0;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .luxury-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        .luxury-table th {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            font-weight: 600;
+            text-align: left;
+            padding: 16px;
+            border-bottom: 2px solid var(--gold-dark);
+        }
+
+        .luxury-table td {
+            padding: 16px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .luxury-table tr:last-child td { border-bottom: none; }
+        .luxury-table tr:hover td { background: rgba(255, 255, 255, 0.02); color: var(--text-primary); }
+
+        /* Analysis Box */
+        .analysis-box {
+            background: var(--bg-input);
+            border-left: 4px solid var(--info);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 24px 0;
+        }
+
+        .analysis-box h4 { color: var(--info); margin-bottom: 8px; }
+        .analysis-box p { margin: 0; font-size: 0.95rem; color: var(--text-secondary); }
+
+        /* Keywords */
+        .keywords-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 32px 0;
+            justify-content: center;
+        }
+
+        .keyword-tag {
+            background: var(--bg-input);
+            color: var(--gold-primary);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .keyword-tag:hover {
+            background: var(--gold-primary);
+            color: var(--bg-dark);
+            cursor: default;
+        }
+
+        /* Quiz Styles */
+        .quiz-container {
+            background: var(--bg-card);
+            border: 1px solid var(--gold-primary);
+            border-radius: 12px;
+            padding: 40px;
+            margin-top: 60px;
+        }
+
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--text-secondary); font-size: 0.9rem; }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus { outline: none; border-color: var(--gold-primary); }
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+        .question-block {
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .question-text { font-weight: 600; margin-bottom: 16px; color: var(--text-primary); }
+
+        .points-badge {
+            float: right;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .options label {
+            display: block;
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text-secondary);
+        }
+
+        .options label:hover { border-color: var(--gold-primary); color: var(--text-primary); }
+        .options input[type="radio"] { margin-right: 12px; accent-color: var(--gold-primary); }
+        .options input[type="radio"]:checked + span { color: var(--gold-primary); font-weight: 500; }
+        .options label:has(input[type="radio"]:checked) {
+            border-color: var(--gold-primary);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        textarea.form-control { min-height: 120px; resize: vertical; }
+
+        .btn-group { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+
+        .btn {
+            padding: 14px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-primary) 100%);
+            color: var(--bg-dark);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--bg-input);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover { border-color: var(--gold-primary); color: var(--gold-primary); }
+
+        .result-box {
+            display: none;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 32px;
+            text-align: center;
+        }
+
+        .result-box h3 { color: var(--success); margin-bottom: 16px; }
+        .score-display { display: flex; justify-content: center; gap: 40px; margin: 24px 0; }
+        .score-item h4 { font-size: 2rem; color: var(--gold-primary); }
+        .score-item p { font-size: 0.9rem; color: var(--text-secondary); }
+
+        .disclaimer { font-size: 0.8rem; color: var(--text-secondary); margin-top: 16px; font-style: italic; }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 80px;
+        }
+
+        footer a { color: var(--gold-primary); text-decoration: none; }
+
+        .references {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 16px;
+            padding-left: 20px;
+        }
+        .references li { margin-bottom: 8px; }
+
+        /* Tip Box */
+        .tip-box {
+            background: rgba(16, 185, 129, 0.08);
+            border-left: 4px solid var(--success);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 24px 0;
+        }
+
+        .tip-box strong { color: var(--success); }
+
+        @media (max-width: 640px) {
+            .form-row { grid-template-columns: 1fr; }
+            .score-display { flex-direction: column; gap: 20px; }
+            .btn-group { flex-direction: column; }
+            .btn { width: 100%; }
+            .chapter-header h1 { font-size: 1.8rem; }
+            .step-card { flex-direction: column; gap: 10px; }
+        }
+
+        @media print {
+            body { background: white; color: black; }
+            .nav-header, .btn-group, footer, .quiz-container { display: none; }
+            .content-section { border: 1px solid #ccc; background: white; color: black; }
+            .gold-text { color: #333; -webkit-text-fill-color: #333; }
+            .luxury-table th { background: #eee; color: black; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav-header">
+            <a href="23.html" class="nav-link">← Pertemuan 23</a>
+            <span style="color: var(--text-secondary); font-size: 0.9rem;">Bahasa Indonesia Kelas VII</span>
+            <a href="25.html" class="nav-link">Pertemuan 25 →</a>
+        </nav>
+
+        <!-- Chapter Header -->
+        <div class="chapter-header">
+            <h1>📋 <span class="gold-text">Pertemuan 24</span></h1>
+            <h2 style="font-size: 1.8rem; margin-bottom: 16px; color: var(--text-primary);">Menganalisis Informasi Berupa Gagasan dan Arahan dari Teks Prosedur</h2>
+            <p>Mempelajari cara membaca teks prosedur secara kritis untuk menemukan gagasan utama (tujuan) dan arahan rinci (langkah-langkah). Memahami makna tersurat dalam teks instruksional agar dapat melaksanakan tugas dengan tepat, aman, dan efisien.</p>
+            <p style="margin-top: 20px; font-size: 0.9rem; color: var(--gold-primary); font-weight: 600;">Capaian Pembelajaran: Peserta didik mampu menganalisis informasi berupa gagasan dan arahan dari teks prosedur untuk menemukan makna tersurat secara tepat.</p>
+        </div>
+
+        <!-- Content A: Pengertian & Teori -->
+        <div class="content-section">
+            <h2>A. Hakikat Teks Prosedur</h2>
+            <p>Teks prosedur adalah teks yang berisi langkah-langkah atau tahapan yang harus dilakukan untuk mencapai tujuan tertentu. Teks ini sangat umum ditemukan dalam kehidupan sehari-hari, mulai dari resep masakan, manual penggunaan alat, hingga aturan permainan.</p>
+            
+            <div class="expert-quote">
+                "Prosedur yang baik adalah jembatan antara ketidaktahuan dan keberhasilan. Ia mengubah tugas yang kompleks menjadi serangkaian tindakan sederhana yang dapat dipahami oleh siapa saja." 
+                <br><span style="font-size: 0.85rem; color: var(--text-secondary);">— Gorys Keraf (2004), <em>Komposisi</em></span>
+            </div>
+
+            <div class="definition-box">
+                <strong>📌 DEFINISI INTI</strong><br>
+                <strong>Teks Prosedur</strong> adalah teks yang menjelaskan proses pembuatan, pengoperasian, atau pelaksanaan suatu hal melalui serangkaian langkah atau tahap yang sistematis, logis, dan terperinci.
+            </div>
+
+            <h3>Jenis-Jenis Teks Prosedur:</h3>
+            <ul style="color: var(--text-secondary); margin-left: 20px; margin-bottom: 16px;">
+                <li><strong style="color: var(--text-primary);">Proseder Sederhana:</strong> Hanya memiliki sedikit langkah (contoh: cara mengoperasikan setrika).</li>
+                <li><strong style="color: var(--text-primary);">Prosedur Kompleks:</strong> Memiliki banyak langkah dan sub-langkah yang rumit (contoh: cara membuat akun email, cara mengurus KTP).</li>
+                <li><strong style="color: var(--text-primary);">Protokol:</strong> Langkah-langkah yang ketat dan baku, jika salah satu dilanggar hasil akan gagal (contoh: prosedur keselamatan laboratorium, resep kimia).</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 Kunci Membaca Prosedur:</strong><br>
+                Fokus pada dua hal utama: <strong>Gagasan</strong> (Apa tujuannya?) dan <strong>Arahan</strong> (Bagaimana caranya?). Jangan melewatkan kata kunci seperti "pertama", "selanjutnya", "kemudian", dan "terakhir".
+            </div>
+        </div>
+
+        <!-- Content B: Struktur Teks Prosedur -->
+        <div class="content-section">
+            <h2>B. Struktur Teks Prosedur</h2>
+            <p>Untuk menganalisis teks prosedur dengan baik, kita perlu mengenali tiga bagian utamanya. Setiap bagian memiliki fungsi spesifik dalam menyampaikan informasi.</p>
+            
+            <div class="luxury-table-wrapper">
+                <table class="luxury-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Bagian Struktur</th>
+                            <th style="width: 35%;">Isi/Fungsi</th>
+                            <th style="width: 40%;">Contoh Kalimat</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1. Tujuan</strong></td>
+                            <td>Menjelaskan apa yang akan dibuat atau dilakukan. Biasanya terdapat di judul atau paragraf pembuka.</td>
+                            <td>"Cara Membuat Nasi Goreng Spesial"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2. Material/Alat & Bahan</strong></td>
+                            <td>Daftar benda, bahan, atau alat yang diperlukan untuk menyelesaikan prosedur. Tidak semua teks prosedur memiliki bagian ini (misal: prosedur operasi komputer).</td>
+                            <td>"Bahan: 2 piring nasi, 2 butir telur, kecap manis..."</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3. Langkah-Langkah</strong></td>
+                            <td>Rangkaian aktivitas konkret yang harus dilakukan secara berurutan dari awal hingga akhir.</td>
+                            <td>"1. Panaskan minyak. 2. Masukkan telur..."</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4. Penutup/Simpulan</strong></td>
+                            <td>(Opsional) Berisi saran, tips, atau harapan setelah prosedur selesai dilakukan.</td>
+                            <td>"Nasi goreng siap disajikan selagi hangat."</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Content C: Bedah Contoh -->
+        <div class="content-section">
+            <h2>C. Bedah Contoh: Analisis Gagasan dan Arahan</h2>
+            <p>Mari kita analisis sebuah teks prosedur sederhana untuk menemukan makna tersuratnya (informasi yang tertulis jelas di dalam teks).</p>
+            
+            <div class="example-box" style="border-left: 4px solid var(--gold-primary); border-style: solid;">
+                <h3 style="text-align: center; margin-top: 0; color: var(--text-primary);">Cara Mencuci Tangan yang Benar (6 Langkah)</h3>
+                <p style="text-indent: 20px;"><strong>(Tujuan)</strong> Menjaga kebersihan tangan untuk mencegah penyebaran kuman dan penyakit.</p>
+                <p style="text-indent: 20px;"><strong>(Langkah-Langkah)</strong></p>
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Basahi Tangan</h4>
+                        <p>Basahi kedua tangan dengan air bersih yang mengalir. Pastikan suhu air nyaman.</p>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Oleskan Sabun</h4>
+                        <p>Tuangkan sabun secukupnya ke telapak tangan. Gosok kedua telapak tangan hingga berbusa.</p>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Gosok Selaput Jari</h4>
+                        <p>Selipkan jari-jari tangan kanan ke sela-sela jari tangan kiri, lalu gosok secara bergantian.</p>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>Bersihkan Kuku</h4>
+                        <p>Gosokkan ujung jari tangan kanan ke telapak tangan kiri dengan posisi memutar untuk membersihkan kuku.</p>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h4>Bilas dan Keringkan</h4>
+                        <p>Bilas tangan dengan air mengalir hingga sabun hilang. Keringkan dengan tisu atau handuk bersih.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="analysis-grid">
+                <div class="analysis-card">
+                    <h4>🎯 1. Analisis Gagasan (Tujuan)</h4>
+                    <p><strong>Gagasan Utama:</strong> Teks ini bertujuan memberikan instruksi tentang cara mencuci tangan yang higienis sesuai standar kesehatan.</p>
+                    <p><strong>Makna Tersurat:</strong> Informasi ini tertulis jelas di kalimat pembuka: "Menjaga kebersihan tangan...".</p>
+                </div>
+                <div class="analysis-card">
+                    <h4>👣 2. Analisis Arahan (Langkah)</h4>
+                    <p><strong>Arahan Rinci:</strong> Teks memberikan 5 langkah konkret yang harus dilakukan berurutan.</p>
+                    <p><strong>Kata Kunci Perintah:</strong> "Basahi", "Oleskan", "Gosok", "Selipkan", "Bilas". Ini adalah kata kerja imperatif (perintah) yang menjadi ciri khas teks prosedur.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content D: Ciri Kebahasaan -->
+        <div class="content-section">
+            <h2>D. Ciri Kebahasaan Teks Prosedur</h2>
+            <p>Untuk memastikan Anda sedang membaca teks prosedur, perhatikan ciri-ciri kebahasaan berikut yang sering muncul:</p>
+            
+            <div class="luxury-table-wrapper">
+                <table class="luxury-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Ciri Kebahasaan</th>
+                            <th style="width: 75%;">Penjelasan & Contoh</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Kalimat Imperatif</strong></td>
+                            <td>Kalimat perintah atau larangan. Contoh: "Potong bawang halus-halus", "Jangan sentuh layar dengan tangan basah".</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Kata Kerja Aktif</strong></td>
+                            <td>Kata kerja yang menunjukkan tindakan fisik. Contoh: "Mengaduk", "Menekan", "Memutar", "Menyalakan".</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Konjungsi Temporal</strong></td>
+                            <td>Kata hubung yang menyatakan urutan waktu. Contoh: "Pertama", "Selanjutnya", "Kemudian", "Setelah itu", "Terakhir".</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bilangan Penanda</strong></td>
+                            <td>Angka atau penomoran untuk menunjukkan urutan langkah. Contoh: "1.", "2.", "Langkah Pertama".</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Partikel -lah/-kan</strong></td>
+                            <td>Afiks yang sering ditambahkan pada kata kerja perintah untuk memperhalus atau menegaskan. Contoh: "Ambil<strong>lah</strong>", "Tekan<strong>kan</strong>".</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Content E: Tips Membaca Prosedur -->
+        <div class="content-section">
+            <h2>E. Tips Menganalisis Makna Tersurat</h2>
+            <p>Makna tersurat adalah makna yang secara eksplisit tertulis dalam teks. Untuk menemukannya dalam teks prosedur, lakukan hal berikut:</p>
+            
+            <div class="example-box">
+                <h3 style="margin-top: 0;">1. Identifikasi Kata Kerja Perintah</h3>
+                <p>Cari kata-kata yang menyuruh melakukan sesuatu. Itu adalah inti dari arahan. Jika ada kata "hindari", itu adalah larangan yang juga bagian dari arahan.</p>
+            </div>
+
+            <div class="example-box">
+                <h3 style="margin-top: 0;">2. Perhatikan Urutan Waktu</h3>
+                <p>Pastikan Anda memahami mana langkah pertama dan mana yang terakhir. Kesalahan urutan bisa menyebabkan kegagalan prosedur.</p>
+            </div>
+
+            <div class="example-box">
+                <h3 style="margin-top: 0;">3. Cek Alat dan Bahan</h3>
+                <p>Pastikan semua alat yang disebutkan tersedia sebelum memulai. Informasi ini biasanya tersurat di bagian awal teks.</p>
+            </div>
+        </div>
+
+        <!-- Keywords -->
+        <div class="keywords-section">
+            <span class="keyword-tag">Teks Prosedur</span>
+            <span class="keyword-tag">Gagasan Utama</span>
+            <span class="keyword-tag">Arahan</span>
+            <span class="keyword-tag">Langkah-Langkah</span>
+            <span class="keyword-tag">Kalimat Imperatif</span>
+            <span class="keyword-tag">Konjungsi Temporal</span>
+            <span class="keyword-tag">Makna Tersurat</span>
+            <span class="keyword-tag">Instruksi</span>
+        </div>
+
+        <div class="content-section" style="text-align: center; padding: 40px;">
+            <p style="font-family: 'Playfair Display', serif; font-size: 1.3rem; font-style: italic; color: var(--gold-light); margin-bottom: 12px;">"Keterampilan membaca prosedur adalah keterampilan bertahan hidup di era teknologi yang kompleks."</p>
+            <cite style="color: var(--text-secondary); font-size: 0.9rem; font-style: normal;">— Refleksi Literasi Fungsional</cite>
+        </div>
+
+        <!-- Referensi -->
+        <div class="content-section">
+            <h2>F. Referensi & Bacaan Lanjutan</h2>
+            <ul class="references">
+                <li>Kemdikbudristek. (2022). <em>Buku Bahasa Indonesia Kelas VII SMP/MTs (Edisi Revisi)</em>. Jakarta: Pusat Perbukuan.</li>
+                <li>Keraf, Gorys. (2004). <em>Komposisi: Sebuah Pengantar Kemahiran Bahasa</em>. Flores: Nusa Indah.</li>
+                <li>Parera, Jos Daniel. (2004). <em>Menulis Tertib dan Sistematik</em>. Jakarta: Erlangga.</li>
+                <li>Badan Standar Nasional Pendidikan. (2022). <em>Kerangka Dasar Kurikulum Merdeka</em>. Jakarta: Kemdikbudristek.</li>
+            </ul>
+        </div>
+
+        <!-- UJI FORMATIF -->
+        <div class="quiz-container" id="uji-formatif">
+            <div class="quiz-header">
+                <h2 style="color: var(--gold-primary); margin-bottom: 8px;">📝 Uji Formatif Pertemuan 24</h2>
+                <p style="color: var(--text-secondary);">Materi: Analisis gagasan dan arahan teks prosedur, struktur, ciri kebahasaan, dan makna tersurat.</p>
+            </div>
+
+            <form id="quizForm">
+                <!-- Identitas -->
+                <div class="content-section" style="background: var(--bg-input); border: none;">
+                    <h3 style="margin-top: 0; color: var(--gold-primary);">📋 Identitas Siswa</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nama Lengkap *</label>
+                            <input type="text" id="nama" class="form-control" required placeholder="Masukkan nama lengkap">
+                        </div>
+                        <div class="form-group">
+                            <label>No. Absen / NIS *</label>
+                            <input type="text" id="nis" class="form-control" required placeholder="Contoh: 12345">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Kelas *</label>
+                            <select id="kelas" class="form-control" required>
+                                <option value="">Pilih Kelas</option>
+                                <option value="VII-A">VII-A</option>
+                                <option value="VII-B">VII-B</option>
+                                <option value="VII-C">VII-C</option>
+                                <option value="VII-D">VII-D</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Semester *</label>
+                            <select id="semester" class="form-control" required>
+                                <option value="1 (Ganjil)">1 (Ganjil)</option>
+                                <option value="2 (Genap)">2 (Genap)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bagian A: Pilihan Ganda -->
+                <h3 style="margin: 32px 0 16px; color: var(--text-primary);">📋 Bagian A: Pilihan Ganda</h3>
+                
+                <div class="question-block">
+                    <p class="question-text">1. Tujuan utama dari teks prosedur adalah... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="A"> <span>A. Menghibur pembaca dengan cerita lucu</span></label>
+                        <label><input type="radio" name="q1" value="B"> <span>B. Memberikan langkah-langkah untuk melakukan atau membuat sesuatu</span></label>
+                        <label><input type="radio" name="q1" value="C"> <span>C. Meyakinkan pembaca untuk membeli produk</span></label>
+                        <label><input type="radio" name="q1" value="D"> <span>D. Menjelaskan pendapat penulis tentang suatu isu</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">2. Bagian teks prosedur yang berisi daftar alat dan bahan disebut... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="A"> <span>A. Tujuan</span></label>
+                        <label><input type="radio" name="q2" value="B"> <span>B. Langkah-Langkah</span></label>
+                        <label><input type="radio" name="q2" value="C"> <span>C. Material</span></label>
+                        <label><input type="radio" name="q2" value="D"> <span>D. Penutup</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">3. Manakah yang merupakan contoh kalimat imperatif (perintah)? <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="A"> <span>A. "Apakah kamu sudah makan?"</span></label>
+                        <label><input type="radio" name="q3" value="B"> <span>B. "Saya sedang memasak nasi."</span></label>
+                        <label><input type="radio" name="q3" value="C"> <span>C. "Potonglah bawang merah hingga halus."</span></label>
+                        <label><input type="radio" name="q3" value="D"> <span>D. "Nasi goreng itu sangat enak."</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">4. Kata hubung yang menyatakan urutan waktu dalam teks prosedur disebut... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q4" value="A"> <span>A. Konjungsi Koordinatif</span></label>
+                        <label><input type="radio" name="q4" value="B"> <span>B. Konjungsi Temporal</span></label>
+                        <label><input type="radio" name="q4" value="C"> <span>C. Konjungsi Subordinatif</span></label>
+                        <label><input type="radio" name="q4" value="D"> <span>D. Konjungsi Antarparagraf</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">5. Makna tersurat dalam teks prosedur adalah... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q5" value="A"> <span>A. Makna yang disembunyikan penulis</span></label>
+                        <label><input type="radio" name="q5" value="B"> <span>B. Makna yang harus ditebak-tebak oleh pembaca</span></label>
+                        <label><input type="radio" name="q5" value="C"> <span>C. Makna yang secara jelas tertulis dalam teks</span></label>
+                        <label><input type="radio" name="q5" value="D"> <span>D. Makna yang hanya diketahui oleh ahli bahasa</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">6. "Selanjutnya, masukkan tepung ke dalam wadah." Kata "Selanjutnya" berfungsi sebagai... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q6" value="A"> <span>A. Kata sifat</span></label>
+                        <label><input type="radio" name="q6" value="B"> <span>B. Kata benda</span></label>
+                        <label><input type="radio" name="q6" value="C"> <span>C. Konjungsi temporal</span></label>
+                        <label><input type="radio" name="q6" value="D"> <span>D. Kata seru</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">7. Jenis teks prosedur yang memiliki langkah-langkah ketat dan tidak boleh diubah urutannya disebut... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q7" value="A"> <span>A. Prosedur Sederhana</span></label>
+                        <label><input type="radio" name="q7" value="B"> <span>B. Prosedur Protokol</span></label>
+                        <label><input type="radio" name="q7" value="C"> <span>C. Prosedur Kompleks</span></label>
+                        <label><input type="radio" name="q7" value="D"> <span>D. Prosedur Bebas</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">8. Manakah yang BUKAN merupakan ciri kebahasaan teks prosedur? <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q8" value="A"> <span>A. Menggunakan kalimat imperatif</span></label>
+                        <label><input type="radio" name="q8" value="B"> <span>B. Menggunakan kata kerja aktif</span></label>
+                        <label><input type="radio" name="q8" value="C"> <span>C. Menggunakan majas personifikasi secara dominan</span></label>
+                        <label><input type="radio" name="q8" value="D"> <span>D. Menggunakan bilangan penanda urutan</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">9. Dalam teks prosedur, bagian "Penutup" biasanya berisi... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q9" value="A"> <span>A. Daftar harga bahan</span></label>
+                        <label><input type="radio" name="q9" value="B"> <span>B. Saran atau hasil akhir yang diharapkan</span></label>
+                        <label><input type="radio" name="q9" value="C"> <span>C. Biografi penulis</span></label>
+                        <label><input type="radio" name="q9" value="D"> <span>D. Sejarah ditemukannya alat</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">10. Jika sebuah teks prosedur tidak mencantumkan "Alat dan Bahan", kemungkinan besar teks tersebut adalah... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q10" value="A"> <span>A. Resep masakan</span></label>
+                        <label><input type="radio" name="q10" value="B"> <span>B. Cara membuat kerajinan tangan</span></label>
+                        <label><input type="radio" name="q10" value="C"> <span>C. Prosedur operasional alat digital/komputer</span></label>
+                        <label><input type="radio" name="q10" value="D"> <span>D. Cara menanam pohon</span></label>
+                    </div>
+                </div>
+
+                <!-- Bagian B: Essay -->
+                <h3 style="margin: 32px 0 16px; color: var(--text-primary);">✍️ Bagian B: Essay</h3>
+
+                <div class="question-block">
+                    <p class="question-text">1. Jelaskan apa yang dimaksud dengan teks prosedur dan sebutkan 3 jenisnya! <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay1" class="form-control" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">2. Sebutkan dan jelaskan 3 struktur utama teks prosedur! <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay2" class="form-control" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">3. Apa perbedaan antara makna tersurat dan makna tersirat? Berikan contoh makna tersurat dalam teks prosedur! <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay3" class="form-control" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">4. Temukan 3 ciri kebahasaan dalam kalimat berikut: "Pertama, nyalakan komputer. Kemudian, klik ikon aplikasi. Terakhir, tunggu hingga loading selesai." <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay4" class="form-control" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">5. Buatlah sebuah teks prosedur sederhana (minimal 4 langkah) tentang "Cara Mengirim Email"! Tentukan gagasan utamanya! <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay5" class="form-control" placeholder="Tulis prosedur Anda di sini..."></textarea>
+                </div>
+
+                <!-- Result Box -->
+                <div class="result-box" id="resultBox">
+                    <h3>📊 Hasil Uji Formatif</h3>
+                    <div class="score-display">
+                        <div class="score-item">
+                            <h4 id="scoreMCQ">0</h4>
+                            <p>Pilihan Ganda (/100)</p>
+                        </div>
+                        <div class="score-item">
+                            <h4 id="scoreEssay">0</h4>
+                            <p>Essay (/100)</p>
+                        </div>
+                        <div class="score-item">
+                            <h4 id="scoreFinal" class="gold-text">0</h4>
+                            <p>Skor Akhir (/200)</p>
+                        </div>
+                    </div>
+                    <p class="disclaimer">*Catatan: Skor Essay adalah estimasi otomatis berdasarkan kelengkapan jawaban (jumlah karakter). Penilaian akhir atas substansi jawaban tetap berada di tangan guru pengampu.</p>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary" onclick="hitungNilai()">✉️ KIRIM JAWABAN & LIHAT HASIL</button>
+                    <button type="button" class="btn btn-secondary" onclick="unduhPDF()">📥 UNDUH PDF LENGKAP</button>
+                    <button type="button" class="btn btn-secondary" onclick="unduhTXT()">📄 UNDUH SKOR (TXT)</button>
+                    <button type="button" class="btn btn-secondary" onclick="kirimEmail()">📧 KIRIM KE EMAIL GURU</button>
+                    <button type="button" class="btn btn-secondary" onclick="mulaiUlang()">🔄 MULAI ULANG</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div style="margin-bottom: 16px;">
+                <a href="index.html" class="nav-link" style="margin: 0 10px;">📖 Daftar Isi</a>
+                <a href="25.html" class="nav-link" style="margin: 0 10px;">Selanjutnya → Pertemuan 25</a>
+            </div>
+            <p>&copy; 2026 <span class="gold-text">Sumarnis, S. Pd.</span> — MTsN 10 Agam. Hak Cipta Dilindungi Undang-Undang.</p>
+            <p style="margin-top: 8px;">Email: <a href="mailto:Sumarnisanis04@yahoo.com">Sumarnisanis04@yahoo.com</a></p>
+        </footer>
+    </div>
+
+    <!-- JavaScript Logic for Quiz -->
+    <script>
+        // Kunci Jawaban Pilihan Ganda
+        const kunciJawaban = {
+            q1: 'B', q2: 'C', q3: 'C', q4: 'B', q5: 'C',
+            q6: 'C', q7: 'B', q8: 'C', q9: 'B', q10: 'C'
+        };
+
+        let finalScoreData = {
+            nama: '',
+            nis: '',
+            kelas: '',
+            semester: '',
+            skorMCQ: 0,
+            skorEssay: 0,
+            skorAkhir: 0
+        };
+
+        function hitungNilai() {
+            // Validasi Identitas
+            const nama = document.getElementById('nama').value.trim();
+            const nis = document.getElementById('nis').value.trim();
+            const kelas = document.getElementById('kelas').value;
+            
+            if (!nama || !nis || !kelas) {
+                alert('Harap lengkapi Identitas Siswa (Nama, NIS, dan Kelas) sebelum mengirim jawaban!');
+                return;
+            }
+
+            // Hitung Pilihan Ganda
+            let benarMCQ = 0;
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected && selected.value === kunciJawaban[`q${i}`]) {
+                    benarMCQ++;
+                }
+            }
+            const skorMCQ = benarMCQ * 10;
+
+            // Hitung Essay (Simulasi berbasis panjang jawaban untuk demo)
+            let skorEssay = 0;
+            for (let i = 1; i <= 5; i++) {
+                const jawaban = document.getElementById(`essay${i}`).value.trim();
+                if (jawaban.length > 60) {
+                    skorEssay += 20; // Jawaban dianggap lengkap dan baik
+                } else if (jawaban.length > 25) {
+                    skorEssay += 10; // Jawaban pendek
+                }
+            }
+
+            const skorAkhir = skorMCQ + skorEssay;
+
+            // Simpan data
+            finalScoreData = { nama, nis, kelas, semester: document.getElementById('semester').value, skorMCQ, skorEssay, skorAkhir };
+
+            // Tampilkan Hasil
+            document.getElementById('scoreMCQ').innerText = skorMCQ;
+            document.getElementById('scoreEssay').innerText = skorEssay;
+            document.getElementById('scoreFinal').innerText = skorAkhir;
+            
+            const resultBox = document.getElementById('resultBox');
+            resultBox.style.display = 'block';
+            resultBox.scrollIntoView({ behavior: 'smooth' });
+
+            alert(`Terima kasih, ${nama}! Jawaban Anda telah diproses. Silakan lihat hasil di bagian bawah.`);
+        }
+
+        function unduhTXT() {
+            if (finalScoreData.skorAkhir === 0 && finalScoreData.nama === '') {
+                alert('Silakan kerjakan dan klik "KIRIM JAWABAN & LIHAT HASIL" terlebih dahulu.');
+                return;
+            }
+
+            const textContent = `
+HASIL UJI FORMATIF - BAHASA INDONESIA KELAS 7
+Pertemuan 24: Analisis Teks Prosedur
+----------------------------------------
+Nama    : ${finalScoreData.nama}
+NIS     : ${finalScoreData.nis}
+Kelas   : ${finalScoreData.kelas}
+Semester: ${finalScoreData.semester}
+----------------------------------------
+Skor Pilihan Ganda : ${finalScoreData.skorMCQ} / 100
+Skor Essay (Est.)  : ${finalScoreData.skorEssay} / 100
+SKOR AKHIR         : ${finalScoreData.skorAkhir} / 200
+----------------------------------------
+Catatan: Skor Essay adalah estimasi otomatis berdasarkan panjang jawaban.
+Dibuat oleh: Sumarnis, S. Pd. | MTsN 10 Agam
+            `.trim();
+
+            const blob = new Blob([textContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Skor_UjiFormatif_24_${finalScoreData.nama.replace(/\s+/g, '_')}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function unduhPDF() {
+            if (finalScoreData.skorAkhir === 0 && finalScoreData.nama === '') {
+                alert('Silakan kerjakan dan klik "KIRIM JAWABAN & LIHAT HASIL" terlebih dahulu.');
+                return;
+            }
+            window.print();
+        }
+
+        function kirimEmail() {
+            if (finalScoreData.skorAkhir === 0 && finalScoreData.nama === '') {
+                alert('Silakan kerjakan dan klik "KIRIM JAWABAN & LIHAT HASIL" terlebih dahulu.');
+                return;
+            }
+
+            const subject = `Hasil Uji Formatif Pertemuan 24 - ${finalScoreData.nama} (${finalScoreData.kelas})`;
+            const body = `Yth. Ibu Sumarnis, S. Pd.,\n\nBerikut adalah hasil uji formatif saya:\n\nNama: ${finalScoreData.nama}\nNIS: ${finalScoreData.nis}\nKelas: ${finalScoreData.kelas}\n\nSkor Pilihan Ganda: ${finalScoreData.skorMCQ}\nSkor Essay (Estimasi): ${finalScoreData.skorEssay}\nSkor Akhir: ${finalScoreData.skorAkhir}\n\nTerima kasih.`;
+            
+            window.location.href = `mailto:Sumarnisanis04@yahoo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        function mulaiUlang() {
+            if (confirm('Apakah Anda yakin ingin mengosongkan semua jawaban dan memulai ulang?')) {
+                document.getElementById('quizForm').reset();
+                document.getElementById('resultBox').style.display = 'none';
+                finalScoreData = { nama: '', nis: '', kelas: '', semester: '', skorMCQ: 0, skorEssay: 0, skorAkhir: 0 };
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>

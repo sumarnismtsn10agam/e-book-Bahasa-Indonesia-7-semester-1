@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 33: Teknik Presentasi Solusi Multimodal | Bahasa Indonesia Kelas 7</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0B0F19;
+            --bg-card: #151B2B;
+            --bg-input: #1E2538;
+            --gold-primary: #D4AF37;
+            --gold-light: #F4E4BC;
+            --gold-dark: #AA8C2C;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --border-color: #2A3449;
+            --success: #10B981;
+            --error: #EF4444;
+            --info: #3B82F6;
+            --purple: #A855F7;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+
+        .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+        .gold-text {
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Navigation */
+        .nav-header {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover { color: var(--gold-primary); }
+
+        /* Chapter Header */
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding: 48px 32px;
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chapter-header::before {
+            content: '🎤';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            opacity: 0.2;
+        }
+
+        .chapter-header h1 { font-size: 2.5rem; margin-bottom: 16px; }
+        .chapter-header p { color: var(--text-secondary); max-width: 700px; margin: 0 auto; font-size: 1.1rem; }
+
+        .content-section {
+            margin-bottom: 48px;
+            padding: 32px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .content-section h2 {
+            font-size: 1.6rem;
+            color: var(--gold-primary);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        .content-section h3 { font-size: 1.25rem; margin: 28px 0 16px; color: var(--gold-light); }
+        .content-section p { margin-bottom: 16px; color: var(--text-secondary); text-align: justify; }
+
+        .definition-box {
+            background: rgba(168, 85, 247, 0.08);
+            border-left: 4px solid var(--purple);
+            padding: 24px;
+            border-radius: 0 8px 8px 0;
+            margin: 24px 0;
+        }
+
+        .expert-quote {
+            font-style: italic;
+            color: var(--text-primary);
+            border-left: 2px solid var(--gold-dark);
+            padding-left: 16px;
+            margin: 20px 0;
+            color: var(--gold-light);
+        }
+
+        .example-box {
+            background: var(--bg-input);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px dashed var(--border-color);
+            margin: 24px 0;
+        }
+
+        .example-box strong { color: var(--gold-primary); }
+
+        /* Presentation Tips Grid */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 24px 0;
+        }
+
+        .tip-card {
+            background: var(--bg-input);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tip-card::before {
+            content: attr(data-step);
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            color: rgba(168, 85, 247, 0.08);
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .tip-card:hover {
+            border-color: var(--purple);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px -10px rgba(168, 85, 247, 0.3);
+        }
+
+        .tip-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .tip-card h4 {
+            color: var(--purple);
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tip-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Luxury Table */
+        .luxury-table-wrapper {
+            overflow-x: auto;
+            margin: 24px 0;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .luxury-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        .luxury-table th {
+            background: rgba(168, 85, 247, 0.15);
+            color: var(--purple);
+            font-weight: 600;
+            text-align: left;
+            padding: 16px;
+            border-bottom: 2px solid var(--purple);
+        }
+
+        .luxury-table td {
+            padding: 16px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .luxury-table tr:last-child td { border-bottom: none; }
+        .luxury-table tr:hover td { background: rgba(255, 255, 255, 0.02); color: var(--text-primary); }
+
+        /* Analysis Box */
+        .analysis-box {
+            background: var(--bg-input);
+            border-left: 4px solid var(--info);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 24px 0;
+        }
+
+        .analysis-box h4 { color: var(--info); margin-bottom: 8px; }
+        .analysis-box p { margin: 0; font-size: 0.95rem; color: var(--text-secondary); }
+
+        /* Keywords */
+        .keywords-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 32px 0;
+            justify-content: center;
+        }
+
+        .keyword-tag {
+            background: var(--bg-input);
+            color: var(--purple);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .keyword-tag:hover {
+            background: var(--purple);
+            color: white;
+            cursor: default;
+        }
+
+        /* Quiz Styles */
+        .quiz-container {
+            background: var(--bg-card);
+            border: 1px solid var(--gold-primary);
+            border-radius: 12px;
+            padding: 40px;
+            margin-top: 60px;
+        }
+
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--text-secondary); font-size: 0.9rem; }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus { outline: none; border-color: var(--gold-primary); }
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+        .question-block {
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .question-text { font-weight: 600; margin-bottom: 16px; color: var(--text-primary); }
+
+        .points-badge {
+            float: right;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .options label {
+            display: block;
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text-secondary);
+        }
+
+        .options label:hover { border-color: var(--gold-primary); color: var(--text-primary); }
+        .options input[type="radio"] { margin-right: 12px; accent-color: var(--gold-primary); }
+        .options input[type="radio"]:checked + span { color: var(--gold-primary); font-weight: 500; }
+        .options label:has(input[type="radio"]:checked) {
+            border-color: var(--gold-primary);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        textarea.form-control { min-height: 120px; resize: vertical; }
+
+        .btn-group { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+
+        .btn {
+            padding: 14px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-primary) 100%);
+            color: var(--bg-dark);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--bg-input);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover { border-color: var(--gold-primary); color: var(--gold-primary); }
+
+        .result-box {
+            display: none;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 32px;
+            text-align: center;
+        }
+
+        .result-box h3 { color: var(--success); margin-bottom: 16px; }
+        .score-display { display: flex; justify-content: center; gap: 40px; margin: 24px 0; }
+        .score-item h4 { font-size: 2rem; color: var(--gold-primary); }
+        .score-item p { font-size: 0.9rem; color: var(--text-secondary); }
+
+        .disclaimer { font-size: 0.8rem; color: var(--text-secondary); margin-top: 16px; font-style: italic; }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 80px;
+        }
+
+        footer a { color: var(--gold-primary); text-decoration: none; }
+
+        .references {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 16px;
+            padding-left: 20px;
+        }
+        .references li { margin-bottom: 8px; }
+
+        /* Tip Box */
+        .tip-box {
+            background: rgba(16, 185, 129, 0.08);
+            border-left: 4px solid var(--success);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 24px 0;
+        }
+
+        .tip-box strong { color: var(--success); }
+
+        @media (max-width: 640px) {
+            .form-row { grid-template-columns: 1fr; }
+            .score-display { flex-direction: column; gap: 20px; }
+            .btn-group { flex-direction: column; }
+            .btn { width: 100%; }
+            .chapter-header h1 { font-size: 1.8rem; }
+            .tips-grid { grid-template-columns: 1fr; }
+        }
+
+        @media print {
+            body { background: white; color: black; }
+            .nav-header, .btn-group, footer, .quiz-container { display: none; }
+            .content-section { border: 1px solid #ccc; background: white; color: black; }
+            .gold-text { color: #333; -webkit-text-fill-color: #333; }
+            .luxury-table th { background: #eee; color: black; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav-header">
+            <a href="32.html" class="nav-link">← Pertemuan 32</a>
+            <span style="color: var(--text-secondary); font-size: 0.9rem;">Bahasa Indonesia Kelas VII</span>
+            <a href="34.html" class="nav-link">Pertemuan 34 (UAS) →</a>
+        </nav>
+
+        <!-- Chapter Header -->
+        <div class="chapter-header">
+            <h1>🎤 <span class="gold-text">Pertemuan 33</span></h1>
+            <h2 style="font-size: 1.8rem; margin-bottom: 16px; color: var(--text-primary);">Mempresentasikan Gagasan sebagai Solusi dan Menyajikan Ungkapan Kepedulian dalam Bentuk Teks Multimodal</h2>
+            <p>Fokus pada aspek kinerja presentasi lisan saat menampilkan karya multimodal. Mempelajari teknik vokal, bahasa tubuh, interaksi dengan media visual, serta cara menangani sesi tanya jawab agar pesan kepedulian dan solusi tersampaikan dengan persuasif.</p>
+            <p style="margin-top: 20px; font-size: 0.9rem; color: var(--gold-primary); font-weight: 600;">Capaian Pembelajaran: Peserta didik mampu mempresentasikan gagasan solusi dan ungkapan kepedulian melalui teks multimodal dengan teknik penyampaian yang efektif, percaya diri, dan interaktif.</p>
+        </div>
+
+        <!-- Content A: Pengertian & Teori -->
+        <div class="content-section">
+            <h2>A. Hakikat Presentasi Multimodal</h2>
+            <p>Presentasi multimodal bukan sekadar membaca slide atau memutar video. Ini adalah pertunjukan komunikasi di mana pembicara menjadi "jembatan" antara audiens dengan konten visual/audio yang ditampilkan. Keberhasilan presentasi ditentukan oleh seberapa baik pembicara mengintegrasikan dirinya dengan media yang digunakan.</p>
+            
+            <div class="expert-quote">
+                "Media hanyalah alat. Pembicaralah yang memberikan jiwa, konteks, dan urgensi pada pesan tersebut. Tanpa kehadiran pembicara yang kuat, multimedia hanyalah hiburan kosong." 
+                <br><span style="font-size: 0.85rem; color: var(--text-secondary);">— Garr Reynolds, <em>Presentation Zen</em></span>
+            </div>
+
+            <div class="definition-box">
+                <strong>📌 DEFINISI INTI</strong><br>
+                <strong>Presentasi Multimodal</strong> adalah kegiatan menyampaikan gagasan solusi atau kepedulian dengan memadukan kemampuan berbicara (verbal), bahasa tubuh (gestural), dan pemanfaatan media visual/audio (visual/spasial) secara sinkron untuk mencapai tujuan persuasif.
+            </div>
+
+            <h3>Tiga Pilar Presentasi Multimodal:</h3>
+            <ul style="color: var(--text-secondary); margin-left: 20px; margin-bottom: 16px;">
+                <li><strong style="color: var(--text-primary);">Verbal (Suara):</strong> Kejelasan artikulasi, intonasi yang dinamis, volume yang tepat, dan kecepatan bicara yang terkontrol.</li>
+                <li><strong style="color: var(--text-primary);">Non-Verbal (Tubuh):</strong> Kontak mata, gestur tangan yang mendukung penjelasan, postur tubuh yang terbuka, dan ekspresi wajah yang sesuai emosi pesan.</li>
+                <li><strong style="color: var(--text-primary);">Visual/Media:</strong> Kemampuan menunjuk bagian penting pada slide/video, timing pemutaran media, dan tidak membelakangi audiens saat media tampil.</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 Prinsip Dasar:</strong><br>
+                Gunakan aturan <strong>"10-20-30"</strong> Guy Kawasaki: Maksimal 10 slide, durasi 20 menit (atau disesuaikan), dan ukuran font minimal 30 poin agar terbaca jelas.
+            </div>
+        </div>
+
+        <!-- Content B: Teknik Penyampaian -->
+        <div class="content-section">
+            <h2>B. Teknik Penyampaian Gagasan Solusi</h2>
+            <p>Agar solusi yang Anda tawarkan diterima dengan baik, gunakan teknik-teknik berikut saat presentasi:</p>
+            
+            <div class="tips-grid">
+                <div class="tip-card" data-step="1">
+                    <div class="tip-icon">👁️</div>
+                    <h4>1. Kontak Mata Scanning</h4>
+                    <p>Jangan menatap layar terus-menerus. Sapukan pandangan ke seluruh ruangan (kiri-kanan-depan) untuk melibatkan semua audiens. Tatap mata mereka selama 3-5 detik per orang.</p>
+                </div>
+
+                <div class="tip-card" data-step="2">
+                    <div class="tip-icon">🖐️</div>
+                    <h4>2. Gestur Terbuka</h4>
+                    <p>Gunakan tangan untuk menekankan poin penting. Hindari memasukkan tangan ke saku atau melipat tangan di dada. Tunjuklah elemen visual di layar saat menjelaskannya.</p>
+                </div>
+
+                <div class="tip-card" data-step="3">
+                    <div class="tip-icon">🔊</div>
+                    <h4>3. Variasi Intonasi</h4>
+                    <p>Nada suara jangan datar (monoton). Naikkan nada saat bertanya atau menekankan masalah, dan rendahkan nada saat memberikan solusi serius. Beri jeda setelah poin penting.</p>
+                </div>
+
+                <div class="tip-card" data-step="4">
+                    <div class="tip-icon">🤝</div>
+                    <h4>4. Interaksi Audiens</h4>
+                    <p>Ajak audiens berinteraksi. Contoh: "Siapa di sini yang pernah mengalami...?" atau "Coba perhatikan gambar ini, apa yang kalian lihat?". Ini membangun koneksi emosional.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content C: Menangani Sesi Tanya Jawab -->
+        <div class="content-section">
+            <h2>C. Strategi Menangani Sesi Tanya Jawab</h2>
+            <p>Sesi tanya jawab adalah momen krusial untuk menguji kedalaman pemahaman Anda terhadap solusi yang ditawarkan. Berikut adalah strategi menghadapinya:</p>
+            
+            <div class="luxury-table-wrapper">
+                <table class="luxury-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Situasi</th>
+                            <th style="width: 75%;">Strategi Respon</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Pertanyaan Klarifikasi</strong></td>
+                            <td>Jika audiens belum paham, jelaskan ulang dengan bahasa yang lebih sederhana atau berikan analogi baru. Jangan menyalahkan pertanyaan mereka.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pertanyaan Tantangan/Kritik</strong></td>
+                            <td>Terima kritik dengan lapang dada. Ucapkan terima kasih atas masukannya. Jika Anda setuju, akui. Jika tidak, berikan bantahan dengan data/fakta yang sopan.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pertanyaan di Luar Topik</strong></td>
+                            <td>Jawab singkat jika bisa, atau alihkan dengan halus: "Itu topik menarik, tapi mari kita fokus dulu pada solusi utama kita. Bisa kita diskusikan setelah sesi ini."</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tidak Tahu Jawaban</strong></td>
+                            <td>Jangan mengarang jawaban! Jujur saja: "Pertanyaan yang bagus. Saya belum memiliki data tersebut saat ini, tapi saya akan mencarinya dan memberitahu Anda nanti."</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="analysis-box">
+                <h4>🔍 Contoh Respon Sopan terhadap Kritik</h4>
+                <p><strong>Kritik:</strong> "Solusi kamu terlalu mahal, tidak mungkin dilakukan siswa."<br>
+                <strong>Respon Buruk:</strong> "Kamu aja yang gak punya uang."<br>
+                <strong>Respon Baik:</strong> "Terima kasih atas masukannya. Memang biaya awal terlihat besar, namun jika dihitung jangka panjang, ini lebih hemat karena barangnya awet. Kita juga bisa melakukan sistem patungan untuk mengurangi beban biaya."</p>
+            </div>
+        </div>
+
+        <!-- Content D: Evaluasi Diri -->
+        <div class="content-section">
+            <h2>D. Checklist Evaluasi Diri Presentasi</h2>
+            <p>Setelah presentasi, lakukan refleksi menggunakan checklist berikut untuk perbaikan di masa depan:</p>
+            
+            <div class="example-box" style="border-left: 4px solid var(--purple); border-style: solid;">
+                <h3 style="text-align: center; margin-top: 0; color: var(--text-primary);">Refleksi Kinerja Presentasi</h3>
+                <ul style="color: var(--text-secondary); margin-left: 20px; list-style-type: none;">
+                    <li style="margin-bottom: 8px;">✅ Apakah saya melakukan kontak mata dengan audiens?</li>
+                    <li style="margin-bottom: 8px;">✅ Apakah suara saya terdengar jelas hingga baris belakang?</li>
+                    <li style="margin-bottom: 8px;">✅ Apakah saya membaca slide atau menjelaskan isi slide?</li>
+                    <li style="margin-bottom: 8px;">✅ Apakah gestur tangan saya natural dan mendukung penjelasan?</li>
+                    <li style="margin-bottom: 8px;">✅ Apakah saya mampu menjawab pertanyaan dengan tenang dan logis?</li>
+                    <li style="margin-bottom: 8px;">✅ Apakah media visual (video/gambar) berjalan lancar dan relevan?</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Keywords -->
+        <div class="keywords-section">
+            <span class="keyword-tag">Presentasi Lisan</span>
+            <span class="keyword-tag">Kontak Mata</span>
+            <span class="keyword-tag">Intonasi</span>
+            <span class="keyword-tag">Gestur</span>
+            <span class="keyword-tag">Sesi Tanya Jawab</span>
+            <span class="keyword-tag">Persuasi</span>
+            <span class="keyword-tag">Evaluasi Diri</span>
+            <span class="keyword-tag">Multimodal</span>
+        </div>
+
+        <div class="content-section" style="text-align: center; padding: 40px;">
+            <p style="font-family: 'Playfair Display', serif; font-size: 1.3rem; font-style: italic; color: var(--gold-light); margin-bottom: 12px;">"Presentasi yang hebat bukan tentang menampilkan slide yang sempurna, tetapi tentang menciptakan koneksi manusia yang nyata."</p>
+            <cite style="color: var(--text-secondary); font-size: 0.9rem; font-style: normal;">— Refleksi Public Speaking</cite>
+        </div>
+
+        <!-- Referensi -->
+        <div class="content-section">
+            <h2>E. Referensi & Bacaan Lanjutan</h2>
+            <ul class="references">
+                <li>Kemdikbudristek. (2022). <em>Buku Bahasa Indonesia Kelas VII SMP/MTs (Edisi Revisi)</em>. Jakarta: Pusat Perbukuan.</li>
+                <li>Reynolds, Garr. (2011). <em>Presentation Zen: Simple Ideas on Presentation Design and Delivery</em>. Berkeley: New Riders.</li>
+                <li>Carnegie, Dale. (2017). <em>The Art of Public Speaking</em>. Jakarta: Gramedia Pustaka Utama.</li>
+                <li>Lucas, Stephen E. (2015). <em>The Art of Public Speaking</em>. New York: McGraw-Hill Education.</li>
+            </ul>
+        </div>
+
+        <!-- UJI FORMATIF -->
+        <div class="quiz-container" id="uji-formatif">
+            <div class="quiz-header">
+                <h2 style="color: var(--gold-primary); margin-bottom: 8px;">📝 Uji Formatif Pertemuan 33</h2>
+                <p style="color: var(--text-secondary);">Materi: Teknik presentasi lisan multimodal, bahasa tubuh, intonasi, dan penanganan sesi tanya jawab.</p>
+            </div>
+
+            <form id="quizForm">
+                <!-- Identitas -->
+                <div class="content-section" style="background: var(--bg-input); border: none;">
+                    <h3 style="margin-top: 0; color: var(--gold-primary);">📋 Identitas Siswa</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nama Lengkap *</label>
+                            <input type="text" id="nama" class="form-control" required placeholder="Masukkan nama lengkap">
+                        </div>
+                        <div class="form-group">
+                            <label>No. Absen / NIS *</label>
+                            <input type="text" id="nis" class="form-control" required placeholder="Contoh: 12345">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Kelas *</label>
+                            <select id="kelas" class="form-control" required>
+                                <option value="">Pilih Kelas</option>
+                                <option value="VII-A">VII-A</option>
+                                <option value="VII-B">VII-B</option>
+                                <option value="VII-C">VII-C</option>
+                                <option value="VII-D">VII-D</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Semester *</label>
+                            <select id="semester" class="form-control" required>
+                                <option value="1 (Ganjil)">1 (Ganjil)</option>
+                                <option value="2 (Genap)">2 (Genap)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bagian A: Pilihan Ganda -->
+                <h3 style="margin: 32px 0 16px; color: var(--text-primary);">📋 Bagian A: Pilihan Ganda</h3>
+                
+                <div class="question-block">
+                    <p class="question-text">1. Apa yang dimaksud dengan kontak mata "scanning" saat presentasi? <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="A"> <span>A. Menatap satu orang saja selama presentasi</span></label>
+                        <label><input type="radio" name="q1" value="B"> <span>B. Menatap layar proyektor agar tidak lupa materi</span></label>
+                        <label><input type="radio" name="q1" value="C"> <span>C. Menyapukan pandangan ke seluruh audiens secara bergantian</span></label>
+                        <label><input type="radio" name="q1" value="D"> <span>D. Menutup mata agar lebih konsentrasi</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">2. Mengapa gestur tangan penting dalam presentasi multimodal? <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="A"> <span>A. Agar terlihat sibuk</span></label>
+                        <label><input type="radio" name="q2" value="B"> <span>B. Untuk menekankan poin dan mengarahkan perhatian audiens ke visual</span></label>
+                        <label><input type="radio" name="q2" value="C"> <span>C. Karena disuruh guru</span></label>
+                        <label><input type="radio" name="q2" value="D"> <span>D. Agar tangan tidak pegal</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">3. Bagaimana sikap terbaik saat menerima kritik tajam dari audiens? <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="A"> <span>A. Marah dan membantah dengan kasar</span></label>
+                        <label><input type="radio" name="q3" value="B"> <span>B. Diam saja dan pura-pura tidak mendengar</span></label>
+                        <label><input type="radio" name="q3" value="C"> <span>C. Menerima dengan lapang dada dan merespons dengan data/fakta sopan</span></label>
+                        <label><input type="radio" name="q3" value="D"> <span>D. Menangis di depan kelas</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">4. Apa yang harus dilakukan jika pembicara tidak tahu jawaban atas pertanyaan audiens? <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q4" value="A"> <span>A. Mengarang jawaban asal-asalan</span></label>
+                        <label><input type="radio" name="q4" value="B"> <span>B. Menyalahkan teman kelompok</span></label>
+                        <label><input type="radio" name="q4" value="C"> <span>C. Jujur mengakui ketidaktahuan dan berjanji mencari tahu nanti</span></label>
+                        <label><input type="radio" name="q4" value="D"> <span>D. Memarahi penanya karena bertanya hal sulit</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">5. Intonasi suara yang monoton (datar) dapat menyebabkan... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q5" value="A"> <span>A. Audiens menjadi sangat tertarik</span></label>
+                        <label><input type="radio" name="q5" value="B"> <span>B. Audiens merasa bosan dan kurang memahami penekanan pesan</span></label>
+                        <label><input type="radio" name="q5" value="C"> <span>C. Suara menjadi lebih keras</span></label>
+                        <label><input type="radio" name="q5" value="D"> <span>D. Presentasi menjadi lebih singkat</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">6. Manakah gestur tubuh yang TIDAK disarankan saat presentasi? <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q6" value="A"> <span>A. Tangan terbuka menunjuk slide</span></label>
+                        <label><input type="radio" name="q6" value="B"> <span>B. Tangan dimasukkan ke saku celana terus-menerus</span></label>
+                        <label><input type="radio" name="q6" value="C"> <span>C. Mengangguk saat audiens setuju</span></label>
+                        <label><input type="radio" name="q6" value="D"> <span>D. Berdiri tegak dengan kaki sejajar bahu</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">7. Apa fungsi utama dari sesi tanya jawab dalam presentasi solusi? <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q7" value="A"> <span>A. Untuk menguji kekuatan mental pembicara</span></label>
+                        <label><input type="radio" name="q7" value="B"> <span>B. Untuk memperpanjang waktu presentasi</span></label>
+                        <label><input type="radio" name="q7" value="C"> <span>C. Untuk memperjelas pemahaman dan mendapatkan masukan konstruktif</span></label>
+                        <label><input type="radio" name="q7" value="D"> <span>D. Untuk menjatuhkan lawan presentasi</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">8. Saat memutar video dalam presentasi multimodal, pembicara sebaiknya... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q8" value="A"> <span>A. Keluar ruangan sebentar</span></label>
+                        <label><input type="radio" name="q8" value="B"> <span>B. Tetap memperhatikan reaksi audiens dan siap memberikan konteks setelah video selesai</span></label>
+                        <label><input type="radio" name="q8" value="C"> <span>C. Tidur sambil menunggu video selesai</span></label>
+                        <label><input type="radio" name="q8" value="D"> <span>D. Membaca buku lain</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">9. Prinsip "10-20-30" dalam presentasi menyarankan agar... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q9" value="A"> <span>A. Slide maksimal 10, durasi 20 menit, font minimal 30 poin</span></label>
+                        <label><input type="radio" name="q9" value="B"> <span>B. Slide maksimal 30, durasi 10 menit, font minimal 20 poin</span></label>
+                        <label><input type="radio" name="q9" value="C"> <span>C. Slide maksimal 20, durasi 30 menit, font minimal 10 poin</span></label>
+                        <label><input type="radio" name="q9" value="D"> <span>D. Tidak ada aturan khusus</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">10. Setelah presentasi selesai, langkah terbaik untuk meningkatkan kemampuan adalah... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q10" value="A"> <span>A. Langsung lupa dan tidak peduli</span></label>
+                        <label><input type="radio" name="q10" value="B"> <span>B. Melakukan evaluasi diri menggunakan checklist kinerja</span></label>
+                        <label><input type="radio" name="q10" value="C"> <span>C. Menyalahkan alat yang rusak</span></label>
+                        <label><input type="radio" name="q10" value="D"> <span>D. Berhenti presentasi selamanya</span></label>
+                    </div>
+                </div>
+
+                <!-- Bagian B: Essay -->
+                <h3 style="margin: 32px 0 16px; color: var(--text-primary);">✍️ Bagian B: Essay</h3>
+
+                <div class="question-block">
+                    <p class="question-text">1. Jelaskan tiga pilar utama dalam presentasi multimodal (Verbal, Non-Verbal, Visual)! <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay1" class="form-control" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">2. Mengapa kontak mata penting saat presentasi? Apa dampaknya jika pembicara hanya menatap layar/slide? <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay2" class="form-control" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">3. Buatlah skenario respon sopan jika ada teman yang mengkritik bahwa solusi kampanye kamu "terlalu sulit dilakukan"! <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay3" class="form-control" placeholder="Tulis skenario responmu di sini..."></textarea>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">4. Apa yang harus dilakukan jika kamu lupa materi di tengah presentasi? Sebutkan 2 strategi mengatasinya! <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay4" class="form-control" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">5. Lakukan evaluasi diri terhadap presentasi terakhir kamu. Sebutkan 2 kelebihan dan 2 kekurangan yang perlu diperbaiki! <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay5" class="form-control" placeholder="Tulis evaluasi dirimu di sini..."></textarea>
+                </div>
+
+                <!-- Result Box -->
+                <div class="result-box" id="resultBox">
+                    <h3>📊 Hasil Uji Formatif</h3>
+                    <div class="score-display">
+                        <div class="score-item">
+                            <h4 id="scoreMCQ">0</h4>
+                            <p>Pilihan Ganda (/100)</p>
+                        </div>
+                        <div class="score-item">
+                            <h4 id="scoreEssay">0</h4>
+                            <p>Essay (/100)</p>
+                        </div>
+                        <div class="score-item">
+                            <h4 id="scoreFinal" class="gold-text">0</h4>
+                            <p>Skor Akhir (/200)</p>
+                        </div>
+                    </div>
+                    <p class="disclaimer">*Catatan: Skor Essay adalah estimasi otomatis berdasarkan kelengkapan jawaban (jumlah karakter). Penilaian akhir atas substansi jawaban tetap berada di tangan guru pengampu.</p>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary" onclick="hitungNilai()">✉️ KIRIM JAWABAN & LIHAT HASIL</button>
+                    <button type="button" class="btn btn-secondary" onclick="unduhPDF()">📥 UNDUH PDF LENGKAP</button>
+                    <button type="button" class="btn btn-secondary" onclick="unduhTXT()">📄 UNDUH SKOR (TXT)</button>
+                    <button type="button" class="btn btn-secondary" onclick="kirimEmail()">📧 KIRIM KE EMAIL GURU</button>
+                    <button type="button" class="btn btn-secondary" onclick="mulaiUlang()">🔄 MULAI ULANG</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div style="margin-bottom: 16px;">
+                <a href="index.html" class="nav-link" style="margin: 0 10px;">📖 Daftar Isi</a>
+                <a href="34.html" class="nav-link" style="margin: 0 10px;">Selanjutnya → Ujian Akhir Semester</a>
+            </div>
+            <p>&copy; 2026 <span class="gold-text">Sumarnis, S. Pd.</span> — MTsN 10 Agam. Hak Cipta Dilindungi Undang-Undang.</p>
+            <p style="margin-top: 8px;">Email: <a href="mailto:Sumarnisanis04@yahoo.com">Sumarnisanis04@yahoo.com</a></p>
+        </footer>
+    </div>
+
+    <!-- JavaScript Logic for Quiz -->
+    <script>
+        // Kunci Jawaban Pilihan Ganda
+        const kunciJawaban = {
+            q1: 'C', q2: 'B', q3: 'C', q4: 'C', q5: 'B',
+            q6: 'B', q7: 'C', q8: 'B', q9: 'A', q10: 'B'
+        };
+
+        let finalScoreData = {
+            nama: '',
+            nis: '',
+            kelas: '',
+            semester: '',
+            skorMCQ: 0,
+            skorEssay: 0,
+            skorAkhir: 0
+        };
+
+        function hitungNilai() {
+            // Validasi Identitas
+            const nama = document.getElementById('nama').value.trim();
+            const nis = document.getElementById('nis').value.trim();
+            const kelas = document.getElementById('kelas').value;
+            
+            if (!nama || !nis || !kelas) {
+                alert('Harap lengkapi Identitas Siswa (Nama, NIS, dan Kelas) sebelum mengirim jawaban!');
+                return;
+            }
+
+            // Hitung Pilihan Ganda
+            let benarMCQ = 0;
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected && selected.value === kunciJawaban[`q${i}`]) {
+                    benarMCQ++;
+                }
+            }
+            const skorMCQ = benarMCQ * 10;
+
+            // Hitung Essay (Simulasi berbasis panjang jawaban untuk demo)
+            let skorEssay = 0;
+            for (let i = 1; i <= 5; i++) {
+                const jawaban = document.getElementById(`essay${i}`).value.trim();
+                if (jawaban.length > 60) {
+                    skorEssay += 20; // Jawaban dianggap lengkap dan baik
+                } else if (jawaban.length > 25) {
+                    skorEssay += 10; // Jawaban pendek
+                }
+            }
+
+            const skorAkhir = skorMCQ + skorEssay;
+
+            // Simpan data
+            finalScoreData = { nama, nis, kelas, semester: document.getElementById('semester').value, skorMCQ, skorEssay, skorAkhir };
+
+            // Tampilkan Hasil
+            document.getElementById('scoreMCQ').innerText = skorMCQ;
+            document.getElementById('scoreEssay').innerText = skorEssay;
+            document.getElementById('scoreFinal').innerText = skorAkhir;
+            
+            const resultBox = document.getElementById('resultBox');
+            resultBox.style.display = 'block';
+            resultBox.scrollIntoView({ behavior: 'smooth' });
+
+            alert(`Terima kasih, ${nama}! Jawaban Anda telah diproses. Silakan lihat hasil di bagian bawah.`);
+        }
+
+        function unduhTXT() {
+            if (finalScoreData.skorAkhir === 0 && finalScoreData.nama === '') {
+                alert('Silakan kerjakan dan klik "KIRIM JAWABAN & LIHAT HASIL" terlebih dahulu.');
+                return;
+            }
+
+            const textContent = `
+HASIL UJI FORMATIF - BAHASA INDONESIA KELAS 7
+Pertemuan 33: Teknik Presentasi Multimodal
+----------------------------------------
+Nama    : ${finalScoreData.nama}
+NIS     : ${finalScoreData.nis}
+Kelas   : ${finalScoreData.kelas}
+Semester: ${finalScoreData.semester}
+----------------------------------------
+Skor Pilihan Ganda : ${finalScoreData.skorMCQ} / 100
+Skor Essay (Est.)  : ${finalScoreData.skorEssay} / 100
+SKOR AKHIR         : ${finalScoreData.skorAkhir} / 200
+----------------------------------------
+Catatan: Skor Essay adalah estimasi otomatis berdasarkan panjang jawaban.
+Dibuat oleh: Sumarnis, S. Pd. | MTsN 10 Agam
+            `.trim();
+
+            const blob = new Blob([textContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Skor_UjiFormatif_33_${finalScoreData.nama.replace(/\s+/g, '_')}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function unduhPDF() {
+            if (finalScoreData.skorAkhir === 0 && finalScoreData.nama === '') {
+                alert('Silakan kerjakan dan klik "KIRIM JAWABAN & LIHAT HASIL" terlebih dahulu.');
+                return;
+            }
+            window.print();
+        }
+
+        function kirimEmail() {
+            if (finalScoreData.skorAkhir === 0 && finalScoreData.nama === '') {
+                alert('Silakan kerjakan dan klik "KIRIM JAWABAN & LIHAT HASIL" terlebih dahulu.');
+                return;
+            }
+
+            const subject = `Hasil Uji Formatif Pertemuan 33 - ${finalScoreData.nama} (${finalScoreData.kelas})`;
+            const body = `Yth. Ibu Sumarnis, S. Pd.,\n\nBerikut adalah hasil uji formatif saya:\n\nNama: ${finalScoreData.nama}\nNIS: ${finalScoreData.nis}\nKelas: ${finalScoreData.kelas}\n\nSkor Pilihan Ganda: ${finalScoreData.skorMCQ}\nSkor Essay (Estimasi): ${finalScoreData.skorEssay}\nSkor Akhir: ${finalScoreData.skorAkhir}\n\nTerima kasih.`;
+            
+            window.location.href = `mailto:Sumarnisanis04@yahoo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        function mulaiUlang() {
+            if (confirm('Apakah Anda yakin ingin mengosongkan semua jawaban dan memulai ulang?')) {
+                document.getElementById('quizForm').reset();
+                document.getElementById('resultBox').style.display = 'none';
+                finalScoreData = { nama: '', nis: '', kelas: '', semester: '', skorMCQ: 0, skorEssay: 0, skorAkhir: 0 };
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>

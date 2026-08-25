@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 21: Konversi Kalimat Langsung & Tidak Langsung | Bahasa Indonesia Kelas 7</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0B0F19;
+            --bg-card: #151B2B;
+            --bg-input: #1E2538;
+            --gold-primary: #D4AF37;
+            --gold-light: #F4E4BC;
+            --gold-dark: #AA8C2C;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --border-color: #2A3449;
+            --success: #10B981;
+            --error: #EF4444;
+            --info: #3B82F6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+
+        .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+        .gold-text {
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Navigation */
+        .nav-header {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover { color: var(--gold-primary); }
+
+        /* Chapter Header */
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding: 48px 32px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, transparent 100%);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chapter-header::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 10rem;
+            color: rgba(212, 175, 55, 0.05);
+            line-height: 1;
+        }
+
+        .chapter-header h1 { font-size: 2.5rem; margin-bottom: 16px; }
+        .chapter-header p { color: var(--text-secondary); max-width: 700px; margin: 0 auto; font-size: 1.1rem; }
+
+        .content-section {
+            margin-bottom: 48px;
+            padding: 32px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .content-section h2 {
+            font-size: 1.6rem;
+            color: var(--gold-primary);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        .content-section h3 { font-size: 1.25rem; margin: 28px 0 16px; color: var(--gold-light); }
+        .content-section p { margin-bottom: 16px; color: var(--text-secondary); text-align: justify; }
+
+        .definition-box {
+            background: rgba(212, 175, 55, 0.08);
+            border-left: 4px solid var(--gold-primary);
+            padding: 24px;
+            border-radius: 0 8px 8px 0;
+            margin: 24px 0;
+        }
+
+        .expert-quote {
+            font-style: italic;
+            color: var(--text-primary);
+            border-left: 2px solid var(--gold-dark);
+            padding-left: 16px;
+            margin: 20px 0;
+            color: var(--gold-light);
+        }
+
+        .example-box {
+            background: var(--bg-input);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px dashed var(--border-color);
+            margin: 24px 0;
+        }
+
+        .example-box strong { color: var(--gold-primary); }
+
+        /* Conversion Card Style */
+        .conversion-card {
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            margin: 24px 0;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .conversion-card:hover {
+            border-color: var(--gold-primary);
+            box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.2);
+        }
+
+        .conversion-header {
+            background: linear-gradient(90deg, rgba(212, 175, 55, 0.15) 0%, transparent 100%);
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .conversion-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--gold-primary);
+        }
+
+        .conversion-body {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 0;
+        }
+
+        .conv-side {
+            padding: 24px;
+        }
+
+        .conv-before {
+            background: rgba(59, 130, 246, 0.05);
+            border-right: 1px solid var(--border-color);
+        }
+
+        .conv-after {
+            background: rgba(16, 185, 129, 0.05);
+        }
+
+        .conv-label {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .label-before {
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--info);
+            border: 1px solid var(--info);
+        }
+
+        .label-after {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--success);
+            border: 1px solid var(--success);
+        }
+
+        .conv-text {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-primary);
+            font-style: italic;
+        }
+
+        .conv-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-card);
+            color: var(--gold-primary);
+            font-size: 1.5rem;
+            padding: 0 12px;
+            border-left: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+        }
+
+        .conv-analysis {
+            padding: 16px 24px;
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .conv-analysis strong { color: var(--gold-primary); }
+
+        /* Luxury Table */
+        .luxury-table-wrapper {
+            overflow-x: auto;
+            margin: 24px 0;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .luxury-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        .luxury-table th {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            font-weight: 600;
+            text-align: left;
+            padding: 16px;
+            border-bottom: 2px solid var(--gold-dark);
+        }
+
+        .luxury-table td {
+            padding: 16px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .luxury-table tr:last-child td { border-bottom: none; }
+        .luxury-table tr:hover td { background: rgba(255, 255, 255, 0.02); color: var(--text-primary); }
+
+        /* Keywords */
+        .keywords-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 32px 0;
+            justify-content: center;
+        }
+
+        .keyword-tag {
+            background: var(--bg-input);
+            color: var(--gold-primary);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .keyword-tag:hover {
+            background: var(--gold-primary);
+            color: var(--bg-dark);
+            cursor: default;
+        }
+
+        /* Quiz Styles */
+        .quiz-container {
+            background: var(--bg-card);
+            border: 1px solid var(--gold-primary);
+            border-radius: 12px;
+            padding: 40px;
+            margin-top: 60px;
+        }
+
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--text-secondary); font-size: 0.9rem; }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus { outline: none; border-color: var(--gold-primary); }
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+        .question-block {
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .question-text { font-weight: 600; margin-bottom: 16px; color: var(--text-primary); }
+
+        .points-badge {
+            float: right;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .options label {
+            display: block;
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text-secondary);
+        }
+
+        .options label:hover { border-color: var(--gold-primary); color: var(--text-primary); }
+        .options input[type="radio"] { margin-right: 12px; accent-color: var(--gold-primary); }
+        .options input[type="radio"]:checked + span { color: var(--gold-primary); font-weight: 500; }
+        .options label:has(input[type="radio"]:checked) {
+            border-color: var(--gold-primary);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        textarea.form-control { min-height: 120px; resize: vertical; }
+
+        .btn-group { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+
+        .btn {
+            padding: 14px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-primary) 100%);
+            color: var(--bg-dark);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--bg-input);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover { border-color: var(--gold-primary); color: var(--gold-primary); }
+
+        .result-box {
+            display: none;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 32px;
+            text-align: center;
+        }
+
+        .result-box h3 { color: var(--success); margin-bottom: 16px; }
+        .score-display { display: flex; justify-content: center; gap: 40px; margin: 24px 0; }
+        .score-item h4 { font-size: 2rem; color: var(--gold-primary); }
+        .score-item p { font-size: 0.9rem; color: var(--text-secondary); }
+
+        .disclaimer { font-size: 0.8rem; color: var(--text-secondary); margin-top: 16px; font-style: italic; }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 80px;
+        }
+
+        footer a { color: var(--gold-primary); text-decoration: none; }
+
+        .references {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 16px;
+            padding-left: 20px;
+        }
+        .references li { margin-bottom: 8px; }
+
+        /* Tip Box */
+        .tip-box {
+            background: rgba(16, 185, 129, 0.08);
+            border-left: 4px solid var(--success);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 24px 0;
+        }
+
+        .tip-box strong { color: var(--success); }
+
+        @media (max-width: 768px) {
+            .conversion-body { grid-template-columns: 1fr; }
+            .conv-arrow { transform: rotate(90deg); padding: 12px 0; }
+            .conv-before { border-right: none; border-bottom: 1px solid var(--border-color); }
+            .form-row { grid-template-columns: 1fr; }
+            .score-display { flex-direction: column; gap: 20px; }
+            .btn-group { flex-direction: column; }
+            .btn { width: 100%; }
+            .chapter-header h1 { font-size: 1.8rem; }
+        }
+
+        @media print {
+            body { background: white; color: black; }
+            .nav-header, .btn-group, footer, .quiz-container { display: none; }
+            .content-section { border: 1px solid #ccc; background: white; color: black; }
+            .gold-text { color: #333; -webkit-text-fill-color: #333; }
+            .luxury-table th { background: #eee; color: black; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav-header">
+            <a href="20.html" class="nav-link">← Pertemuan 20</a>
+            <span style="color: var(--text-secondary); font-size: 0.9rem;">Bahasa Indonesia Kelas VII</span>
+            <a href="22.html" class="nav-link">Pertemuan 22 →</a>
+        </nav>
+
+        <!-- Chapter Header -->
+        <div class="chapter-header">
+            <h1>🔄 <span class="gold-text">Pertemuan 21</span></h1>
+            <h2 style="font-size: 1.8rem; margin-bottom: 16px; color: var(--text-primary);">Mengubah Kalimat Langsung menjadi Kalimat Tidak Langsung dan Sebaliknya</h2>
+            <p>Melatih keterampilan transformasi bahasa dengan mengubah bentuk kutipan langsung menjadi laporan tidak langsung, dan sebaliknya. Materi ini penting untuk variasi gaya penulisan, pembuatan ringkasan berita, dan pelaporan peristiwa secara objektif.</p>
+            <p style="margin-top: 20px; font-size: 0.9rem; color: var(--gold-primary); font-weight: 600;">Capaian Pembelajaran: Peserta didik mampu mengubah kalimat langsung menjadi kalimat tidak langsung dan sebaliknya dengan memperhatikan perubahan kata ganti, tanda baca, dan struktur kalimat.</p>
+        </div>
+
+        <!-- Content A: Pengertian & Teori -->
+        <div class="content-section">
+            <h2>A. Hakikat Transformasi Kalimat</h2>
+            <p>Dalam komunikasi sehari-hari, kita sering perlu menceritakan kembali apa yang dikatakan orang lain. Ada dua cara utama: menirukan persis ucapannya (Langsung) atau melaporkan intisarinya (Tidak Langsung). Kemampuan beralih di antara keduanya menunjukkan kecakapan berbahasa yang tinggi.</p>
+            
+            <div class="expert-quote">
+                "Transformasi kalimat bukan sekadar mengganti tanda baca, melainkan mengubah sudut pandang narator dari 'peniru suara' menjadi 'pelapor informasi'." 
+                <br><span style="font-size: 0.85rem; color: var(--text-secondary);">— Gorys Keraf (2004), <em>Tata Bahasa Baku Bahasa Indonesia</em></span>
+            </div>
+
+            <div class="definition-box">
+                <strong>📌 DEFINISI INTI</strong><br>
+                <strong>Konversi Kalimat</strong> adalah proses mengubah struktur kalimat langsung (menggunakan tanda petik) menjadi kalimat tidak langsung (tanpa tanda petik, menggunakan kata hubung), atau sebaliknya, dengan tetap mempertahankan makna asli pesan tersebut.
+            </div>
+
+            <h3>Tujuan Mempelajari Konversi:</h3>
+            <ul style="color: var(--text-secondary); margin-left: 20px; margin-bottom: 16px;">
+                <li><strong style="color: var(--text-primary);">Variasi Gaya Tulis:</strong> Agar tulisan tidak monoton dan lebih enak dibaca.</li>
+                <li><strong style="color: var(--text-primary);">Efisiensi Ruang:</strong> Kalimat tidak langsung lebih ringkas untuk melaporkan percakapan panjang.</li>
+                <li><strong style="color: var(--text-primary);">Objektivitas:</strong> Kalimat tidak langsung sering digunakan dalam berita atau laporan resmi untuk menjaga netralitas.</li>
+                <li><strong style="color: var(--text-primary);">Ketepatan Tata Bahasa:</strong> Melatih kepekaan terhadap perubahan kata ganti dan keterangan waktu.</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 Kunci Utama:</strong><br>
+                Ingat 3 hal yang berubah saat konversi: <strong>1. Tanda Baca</strong> (Petik hilang/muncul), <strong>2. Kata Ganti</strong> (Aku→Dia), dan <strong>3. Kata Hubung</strong> (Muncul "bahwa/agar").
+            </div>
+        </div>
+
+        <!-- Content B: Langkah-Langkah Konversi -->
+        <div class="content-section">
+            <h2>B. Langkah-Langkah Mengubah Kalimat</h2>
+            <p>Untuk mengubah kalimat langsung menjadi tidak langsung (dan sebaliknya), ikuti panduan sistematis berikut:</p>
+            
+            <div class="luxury-table-wrapper">
+                <table class="luxury-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 10%;">Langkah</th>
+                            <th style="width: 40%;">Dari Langsung ke Tidak Langsung</th>
+                            <th style="width: 50%;">Dari Tidak Langsung ke Langsung</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1</strong></td>
+                            <td>Hilangkan tanda petik dua ("...").</td>
+                            <td>Tambahkan tanda petik dua pada bagian ucapan.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2</strong></td>
+                            <td>Ganti kata ganti orang (Aku→Ia, Kamu→Nama/Ia).</td>
+                            <td>Kembalikan kata ganti ke bentuk asli pembicara (Ia→Aku).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3</strong></td>
+                            <td>Tambahkan kata hubung (bahwa, agar, untuk).</td>
+                            <td>Hilangkan kata hubung "bahwa/agar".</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4</strong></td>
+                            <td>Sesuaikan keterangan waktu/tempat jika perlu (Besok→Keesokan harinya).</td>
+                            <td>Kembalikan keterangan waktu ke bentuk asli (Keesokan harinya→Besok).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>5</strong></td>
+                            <td>Ubah intonasi menjadi datar (hilangkan tanda seru/tanya jika berupa pernyataan).</td>
+                            <td>Tambahkan tanda baca yang sesuai (!, ?) di dalam petik.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Content C: Contoh Bedah -->
+        <div class="content-section">
+            <h2>C. Bedah Contoh: Transformasi Kalimat</h2>
+            <p>Berikut adalah beberapa contoh konversi kalimat dengan berbagai jenis (pernyataan, perintah, dan tanya).</p>
+            
+            <div class="conversion-card">
+                <div class="conversion-header">
+                    <span class="conversion-title">Tipe 1: Kalimat Berita/Pernyataan</span>
+                </div>
+                <div class="conversion-body">
+                    <div class="conv-side conv-before">
+                        <span class="conv-label label-before">Kalimat Langsung</span>
+                        <p class="conv-text">Rina berkata, "<strong>Aku</strong> sedang mengerjakan tugas Matematika."</p>
+                    </div>
+                    <div class="conv-arrow">→</div>
+                    <div class="conv-side conv-after">
+                        <span class="conv-label label-after">Kalimat Tidak Langsung</span>
+                        <p class="conv-text">Rina berkata bahwa <strong>ia</strong> sedang mengerjakan tugas Matematika.</p>
+                    </div>
+                </div>
+                <div class="conv-analysis">
+                    <strong>Analisis:</strong> Kata "Aku" berubah menjadi "ia". Tanda petik dihilangkan. Ditambahkan kata hubung "bahwa".
+                </div>
+            </div>
+
+            <div class="conversion-card">
+                <div class="conversion-header">
+                    <span class="conversion-title">Tipe 2: Kalimat Perintah</span>
+                </div>
+                <div class="conversion-body">
+                    <div class="conv-side conv-before">
+                        <span class="conv-label label-before">Kalimat Langsung</span>
+                        <p class="conv-text">Ibu menyuruh, "<strong>Bersihkan</strong> kamarmu sekarang!"</p>
+                    </div>
+                    <div class="conv-arrow">→</div>
+                    <div class="conv-side conv-after">
+                        <span class="conv-label label-after">Kalimat Tidak Langsung</span>
+                        <p class="conv-text">Ibu menyuruh Adik untuk <strong>membersihkan</strong> kamarnya saat itu juga.</p>
+                    </div>
+                </div>
+                <div class="conv-analysis">
+                    <strong>Analisis:</strong> Kata kerja "Bersihkan" diubah menjadi "membersihkan". Ditambahkan kata hubung "untuk". Kata "sekarang" bisa berubah menjadi "saat itu juga" tergantung konteks waktu cerita.
+                </div>
+            </div>
+
+            <div class="conversion-card">
+                <div class="conversion-header">
+                    <span class="conversion-title">Tipe 3: Kalimat Tanya</span>
+                </div>
+                <div class="conversion-body">
+                    <div class="conv-side conv-before">
+                        <span class="conv-label label-before">Kalimat Langsung</span>
+                        <p class="conv-text">Guru bertanya, "<strong>Siapa</strong> yang belum mengumpulkan PR?"</p>
+                    </div>
+                    <div class="conv-arrow">→</div>
+                    <div class="conv-side conv-after">
+                        <span class="conv-label label-after">Kalimat Tidak Langsung</span>
+                        <p class="conv-text">Guru bertanya tentang <strong>siapa</strong> yang belum mengumpulkan PR.</p>
+                    </div>
+                </div>
+                <div class="conv-analysis">
+                    <strong>Analisis:</strong> Tanda tanya dihilangkan. Struktur kalimat tanya diubah menjadi pernyataan tidak langsung menggunakan kata "tentang" atau "apakah".
+                </div>
+            </div>
+        </div>
+
+        <!-- Content D: Kesalahan Umum -->
+        <div class="content-section">
+            <h2>D. Kesalahan Umum dalam Konversi</h2>
+            <p>Banyak siswa melakukan kesalahan saat mengubah kalimat. Perhatikan jebakan-jebakan berikut agar konversimu sempurna:</p>
+            
+            <div class="example-box">
+                <h3 style="margin-top: 0;">❌ Kesalahan 1: Lupa Mengganti Kata Ganti</h3>
+                <p><strong>Salah:</strong> Budi berkata bahwa <strong>aku</strong> akan pergi.<br>
+                <strong>Benar:</strong> Budi berkata bahwa <strong>ia</strong> akan pergi.<br>
+                <em>(Kata ganti harus menyesuaikan dengan siapa yang berbicara)</em></p>
+            </div>
+
+            <div class="example-box">
+                <h3 style="margin-top: 0;">❌ Kesalahan 2: Masih Menggunakan Tanda Petik</h3>
+                <p><strong>Salah:</strong> Ibu mengatakan bahwa "dia sedang masak".<br>
+                <strong>Benar:</strong> Ibu mengatakan bahwa dia sedang masak.<br>
+                <em>(Kalimat tidak langsung TIDAK BOLEH memakai tanda petik)</em></p>
+            </div>
+
+            <div class="example-box">
+                <h3 style="margin-top: 0;">❌ Kesalahan 3: Salah Memilih Kata Hubung</h3>
+                <p><strong>Salah:</strong> Ayah berkata bahwa tutup pintu!<br>
+                <strong>Benar:</strong> Ayah menyuruh untuk menutup pintu.<br>
+                <em>(Kalimat perintah menggunakan "agar/supaya/untuk", bukan "bahwa")</em></p>
+            </div>
+        </div>
+
+        <!-- Keywords -->
+        <div class="keywords-section">
+            <span class="keyword-tag">Konversi Kalimat</span>
+            <span class="keyword-tag">Transformasi</span>
+            <span class="keyword-tag">Kata Ganti</span>
+            <span class="keyword-tag">Tanda Petik</span>
+            <span class="keyword-tag">Kata Hubung</span>
+            <span class="keyword-tag">Kalimat Berita</span>
+            <span class="keyword-tag">Kalimat Perintah</span>
+            <span class="keyword-tag">Kalimat Tanya</span>
+        </div>
+
+        <div class="content-section" style="text-align: center; padding: 40px;">
+            <p style="font-family: 'Playfair Display', serif; font-size: 1.3rem; font-style: italic; color: var(--gold-light); margin-bottom: 12px;">"Bahasa yang luwes adalah bahasa yang mampu berpindah bentuk tanpa kehilangan makna."</p>
+            <cite style="color: var(--text-secondary); font-size: 0.9rem; font-style: normal;">— Refleksi Keterampilan Berbahasa</cite>
+        </div>
+
+        <!-- Referensi -->
+        <div class="content-section">
+            <h2>E. Referensi & Bacaan Lanjutan</h2>
+            <ul class="references">
+                <li>Kemdikbudristek. (2022). <em>Buku Bahasa Indonesia Kelas VII SMP/MTs (Edisi Revisi)</em>. Jakarta: Pusat Perbukuan.</li>
+                <li>Keraf, Gorys. (2004). <em>Tata Bahasa Baku Bahasa Indonesia</em>. Jakarta: Balai Pustaka.</li>
+                <li>Alwi, Hasan, et al. (2017). <em>Tata Bahasa Baku Bahasa Indonesia (Edisi Keempat)</em>. Jakarta: Badan Pengembangan dan Pembinaan Bahasa.</li>
+                <li>Ramlan, M. R. (2010). <em>Ilmu Bahasa Indonesia: Sintaksis</em>. Yogyakarta: Andi Offset.</li>
+            </ul>
+        </div>
+
+        <!-- UJI FORMATIF -->
+        <div class="quiz-container" id="uji-formatif">
+            <div class="quiz-header">
+                <h2 style="color: var(--gold-primary); margin-bottom: 8px;">📝 Uji Formatif Pertemuan 21</h2>
+                <p style="color: var(--text-secondary);">Materi: Mengubah kalimat langsung menjadi tidak langsung dan sebaliknya dengan tepat.</p>
+            </div>
+
+            <form id="quizForm">
+                <!-- Identitas -->
+                <div class="content-section" style="background: var(--bg-input); border: none;">
+                    <h3 style="margin-top: 0; color: var(--gold-primary);">📋 Identitas Siswa</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nama Lengkap *</label>
+                            <input type="text" id="nama" class="form-control" required placeholder="Masukkan nama lengkap">
+                        </div>
+                        <div class="form-group">
+                            <label>No. Absen / NIS *</label>
+                            <input type="text" id="nis" class="form-control" required placeholder="Contoh: 12345">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Kelas *</label>
+                            <select id="kelas" class="form-control" required>
+                                <option value="">Pilih Kelas</option>
+                                <option value="VII-A">VII-A</option>
+                                <option value="VII-B">VII-B</option>
+                                <option value="VII-C">VII-C</option>
+                                <option value="VII-D">VII-D</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Semester *</label>
+                            <select id="semester" class="form-control" required>
+                                <option value="1 (Ganjil)">1 (Ganjil)</option>
+                                <option value="2 (Genap)">2 (Genap)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bagian A: Pilihan Ganda -->
+                <h3 style="margin: 32px 0 16px; color: var(--text-primary);">📋 Bagian A: Pilihan Ganda</h3>
+                
+                <div class="question-block">
+                    <p class="question-text">1. Perubahan kata ganti yang benar dari kalimat langsung ke tidak langsung adalah... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="A"> <span>A. Aku menjadi Kamu</span></label>
+                        <label><input type="radio" name="q1" value="B"> <span>B. Aku menjadi Ia/Dia</span></label>
+                        <label><input type="radio" name="q1" value="C"> <span>C. Kamu menjadi Aku</span></label>
+                        <label><input type="radio" name="q1" value="D"> <span>D. Ia menjadi Kami</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">2. Manakah kalimat tidak langsung yang benar dari: "Saya lapar," kata Budi? <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="A"> <span>A. Budi berkata bahwa saya lapar.</span></label>
+                        <label><input type="radio" name="q2" value="B"> <span>B. Budi berkata bahwa ia lapar.</span></label>
+                        <label><input type="radio" name="q2" value="C"> <span>C. Budi berkata, "Ia lapar."</span></label>
+                        <label><input type="radio" name="q2" value="D"> <span>D. Budi berkata bahwa kamu lapar.</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">3. Kata hubung yang tepat untuk mengubah kalimat perintah menjadi tidak langsung adalah... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="A"> <span>A. Bahwa</span></label>
+                        <label><input type="radio" name="q3" value="B"> <span>B. Atau</span></label>
+                        <label><input type="radio" name="q3" value="C"> <span>C. Agar / Untuk</span></label>
+                        <label><input type="radio" name="q3" value="D"> <span>D. Karena</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">4. Tanda baca yang HILANG saat mengubah kalimat langsung menjadi tidak langsung adalah... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q4" value="A"> <span>A. Titik (.)</span></label>
+                        <label><input type="radio" name="q4" value="B"> <span>B. Tanda Petik Dua ("...")</span></label>
+                        <label><input type="radio" name="q4" value="C"> <span>C. Koma (,)</span></label>
+                        <label><input type="radio" name="q4" value="D"> <span>D. Semua tanda baca hilang</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">5. Bentuk tidak langsung dari: "Jangan buang sampah sembarangan!" teriak Pak Guru adalah... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q5" value="A"> <span>A. Pak Guru teriak bahwa jangan buang sampah sembarangan.</span></label>
+                        <label><input type="radio" name="q5" value="B"> <span>B. Pak Guru melarang membuang sampah sembarangan.</span></label>
+                        <label><input type="radio" name="q5" value="C"> <span>C. Pak Guru berkata, "Jangan buang sampah."</span></label>
+                        <label><input type="radio" name="q5" value="D"> <span>D. Pak Guru bertanya apakah boleh buang sampah.</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">6. Jika kalimat tidak langsungnya: "Ibu menanyakan apakah saya sudah makan.", maka kalimat langsungnya adalah... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q6" value="A"> <span>A. Ibu berkata, "Saya sudah makan."</span></label>
+                        <label><input type="radio" name="q6" value="B"> <span>B. Ibu bertanya, "Apakah kamu sudah makan?"</span></label>
+                        <label><input type="radio" name="q6" value="C"> <span>C. Ibu menyuruh, "Makanlah!"</span></label>
+                        <label><input type="radio" name="q6" value="D"> <span>D. Ibu berkata bahwa saya sudah makan.</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">7. Keterangan waktu "besok" dalam kalimat langsung akan berubah menjadi ... dalam kalimat tidak langsung (jika diceritakan masa lalu). <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q7" value="A"> <span>A. Kemarin</span></label>
+                        <label><input type="radio" name="q7" value="B"> <span>B. Hari ini</span></label>
+                        <label><input type="radio" name="q7" value="C"> <span>C. Keesokan harinya</span></label>
+                        <label><input type="radio" name="q7" value="D"> <span>D. Lusa</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">8. Manakah penulisan kalimat langsung yang benar? <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q8" value="A"> <span>A. Dia berkata "Aku pulang".</span></label>
+                        <label><input type="radio" name="q8" value="B"> <span>B. Dia berkata, "Aku pulang."</span></label>
+                        <label><input type="radio" name="q8" value="C"> <span>C. "Aku pulang" Dia berkata.</span></label>
+                        <label><input type="radio" name="q8" value="D"> <span>D. Dia berkata: "Aku pulang."</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">9. Tujuan utama mengubah kalimat langsung menjadi tidak langsung dalam berita adalah... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q9" value="A"> <span>A. Agar berita lebih panjang</span></label>
+                        <label><input type="radio" name="q9" value="B"> <span>B. Agar terlihat lebih dramatis</span></label>
+                        <label><input type="radio" name="q9" value="C"> <span>C. Untuk efisiensi ruang dan objektivitas</span></label>
+                        <label><input type="radio" name="q9" value="D"> <span>D. Untuk membingungkan pembaca</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">10. Kata ganti "Kami" dalam kalimat langsung akan berubah menjadi ... dalam kalimat tidak langsung. <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q10" value="A"> <span>A. Saya</span></label>
+                        <label><input type="radio" name="q10" value="B"> <span>B. Kamu</span></label>
+                        <label><input type="radio" name="q10" value="C"> <span>C. Mereka</span></label>
+                        <label><input type="radio" name="q10" value="D"> <span>D. Kita</span></label>
+                    </div>
+                </div>
+
+                <!-- Bagian B: Essay -->
+                <h3 style="margin: 32px 0 16px; color: var(--text-primary);">✍️ Bagian B: Essay</h3>
+
+                <div class="question-block">
+                    <p class="question-text">1. Ubahlah kalimat langsung berikut menjadi kalimat tidak langsung:<br>
+                    "Aku akan belajar giat untuk ujian besok," kata Rina. <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay1" class="form-control" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">2. Ubahlah kalimat tidak langsung berikut menjadi kalimat langsung:<br>
+                    Ayah menyuruh Adik agar segera mandi karena air sudah panas. <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay2" class="form-control" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">3. Ubahlah kalimat tanya langsung berikut menjadi tidak langsung:<br>
+                    Guru bertanya, "Siapa yang terlambat hari ini?" <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay3" class="form-control" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">4. Jelaskan tiga perbedaan utama antara kalimat langsung dan kalimat tidak langsung! <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay4" class="form-control" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">5. Buatlah satu paragraf pendek (3-4 kalimat) yang mengandung minimal satu kalimat langsung dan satu kalimat tidak langsung! <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay5" class="form-control" placeholder="Tulis paragraf Anda di sini..."></textarea>
+                </div>
+
+                <!-- Result Box -->
+                <div class="result-box" id="resultBox">
+                    <h3>📊 Hasil Uji Formatif</h3>
+                    <div class="score-display">
+                        <div class="score-item">
+                            <h4 id="scoreMCQ">0</h4>
+                            <p>Pilihan Ganda (/100)</p>
+                        </div>
+                        <div class="score-item">
+                            <h4 id="scoreEssay">0</h4>
+                            <p>Essay (/100)</p>
+                        </div>
+                        <div class="score-item">
+                            <h4 id="scoreFinal" class="gold-text">0</h4>
+                            <p>Skor Akhir (/200)</p>
+                        </div>
+                    </div>
+                    <p class="disclaimer">*Catatan: Skor Essay adalah estimasi otomatis berdasarkan kelengkapan jawaban (jumlah karakter). Penilaian akhir atas ketepatan struktur dan tanda baca tetap berada di tangan guru pengampu.</p>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary" onclick="hitungNilai()">✉️ KIRIM JAWABAN & LIHAT HASIL</button>
+                    <button type="button" class="btn btn-secondary" onclick="unduhPDF()">📥 UNDUH PDF LENGKAP</button>
+                    <button type="button" class="btn btn-secondary" onclick="unduhTXT()">📄 UNDUH SKOR (TXT)</button>
+                    <button type="button" class="btn btn-secondary" onclick="kirimEmail()">📧 KIRIM KE EMAIL GURU</button>
+                    <button type="button" class="btn btn-secondary" onclick="mulaiUlang()">🔄 MULAI ULANG</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div style="margin-bottom: 16px;">
+                <a href="index.html" class="nav-link" style="margin: 0 10px;">📖 Daftar Isi</a>
+                <a href="22.html" class="nav-link" style="margin: 0 10px;">Selanjutnya → Pertemuan 22</a>
+            </div>
+            <p>&copy; 2026 <span class="gold-text">Sumarnis, S. Pd.</span> — MTsN 10 Agam. Hak Cipta Dilindungi Undang-Undang.</p>
+            <p style="margin-top: 8px;">Email: <a href="mailto:Sumarnisanis04@yahoo.com">Sumarnisanis04@yahoo.com</a></p>
+        </footer>
+    </div>
+
+    <!-- JavaScript Logic for Quiz -->
+    <script>
+        // Kunci Jawaban Pilihan Ganda
+        const kunciJawaban = {
+            q1: 'B', q2: 'B', q3: 'C', q4: 'B', q5: 'B',
+            q6: 'B', q7: 'C', q8: 'B', q9: 'C', q10: 'C'
+        };
+
+        let finalScoreData = {
+            nama: '',
+            nis: '',
+            kelas: '',
+            semester: '',
+            skorMCQ: 0,
+            skorEssay: 0,
+            skorAkhir: 0
+        };
+
+        function hitungNilai() {
+            // Validasi Identitas
+            const nama = document.getElementById('nama').value.trim();
+            const nis = document.getElementById('nis').value.trim();
+            const kelas = document.getElementById('kelas').value;
+            
+            if (!nama || !nis || !kelas) {
+                alert('Harap lengkapi Identitas Siswa (Nama, NIS, dan Kelas) sebelum mengirim jawaban!');
+                return;
+            }
+
+            // Hitung Pilihan Ganda
+            let benarMCQ = 0;
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected && selected.value === kunciJawaban[`q${i}`]) {
+                    benarMCQ++;
+                }
+            }
+            const skorMCQ = benarMCQ * 10;
+
+            // Hitung Essay (Simulasi berbasis panjang jawaban untuk demo)
+            let skorEssay = 0;
+            for (let i = 1; i <= 5; i++) {
+                const jawaban = document.getElementById(`essay${i}`).value.trim();
+                if (jawaban.length > 50) {
+                    skorEssay += 20; // Jawaban dianggap lengkap dan baik
+                } else if (jawaban.length > 20) {
+                    skorEssay += 10; // Jawaban pendek
+                }
+            }
+
+            const skorAkhir = skorMCQ + skorEssay;
+
+            // Simpan data
+            finalScoreData = { nama, nis, kelas, semester: document.getElementById('semester').value, skorMCQ, skorEssay, skorAkhir };
+
+            // Tampilkan Hasil
+            document.getElementById('scoreMCQ').innerText = skorMCQ;
+            document.getElementById('scoreEssay').innerText = skorEssay;
+            document.getElementById('scoreFinal').innerText = skorAkhir;
+            
+            const resultBox = document.getElementById('resultBox');
+            resultBox.style.display = 'block';
+            resultBox.scrollIntoView({ behavior: 'smooth' });
+
+            alert(`Terima kasih, ${nama}! Jawaban Anda telah diproses. Silakan lihat hasil di bagian bawah.`);
+        }
+
+        function unduhTXT() {
+            if (finalScoreData.skorAkhir === 0 && finalScoreData.nama === '') {
+                alert('Silakan kerjakan dan klik "KIRIM JAWABAN & LIHAT HASIL" terlebih dahulu.');
+                return;
+            }
+
+            const textContent = `
+HASIL UJI FORMATIF - BAHASA INDONESIA KELAS 7
+Pertemuan 21: Konversi Kalimat Langsung & Tidak Langsung
+----------------------------------------
+Nama    : ${finalScoreData.nama}
+NIS     : ${finalScoreData.nis}
+Kelas   : ${finalScoreData.kelas}
+Semester: ${finalScoreData.semester}
+----------------------------------------
+Skor Pilihan Ganda : ${finalScoreData.skorMCQ} / 100
+Skor Essay (Est.)  : ${finalScoreData.skorEssay} / 100
+SKOR AKHIR         : ${finalScoreData.skorAkhir} / 200
+----------------------------------------
+Catatan: Skor Essay adalah estimasi otomatis berdasarkan panjang jawaban.
+Dibuat oleh: Sumarnis, S. Pd. | MTsN 10 Agam
+            `.trim();
+
+            const blob = new Blob([textContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Skor_UjiFormatif_21_${finalScoreData.nama.replace(/\s+/g, '_')}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function unduhPDF() {
+            if (finalScoreData.skorAkhir === 0 && finalScoreData.nama === '') {
+                alert('Silakan kerjakan dan klik "KIRIM JAWABAN & LIHAT HASIL" terlebih dahulu.');
+                return;
+            }
+            window.print();
+        }
+
+        function kirimEmail() {
+            if (finalScoreData.skorAkhir === 0 && finalScoreData.nama === '') {
+                alert('Silakan kerjakan dan klik "KIRIM JAWABAN & LIHAT HASIL" terlebih dahulu.');
+                return;
+            }
+
+            const subject = `Hasil Uji Formatif Pertemuan 21 - ${finalScoreData.nama} (${finalScoreData.kelas})`;
+            const body = `Yth. Ibu Sumarnis, S. Pd.,\n\nBerikut adalah hasil uji formatif saya:\n\nNama: ${finalScoreData.nama}\nNIS: ${finalScoreData.nis}\nKelas: ${finalScoreData.kelas}\n\nSkor Pilihan Ganda: ${finalScoreData.skorMCQ}\nSkor Essay (Estimasi): ${finalScoreData.skorEssay}\nSkor Akhir: ${finalScoreData.skorAkhir}\n\nTerima kasih.`;
+            
+            window.location.href = `mailto:Sumarnisanis04@yahoo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        function mulaiUlang() {
+            if (confirm('Apakah Anda yakin ingin mengosongkan semua jawaban dan memulai ulang?')) {
+                document.getElementById('quizForm').reset();
+                document.getElementById('resultBox').style.display = 'none';
+                finalScoreData = { nama: '', nis: '', kelas: '', semester: '', skorMCQ: 0, skorEssay: 0, skorAkhir: 0 };
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>

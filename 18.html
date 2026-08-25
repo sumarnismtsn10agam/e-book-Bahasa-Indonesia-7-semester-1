@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 18: Analisis Penokohan Cerita Fantasi | Bahasa Indonesia Kelas 7</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0B0F19;
+            --bg-card: #151B2B;
+            --bg-input: #1E2538;
+            --gold-primary: #D4AF37;
+            --gold-light: #F4E4BC;
+            --gold-dark: #AA8C2C;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --border-color: #2A3449;
+            --success: #10B981;
+            --error: #EF4444;
+            --magic: #A855F7; /* Purple for Fantasy */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+
+        .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+        .gold-text {
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Navigation */
+        .nav-header {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover { color: var(--gold-primary); }
+
+        /* Chapter Header */
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding: 48px 32px;
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chapter-header::before {
+            content: '🎭';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            opacity: 0.2;
+        }
+
+        .chapter-header h1 { font-size: 2.5rem; margin-bottom: 16px; }
+        .chapter-header p { color: var(--text-secondary); max-width: 700px; margin: 0 auto; font-size: 1.1rem; }
+
+        .content-section {
+            margin-bottom: 48px;
+            padding: 32px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .content-section h2 {
+            font-size: 1.6rem;
+            color: var(--gold-primary);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        .content-section h3 { font-size: 1.25rem; margin: 28px 0 16px; color: var(--magic); }
+        .content-section p { margin-bottom: 16px; color: var(--text-secondary); text-align: justify; }
+
+        .definition-box {
+            background: rgba(168, 85, 247, 0.08);
+            border-left: 4px solid var(--magic);
+            padding: 24px;
+            border-radius: 0 8px 8px 0;
+            margin: 24px 0;
+        }
+
+        .expert-quote {
+            font-style: italic;
+            color: var(--text-primary);
+            border-left: 2px solid var(--gold-dark);
+            padding-left: 16px;
+            margin: 20px 0;
+            color: var(--gold-light);
+        }
+
+        .example-box {
+            background: var(--bg-input);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px dashed var(--border-color);
+            margin: 24px 0;
+        }
+
+        .example-box strong { color: var(--gold-primary); }
+
+        /* Character Card Style */
+        .character-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 24px 0;
+        }
+
+        .character-card {
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .character-card.protagonist {
+            border-top: 4px solid var(--success);
+        }
+
+        .character-card.antagonist {
+            border-top: 4px solid var(--error);
+        }
+
+        .character-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        .char-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .character-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .trait-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .trait-list li {
+            padding: 6px 0;
+            border-bottom: 1px dashed var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .trait-list li:last-child {
+            border-bottom: none;
+        }
+
+        .trait-list li::before {
+            content: '•';
+            color: var(--gold-primary);
+            font-weight: bold;
+        }
+
+        /* Luxury Table */
+        .luxury-table-wrapper {
+            overflow-x: auto;
+            margin: 24px 0;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .luxury-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        .luxury-table th {
+            background: rgba(168, 85, 247, 0.15);
+            color: var(--magic);
+            font-weight: 600;
+            text-align: left;
+            padding: 16px;
+            border-bottom: 2px solid var(--magic);
+        }
+
+        .luxury-table td {
+            padding: 16px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .luxury-table tr:last-child td { border-bottom: none; }
+        .luxury-table tr:hover td { background: rgba(255, 255, 255, 0.02); color: var(--text-primary); }
+
+        /* Analysis Box */
+        .analysis-box {
+            background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+            border: 1px solid var(--magic);
+            border-radius: 12px;
+            padding: 32px;
+            margin: 24px 0;
+            position: relative;
+        }
+
+        .analysis-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--gold-primary);
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        /* Keywords */
+        .keywords-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 32px 0;
+            justify-content: center;
+        }
+
+        .keyword-tag {
+            background: var(--bg-input);
+            color: var(--magic);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .keyword-tag:hover {
+            background: var(--magic);
+            color: white;
+            cursor: default;
+        }
+
+        /* Quiz Styles */
+        .quiz-container {
+            background: var(--bg-card);
+            border: 1px solid var(--gold-primary);
+            border-radius: 12px;
+            padding: 40px;
+            margin-top: 60px;
+        }
+
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--text-secondary); font-size: 0.9rem; }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus { outline: none; border-color: var(--gold-primary); }
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+        .question-block {
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .question-text { font-weight: 600; margin-bottom: 16px; color: var(--text-primary); }
+
+        .points-badge {
+            float: right;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .options label {
+            display: block;
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text-secondary);
+        }
+
+        .options label:hover { border-color: var(--gold-primary); color: var(--text-primary); }
+        .options input[type="radio"] { margin-right: 12px; accent-color: var(--gold-primary); }
+        .options input[type="radio"]:checked + span { color: var(--gold-primary); font-weight: 500; }
+        .options label:has(input[type="radio"]:checked) {
+            border-color: var(--gold-primary);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        textarea.form-control { min-height: 120px; resize: vertical; }
+
+        .btn-group { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+
+        .btn {
+            padding: 14px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-primary) 100%);
+            color: var(--bg-dark);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--bg-input);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover { border-color: var(--gold-primary); color: var(--gold-primary); }
+
+        .result-box {
+            display: none;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 32px;
+            text-align: center;
+        }
+
+        .result-box h3 { color: var(--success); margin-bottom: 16px; }
+        .score-display { display: flex; justify-content: center; gap: 40px; margin: 24px 0; }
+        .score-item h4 { font-size: 2rem; color: var(--gold-primary); }
+        .score-item p { font-size: 0.9rem; color: var(--text-secondary); }
+
+        .disclaimer { font-size: 0.8rem; color: var(--text-secondary); margin-top: 16px; font-style: italic; }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 80px;
+        }
+
+        footer a { color: var(--gold-primary); text-decoration: none; }
+
+        .references {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 16px;
+            padding-left: 20px;
+        }
+        .references li { margin-bottom: 8px; }
+
+        /* Tip Box */
+        .tip-box {
+            background: rgba(16, 185, 129, 0.08);
+            border-left: 4px solid var(--success);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 24px 0;
+        }
+
+        .tip-box strong { color: var(--success); }
+
+        @media (max-width: 640px) {
+            .form-row { grid-template-columns: 1fr; }
+            .score-display { flex-direction: column; gap: 20px; }
+            .btn-group { flex-direction: column; }
+            .btn { width: 100%; }
+            .chapter-header h1 { font-size: 1.8rem; }
+            .character-grid { grid-template-columns: 1fr; }
+        }
+
+        @media print {
+            body { background: white; color: black; }
+            .nav-header, .btn-group, footer, .quiz-container { display: none; }
+            .content-section { border: 1px solid #ccc; background: white; color: black; }
+            .gold-text { color: #333; -webkit-text-fill-color: #333; }
+            .luxury-table th { background: #eee; color: black; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav-header">
+            <a href="17.html" class="nav-link">← Pertemuan 17</a>
+            <span style="color: var(--text-secondary); font-size: 0.9rem;">Bahasa Indonesia Kelas VII</span>
+            <a href="19.html" class="nav-link">Pertemuan 19 →</a>
+        </nav>
+
+        <!-- Chapter Header -->
+        <div class="chapter-header">
+            <h1>🎭 <span class="gold-text">Pertemuan 18</span></h1>
+            <h2 style="font-size: 1.8rem; margin-bottom: 16px; color: var(--text-primary);">Menganalisis Penokohan dalam Cerita Fantasi</h2>
+            <p>Mengupas tuntas siapa saja yang terlibat dalam dunia imajinatif. Mempelajari cara mengidentifikasi tokoh protagonis dan antagonis, serta menganalisis sifat, perilaku, dan perubahan karakter mereka sepanjang alur cerita.</p>
+            <p style="margin-top: 20px; font-size: 0.9rem; color: var(--gold-primary); font-weight: 600;">Capaian Pembelajaran: Peserta didik mampu menganalisis penokohan (protagonis, antagonis, sifat, perilaku) dalam cerita fantasi dengan teliti dan mendalam.</p>
+        </div>
+
+        <!-- Content A: Pengertian & Teori -->
+        <div class="content-section">
+            <h2>A. Hakikat Penokohan dalam Fantasi</h2>
+            <p>Penokohan adalah cara pengarang menggambarkan atau mengembangkan karakter para pelaku dalam cerita. Dalam cerita fantasi, penokohan seringkali lebih unik karena melibatkan makhluk mitologi, penyihir, atau manusia dengan kekuatan super. Namun, inti dari penokohan tetaplah pada <strong>sifat</strong> dan <strong>perilaku</strong> yang membuat tokoh tersebut terasa "hidup".</p>
+            
+            <div class="expert-quote">
+                "Tokoh dalam cerita fantasi mungkin memiliki sayap atau tongkat sihir, tetapi hati mereka harus berdetak seperti manusia biasa. Pembaca harus bisa merasakan takut, harap, dan cinta mereka." 
+                <br><span style="font-size: 0.85rem; color: var(--text-secondary);">— Ursula K. Le Guin, <em>The Language of the Night</em></span>
+            </div>
+
+            <div class="definition-box">
+                <strong>📌 DEFINISI INTI</strong><br>
+                <strong>Penokohan</strong> adalah proses penyajian watak tokoh dan penciptaan citra tokoh dalam cerita. Dalam analisis, kita membedakan peran tokoh (protagonis/antagonis) dan ciri-ciri personalitasnya (sifat/perilaku).
+            </div>
+
+            <h3>Jenis-Jenis Tokoh Utama:</h3>
+            <ul style="color: var(--text-secondary); margin-left: 20px; margin-bottom: 16px;">
+                <li><strong style="color: var(--success);">Protagonis:</strong> Tokoh utama yang mendukung jalan cerita positif, biasanya menjadi pusat simpati pembaca. Mereka sering menghadapi tantangan besar.</li>
+                <li><strong style="color: var(--error);">Antagonis:</strong> Tokoh yang menjadi penentang atau penghambat bagi protagonis. Seringkali dianggap "jahat", namun bisa juga hanya memiliki pandangan yang berbeda.</li>
+                <li><strong style="color: var(--info);">Tritagonis:</strong> Tokis penengah yang membantu menyelesaikan konflik antara protagonis dan antagonis.</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 Tips Mengidentifikasi Tokoh:</strong><br>
+                Jangan hanya melihat dari penampilan luar (misal: berpakaian hitam belum tentu jahat). Lihatlah <strong>tindakan</strong>, <strong>ucapan</strong>, dan <strong>pikiran</strong> tokoh tersebut saat menghadapi masalah.
+            </div>
+        </div>
+
+        <!-- Content B: Sifat dan Perilaku -->
+        <div class="content-section">
+            <h2>B. Menganalisis Sifat dan Perilaku Tokoh</h2>
+            <p>Sifat adalah ciri watak yang melekat pada diri tokoh (misal: berani, jujur, sombong), sedangkan perilaku adalah tindakan nyata yang dilakukan tokoh tersebut (misal: menolong teman, mencuri barang). Dalam cerita fantasi, perilaku sering dipengaruhi oleh kekuatan magis yang dimiliki.</p>
+            
+            <div class="luxury-table-wrapper">
+                <table class="luxury-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Aspek Analisis</th>
+                            <th style="width: 35%;">Indikator</th>
+                            <th style="width: 40%;">Contoh dalam Cerita Fantasi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Fisik</strong></td>
+                            <td>Ciri-ciri tubuh, pakaian, atau atribut magis.</td>
+                            <td>"Penyihir itu berjubah ungu tua dengan topi runcing berlubang."</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Psikis (Sifat)</strong></td>
+                            <td>Karakter mental, emosi, dan kepribadian.</td>
+                            <td>"Ia sangat sabar menunggu ramuannya matang selama berbulan-bulan."</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sosial (Perilaku)</strong></td>
+                            <td>Cara tokoh berinteraksi dengan tokoh lain.</td>
+                            <td>"Ia selalu berbagi roti ajaibnya dengan peri-peri kecil yang kelaparan."</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Latar Belakang</strong></td>
+                            <td>Asal-usul, keluarga, atau masa lalu tokoh.</td>
+                            <td>"Seorang pangeran yang diusir dari kerajaan karena kutukan naga."</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Content C: Contoh Analisis -->
+        <div class="content-section">
+            <h2>C. Bedah Contoh: Profil Tokoh Fantasi</h2>
+            <p>Berikut adalah analisis penokohan dari dua tokoh utama dalam sebuah cerita fantasi berjudul "Kutukan Hutan Larangan".</p>
+            
+            <div class="character-grid">
+                <div class="character-card protagonist">
+                    <span class="char-icon">🧙‍♂️</span>
+                    <h4>Elian (Protagonis)</h4>
+                    <ul class="trait-list">
+                        <li><strong>Sifat:</strong> Pemberani, rendah hati, peduli lingkungan.</li>
+                        <li><strong>Perilaku:</strong> Rela memasuki hutan berbahaya demi menyelamatkan desa dari kekeringan. Tidak menggunakan sihir untuk menyakiti, melainkan untuk menyembuhkan tanaman.</li>
+                        <li><strong>Kelemahan:</strong> Terkadang ragu-ragu dalam mengambil keputusan cepat.</li>
+                    </ul>
+                </div>
+
+                <div class="character-card antagonist">
+                    <span class="char-icon">🐉</span>
+                    <h4>Naga Zorath (Antagonis)</h4>
+                    <ul class="trait-list">
+                        <li><strong>Sifat:</strong> Sombong, posesif, mudah marah.</li>
+                        <li><strong>Perilaku:</strong> Menyemburkan api ke siapa pun yang mendekati sarangnya. Menimbun semua sumber air di dalam gua sehingga desa di bawahnya kering.</li>
+                        <li><strong>Motivasi:</strong> Merasa terganggu oleh kebisingan manusia, bukan murni jahat tanpa alasan.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="analysis-box">
+                <h3 class="analysis-title">🔍 Analisis Konflik Tokoh</h3>
+                <p style="color: var(--text-secondary); text-align: center;">
+                    Konflik antara Elian dan Naga Zorath bukan sekadar pertarungan fisik, melainkan benturan nilai. Elian mewakili <strong>keharmonisan dengan alam</strong>, sementara Zorath mewakili <strong>egoisme dan kekuasaan</strong>. Perubahan perilaku Zorath di akhir cerita (menjadi lebih lunak setelah diajak bicara oleh Elian) menunjukkan bahwa tokoh antagonis dalam fantasi modern seringkali bisa "ditebus" atau diubah, tidak selalu harus dibunuh.
+                </p>
+            </div>
+        </div>
+
+        <!-- Content D: Metode Penggambaran Tokoh -->
+        <div class="content-section">
+            <h2>D. Metode Penggambaran Tokoh</h2>
+            <p>Pengarang menggunakan berbagai metode untuk memperkenalkan sifat tokoh kepada pembaca. Memahami metode ini membantu kita menganalisis karakter dengan lebih akurat.</p>
+            
+            <div class="luxury-table-wrapper">
+                <table class="luxury-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Metode</th>
+                            <th style="width: 75%;">Penjelasan & Contoh</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Analitik</strong></td>
+                            <td>Pengarang menyebutkan sifat tokoh secara langsung.<br><em>Contoh: "Budi adalah anak yang sangat jujur."</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dramatik</strong></td>
+                            <td>Pengarang menunjukkan sifat tokoh melalui tindakan, dialog, atau reaksi tokoh lain.<br><em>Contoh: "Budi mengembalikan dompet yang ditemukan di jalan kepada pemiliknya."</em> (Pembaca menyimpulkan Budi jujur).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Konteks Sosial</strong></td>
+                            <td>Melihat bagaimana tokoh lain merespons atau berbicara tentang tokoh utama.<br><em>Contoh: "Semua peri menghormati Eldrin karena kebijaksanaannya."</em></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tip-box">
+                <strong>💡 Catatan Penting:</strong><br>
+                Dalam cerita fantasi berkualitas, metode <strong>Dramatik</strong> lebih sering digunakan daripada Analitik. Hal ini membuat pembaca lebih terlibat dalam menemukan sifat tokoh ("Show, Don't Tell").
+            </div>
+        </div>
+
+        <!-- Keywords -->
+        <div class="keywords-section">
+            <span class="keyword-tag">Penokohan</span>
+            <span class="keyword-tag">Protagonis</span>
+            <span class="keyword-tag">Antagonis</span>
+            <span class="keyword-tag">Tritagonis</span>
+            <span class="keyword-tag">Sifat Tokoh</span>
+            <span class="keyword-tag">Perilaku</span>
+            <span class="keyword-tag">Metode Dramatik</span>
+            <span class="keyword-tag">Konflik Karakter</span>
+        </div>
+
+        <div class="content-section" style="text-align: center; padding: 40px;">
+            <p style="font-family: 'Playfair Display', serif; font-size: 1.3rem; font-style: italic; color: var(--gold-light); margin-bottom: 12px;">"Kita mengenal seseorang bukan dari apa yang mereka katakan, tetapi dari apa yang mereka lakukan saat memegang kekuatan."</p>
+            <cite style="color: var(--text-secondary); font-size: 0.9rem; font-style: normal;">— Refleksi Karakter Fantasi</cite>
+        </div>
+
+        <!-- Referensi -->
+        <div class="content-section">
+            <h2>E. Referensi & Bacaan Lanjutan</h2>
+            <ul class="references">
+                <li>Kemdikbudristek. (2022). <em>Buku Bahasa Indonesia Kelas VII SMP/MTs (Edisi Revisi)</em>. Jakarta: Pusat Perbukuan.</li>
+                <li>Nurginanjar. (2014). <em>Sastra Anak: Pengantar Pemahaman Dunia Anak</em>. Yogyakarta: Pustaka Pelajar.</li>
+                <li>Sumardjo. (2010). <em>Pengantar Kajian Sastra</em>. Jakarta: Pustaka Jaya.</li>
+                <li>Le Guin, Ursula K. (1979). <em>The Language of the Night</em>. Berkeley: Unicorn Press.</li>
+            </ul>
+        </div>
+
+        <!-- UJI FORMATIF -->
+        <div class="quiz-container" id="uji-formatif">
+            <div class="quiz-header">
+                <h2 style="color: var(--gold-primary); margin-bottom: 8px;">📝 Uji Formatif Pertemuan 18</h2>
+                <p style="color: var(--text-secondary);">Materi: Analisis penokohan (protagonis, antagonis, sifat, perilaku) dan metode penggambaran tokoh dalam cerita fantasi.</p>
+            </div>
+
+            <form id="quizForm">
+                <!-- Identitas -->
+                <div class="content-section" style="background: var(--bg-input); border: none;">
+                    <h3 style="margin-top: 0; color: var(--gold-primary);">📋 Identitas Siswa</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nama Lengkap *</label>
+                            <input type="text" id="nama" class="form-control" required placeholder="Masukkan nama lengkap">
+                        </div>
+                        <div class="form-group">
+                            <label>No. Absen / NIS *</label>
+                            <input type="text" id="nis" class="form-control" required placeholder="Contoh: 12345">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Kelas *</label>
+                            <select id="kelas" class="form-control" required>
+                                <option value="">Pilih Kelas</option>
+                                <option value="VII-A">VII-A</option>
+                                <option value="VII-B">VII-B</option>
+                                <option value="VII-C">VII-C</option>
+                                <option value="VII-D">VII-D</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Semester *</label>
+                            <select id="semester" class="form-control" required>
+                                <option value="1 (Ganjil)">1 (Ganjil)</option>
+                                <option value="2 (Genap)">2 (Genap)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bagian A: Pilihan Ganda -->
+                <h3 style="margin: 32px 0 16px; color: var(--text-primary);">📋 Bagian A: Pilihan Ganda</h3>
+                
+                <div class="question-block">
+                    <p class="question-text">1. Tokoh utama yang menjadi pusat simpati pembaca dan mendukung jalan cerita positif disebut... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="A"> <span>A. Antagonis</span></label>
+                        <label><input type="radio" name="q1" value="B"> <span>B. Protagonis</span></label>
+                        <label><input type="radio" name="q1" value="C"> <span>C. Tritagonis</span></label>
+                        <label><input type="radio" name="q1" value="D"> <span>D. Figuran</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">2. Tokoh yang menjadi penentang atau penghambat bagi tokoh utama dalam cerita fantasi disebut... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="A"> <span>A. Protagonis</span></label>
+                        <label><input type="radio" name="q2" value="B"> <span>B. Tritagonis</span></label>
+                        <label><input type="radio" name="q2" value="C"> <span>C. Antagonis</span></label>
+                        <label><input type="radio" name="q2" value="D"> <span>D. Narator</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">3. "Raja Kaelon selalu mendengarkan keluhan rakyatnya sebelum memutuskan hukum." Kutipan tersebut menunjukkan sifat tokoh yang... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="A"> <span>A. Arrogan</span></label>
+                        <label><input type="radio" name="q3" value="B"> <span>B. Bijaksana</span></label>
+                        <label><input type="radio" name="q3" value="C"> <span>C. Penakut</span></label>
+                        <label><input type="radio" name="q3" value="D"> <span>D. Serakah</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">4. Metode penggambaran tokoh di mana pengarang menyebutkan sifat tokoh secara langsung disebut metode... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q4" value="A"> <span>A. Dramatik</span></label>
+                        <label><input type="radio" name="q4" value="B"> <span>B. Analitik</span></label>
+                        <label><input type="radio" name="q4" value="C"> <span>C. Konteks Sosial</span></label>
+                        <label><input type="radio" name="q4" value="D"> <span>D. Monolog</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">5. Manakah yang merupakan contoh perilaku tokoh, bukan sifat? <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q5" value="A"> <span>A. Pemberani</span></label>
+                        <label><input type="radio" name="q5" value="B"> <span>B. Jujur</span></label>
+                        <label><input type="radio" name="q5" value="C"> <span>C. Membantu nenek menyeberang jalan</span></label>
+                        <label><input type="radio" name="q5" value="D"> <span>D. Penyabar</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">6. Dalam cerita fantasi, tokoh antagonis tidak selalu jahat mutlak, melainkan bisa saja... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q6" value="A"> <span>A. Memiliki motivasi atau pandangan yang berbeda dengan protagonis</span></label>
+                        <label><input type="radio" name="q6" value="B"> <span>B. Selalu kalah di akhir cerita</span></label>
+                        <label><input type="radio" name="q6" value="C"> <span>C. Tidak memiliki kekuatan sihir</span></label>
+                        <label><input type="radio" name="q6" value="D"> <span>D. Hanya muncul di awal cerita</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">7. "Semua penduduk desa takut melewati rumah Pak Harun karena ia sering memarahi anak-anak yang bermain bola di dekat pagarnya." Ini adalah contoh penggambaran tokoh melalui... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q7" value="A"> <span>A. Pikiran tokoh</span></label>
+                        <label><input type="radio" name="q7" value="B"> <span>B. Konteks sosial (reaksi orang lain)</span></label>
+                        <label><input type="radio" name="q7" value="C"> <span>C. Penampilan fisik</span></label>
+                        <label><input type="radio" name="q7" value="D"> <span>D. Latar tempat</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">8. Tokoh penengah yang membantu menyelesaikan konflik antara protagonis dan antagonis disebut... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q8" value="A"> <span>A. Tritagonis</span></label>
+                        <label><input type="radio" name="q8" value="B"> <span>B. Deuteragonis</span></label>
+                        <label><input type="radio" name="q8" value="C"> <span>C. Antagonis</span></label>
+                        <label><input type="radio" name="q8" value="D"> <span>D. Protagonis</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">9. Mengapa penting menganalisis kelemahan tokoh protagonis? <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q9" value="A"> <span>A. Agar kita bisa membencinya</span></label>
+                        <label><input type="radio" name="q9" value="B"> <span>B. Karena tokoh yang sempurna terasa tidak realistis dan kurang menarik</span></label>
+                        <label><input type="radio" name="q9" value="C"> <span>C. Agar cerita menjadi lebih pendek</span></label>
+                        <label><input type="radio" name="q9" value="D"> <span>D. Karena penulis tidak kreatif</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">10. Jika seorang penyihir muda awalnya pemalu, namun menjadi berani setelah menyelamatkan temannya, ini disebut... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q10" value="A"> <span>A. Stagnasi karakter</span></label>
+                        <label><input type="radio" name="q10" value="B"> <span>B. Perkembangan karakter (Character Arc)</span></label>
+                        <label><input type="radio" name="q10" value="C"> <span>C. Kesalahan penulisan</span></label>
+                        <label><input type="radio" name="q10" value="D"> <span>D. Kontradiksi alur</span></label>
+                    </div>
+                </div>
+
+                <!-- Bagian B: Essay -->
+                <h3 style="margin: 32px 0 16px; color: var(--text-primary);">✍️ Bagian B: Essay</h3>
+
+                <div class="question-block">
+                    <p class="question-text">1. Jelaskan perbedaan antara tokoh protagonis dan antagonis dalam cerita fantasi! Berikan masing-masing satu contoh! <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay1" class="form-control" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">2. Apa perbedaan antara "sifat" dan "perilaku" tokoh? Berikan contoh kalimat yang menunjukkan sifat dan contoh kalimat yang menunjukkan perilaku! <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay2" class="form-control" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">3. Jelaskan apa yang dimaksud dengan metode penggambaran tokoh secara dramatik! Mengapa metode ini sering dianggap lebih baik daripada analitik? <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay3" class="form-control" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">4. Bacalah kutipan berikut: "Naga itu tidak menyerang desa sembarangan. Ia hanya membakar ladang milik tuan tanah yang serakah yang merampas tanah warga." Analisislah tokoh Naga tersebut! Apakah ia murni jahat? Jelaskan alasannya! <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay4" class="form-control" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">5. Buatlah profil singkat untuk satu tokoh protagonis dalam cerita fantasi ciptaanmu! Sebutkan nama, sifat utama, kelemahan, dan satu perilaku khasnya! <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay5" class="form-control" placeholder="Tulis profil tokohmu di sini..."></textarea>
+                </div>
+
+                <!-- Result Box -->
+                <div class="result-box" id="resultBox">
+                    <h3>📊 Hasil Uji Formatif</h3>
+                    <div class="score-display">
+                        <div class="score-item">
+                            <h4 id="scoreMCQ">0</h4>
+                            <p>Pilihan Ganda (/100)</p>
+                        </div>
+                        <div class="score-item">
+                            <h4 id="scoreEssay">0</h4>
+                            <p>Essay (/100)</p>
+                        </div>
+                        <div class="score-item">
+                            <h4 id="scoreFinal" class="gold-text">0</h4>
+                            <p>Skor Akhir (/200)</p>
+                        </div>
+                    </div>
+                    <p class="disclaimer">*Catatan: Skor Essay adalah estimasi otomatis berdasarkan kelengkapan jawaban (jumlah karakter). Penilaian akhir atas substansi jawaban tetap berada di tangan guru pengampu.</p>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary" onclick="hitungNilai()">✉️ KIRIM JAWABAN & LIHAT HASIL</button>
+                    <button type="button" class="btn btn-secondary" onclick="unduhPDF()">📥 UNDUH PDF LENGKAP</button>
+                    <button type="button" class="btn btn-secondary" onclick="unduhTXT()">📄 UNDUH SKOR (TXT)</button>
+                    <button type="button" class="btn btn-secondary" onclick="kirimEmail()">📧 KIRIM KE EMAIL GURU</button>
+                    <button type="button" class="btn btn-secondary" onclick="mulaiUlang()">🔄 MULAI ULANG</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div style="margin-bottom: 16px;">
+                <a href="index.html" class="nav-link" style="margin: 0 10px;">📖 Daftar Isi</a>
+                <a href="19.html" class="nav-link" style="margin: 0 10px;">Selanjutnya → Pertemuan 19</a>
+            </div>
+            <p>&copy; 2026 <span class="gold-text">Sumarnis, S. Pd.</span> — MTsN 10 Agam. Hak Cipta Dilindungi Undang-Undang.</p>
+            <p style="margin-top: 8px;">Email: <a href="mailto:Sumarnisanis04@yahoo.com">Sumarnisanis04@yahoo.com</a></p>
+        </footer>
+    </div>
+
+    <!-- JavaScript Logic for Quiz -->
+    <script>
+        // Kunci Jawaban Pilihan Ganda
+        const kunciJawaban = {
+            q1: 'B', q2: 'C', q3: 'B', q4: 'B', q5: 'C',
+            q6: 'A', q7: 'B', q8: 'A', q9: 'B', q10: 'B'
+        };
+
+        let finalScoreData = {
+            nama: '',
+            nis: '',
+            kelas: '',
+            semester: '',
+            skorMCQ: 0,
+            skorEssay: 0,
+            skorAkhir: 0
+        };
+
+        function hitungNilai() {
+            // Validasi Identitas
+            const nama = document.getElementById('nama').value.trim();
+            const nis = document.getElementById('nis').value.trim();
+            const kelas = document.getElementById('kelas').value;
+            
+            if (!nama || !nis || !kelas) {
+                alert('Harap lengkapi Identitas Siswa (Nama, NIS, dan Kelas) sebelum mengirim jawaban!');
+                return;
+            }
+
+            // Hitung Pilihan Ganda
+            let benarMCQ = 0;
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected && selected.value === kunciJawaban[`q${i}`]) {
+                    benarMCQ++;
+                }
+            }
+            const skorMCQ = benarMCQ * 10;
+
+            // Hitung Essay (Simulasi berbasis panjang jawaban untuk demo)
+            let skorEssay = 0;
+            for (let i = 1; i <= 5; i++) {
+                const jawaban = document.getElementById(`essay${i}`).value.trim();
+                if (jawaban.length > 60) {
+                    skorEssay += 20; // Jawaban dianggap lengkap dan baik
+                } else if (jawaban.length > 25) {
+                    skorEssay += 10; // Jawaban pendek
+                }
+            }
+
+            const skorAkhir = skorMCQ + skorEssay;
+
+            // Simpan data
+            finalScoreData = { nama, nis, kelas, semester: document.getElementById('semester').value, skorMCQ, skorEssay, skorAkhir };
+
+            // Tampilkan Hasil
+            document.getElementById('scoreMCQ').innerText = skorMCQ;
+            document.getElementById('scoreEssay').innerText = skorEssay;
+            document.getElementById('scoreFinal').innerText = skorAkhir;
+            
+            const resultBox = document.getElementById('resultBox');
+            resultBox.style.display = 'block';
+            resultBox.scrollIntoView({ behavior: 'smooth' });
+
+            alert(`Terima kasih, ${nama}! Jawaban Anda telah diproses. Silakan lihat hasil di bagian bawah.`);
+        }
+
+        function unduhTXT() {
+            if (finalScoreData.skorAkhir === 0 && finalScoreData.nama === '') {
+                alert('Silakan kerjakan dan klik "KIRIM JAWABAN & LIHAT HASIL" terlebih dahulu.');
+                return;
+            }
+
+            const textContent = `
+HASIL UJI FORMATIF - BAHASA INDONESIA KELAS 7
+Pertemuan 18: Analisis Penokohan Cerita Fantasi
+----------------------------------------
+Nama    : ${finalScoreData.nama}
+NIS     : ${finalScoreData.nis}
+Kelas   : ${finalScoreData.kelas}
+Semester: ${finalScoreData.semester}
+----------------------------------------
+Skor Pilihan Ganda : ${finalScoreData.skorMCQ} / 100
+Skor Essay (Est.)  : ${finalScoreData.skorEssay} / 100
+SKOR AKHIR         : ${finalScoreData.skorAkhir} / 200
+----------------------------------------
+Catatan: Skor Essay adalah estimasi otomatis berdasarkan panjang jawaban.
+Dibuat oleh: Sumarnis, S. Pd. | MTsN 10 Agam
+            `.trim();
+
+            const blob = new Blob([textContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Skor_UjiFormatif_18_${finalScoreData.nama.replace(/\s+/g, '_')}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function unduhPDF() {
+            if (finalScoreData.skorAkhir === 0 && finalScoreData.nama === '') {
+                alert('Silakan kerjakan dan klik "KIRIM JAWABAN & LIHAT HASIL" terlebih dahulu.');
+                return;
+            }
+            window.print();
+        }
+
+        function kirimEmail() {
+            if (finalScoreData.skorAkhir === 0 && finalScoreData.nama === '') {
+                alert('Silakan kerjakan dan klik "KIRIM JAWABAN & LIHAT HASIL" terlebih dahulu.');
+                return;
+            }
+
+            const subject = `Hasil Uji Formatif Pertemuan 18 - ${finalScoreData.nama} (${finalScoreData.kelas})`;
+            const body = `Yth. Ibu Sumarnis, S. Pd.,\n\nBerikut adalah hasil uji formatif saya:\n\nNama: ${finalScoreData.nama}\nNIS: ${finalScoreData.nis}\nKelas: ${finalScoreData.kelas}\n\nSkor Pilihan Ganda: ${finalScoreData.skorMCQ}\nSkor Essay (Estimasi): ${finalScoreData.skorEssay}\nSkor Akhir: ${finalScoreData.skorAkhir}\n\nTerima kasih.`;
+            
+            window.location.href = `mailto:Sumarnisanis04@yahoo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        function mulaiUlang() {
+            if (confirm('Apakah Anda yakin ingin mengosongkan semua jawaban dan memulai ulang?')) {
+                document.getElementById('quizForm').reset();
+                document.getElementById('resultBox').style.display = 'none';
+                finalScoreData = { nama: '', nis: '', kelas: '', semester: '', skorMCQ: 0, skorEssay: 0, skorAkhir: 0 };
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>

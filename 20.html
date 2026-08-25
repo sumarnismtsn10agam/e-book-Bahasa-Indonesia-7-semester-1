@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 20: Kalimat Langsung & Tidak Langsung | Bahasa Indonesia Kelas 7</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0B0F19;
+            --bg-card: #151B2B;
+            --bg-input: #1E2538;
+            --gold-primary: #D4AF37;
+            --gold-light: #F4E4BC;
+            --gold-dark: #AA8C2C;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --border-color: #2A3449;
+            --success: #10B981;
+            --error: #EF4444;
+            --info: #3B82F6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+
+        .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+        .gold-text {
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Navigation */
+        .nav-header {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover { color: var(--gold-primary); }
+
+        /* Chapter Header */
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding: 48px 32px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, transparent 100%);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chapter-header::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 10rem;
+            color: rgba(212, 175, 55, 0.05);
+            line-height: 1;
+        }
+
+        .chapter-header h1 { font-size: 2.5rem; margin-bottom: 16px; }
+        .chapter-header p { color: var(--text-secondary); max-width: 700px; margin: 0 auto; font-size: 1.1rem; }
+
+        .content-section {
+            margin-bottom: 48px;
+            padding: 32px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .content-section h2 {
+            font-size: 1.6rem;
+            color: var(--gold-primary);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        .content-section h3 { font-size: 1.25rem; margin: 28px 0 16px; color: var(--gold-light); }
+        .content-section p { margin-bottom: 16px; color: var(--text-secondary); text-align: justify; }
+
+        .definition-box {
+            background: rgba(212, 175, 55, 0.08);
+            border-left: 4px solid var(--gold-primary);
+            padding: 24px;
+            border-radius: 0 8px 8px 0;
+            margin: 24px 0;
+        }
+
+        .expert-quote {
+            font-style: italic;
+            color: var(--text-primary);
+            border-left: 2px solid var(--gold-dark);
+            padding-left: 16px;
+            margin: 20px 0;
+            color: var(--gold-light);
+        }
+
+        .example-box {
+            background: var(--bg-input);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px dashed var(--border-color);
+            margin: 24px 0;
+        }
+
+        .example-box strong { color: var(--gold-primary); }
+
+        /* Comparison Box */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin: 24px 0;
+        }
+
+        .comp-card {
+            background: var(--bg-input);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .comp-card.direct {
+            border-top: 4px solid var(--info);
+        }
+
+        .comp-card.indirect {
+            border-top: 4px solid var(--success);
+        }
+
+        .comp-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px -10px rgba(212, 175, 55, 0.3);
+        }
+
+        .comp-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .comp-card.direct .comp-title { color: var(--info); }
+        .comp-card.indirect .comp-title { color: var(--success); }
+
+        .comp-example {
+            font-style: italic;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            padding: 12px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 4px;
+        }
+
+        .comp-rules ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .comp-rules li {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .comp-rules li::before {
+            content: '•';
+            color: var(--gold-primary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Luxury Table */
+        .luxury-table-wrapper {
+            overflow-x: auto;
+            margin: 24px 0;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .luxury-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        .luxury-table th {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            font-weight: 600;
+            text-align: left;
+            padding: 16px;
+            border-bottom: 2px solid var(--gold-dark);
+        }
+
+        .luxury-table td {
+            padding: 16px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .luxury-table tr:last-child td { border-bottom: none; }
+        .luxury-table tr:hover td { background: rgba(255, 255, 255, 0.02); color: var(--text-primary); }
+
+        /* Analysis Box */
+        .analysis-box {
+            background: var(--bg-input);
+            border-left: 4px solid var(--gold-primary);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 24px 0;
+        }
+
+        .analysis-box h4 { color: var(--gold-primary); margin-bottom: 8px; }
+        .analysis-box p { margin: 0; font-size: 0.95rem; color: var(--text-secondary); }
+
+        /* Keywords */
+        .keywords-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 32px 0;
+            justify-content: center;
+        }
+
+        .keyword-tag {
+            background: var(--bg-input);
+            color: var(--gold-primary);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .keyword-tag:hover {
+            background: var(--gold-primary);
+            color: var(--bg-dark);
+            cursor: default;
+        }
+
+        /* Quiz Styles */
+        .quiz-container {
+            background: var(--bg-card);
+            border: 1px solid var(--gold-primary);
+            border-radius: 12px;
+            padding: 40px;
+            margin-top: 60px;
+        }
+
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--text-secondary); font-size: 0.9rem; }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus { outline: none; border-color: var(--gold-primary); }
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+        .question-block {
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .question-text { font-weight: 600; margin-bottom: 16px; color: var(--text-primary); }
+
+        .points-badge {
+            float: right;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .options label {
+            display: block;
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text-secondary);
+        }
+
+        .options label:hover { border-color: var(--gold-primary); color: var(--text-primary); }
+        .options input[type="radio"] { margin-right: 12px; accent-color: var(--gold-primary); }
+        .options input[type="radio"]:checked + span { color: var(--gold-primary); font-weight: 500; }
+        .options label:has(input[type="radio"]:checked) {
+            border-color: var(--gold-primary);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        textarea.form-control { min-height: 120px; resize: vertical; }
+
+        .btn-group { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+
+        .btn {
+            padding: 14px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-primary) 100%);
+            color: var(--bg-dark);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--bg-input);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover { border-color: var(--gold-primary); color: var(--gold-primary); }
+
+        .result-box {
+            display: none;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 32px;
+            text-align: center;
+        }
+
+        .result-box h3 { color: var(--success); margin-bottom: 16px; }
+        .score-display { display: flex; justify-content: center; gap: 40px; margin: 24px 0; }
+        .score-item h4 { font-size: 2rem; color: var(--gold-primary); }
+        .score-item p { font-size: 0.9rem; color: var(--text-secondary); }
+
+        .disclaimer { font-size: 0.8rem; color: var(--text-secondary); margin-top: 16px; font-style: italic; }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 80px;
+        }
+
+        footer a { color: var(--gold-primary); text-decoration: none; }
+
+        .references {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 16px;
+            padding-left: 20px;
+        }
+        .references li { margin-bottom: 8px; }
+
+        /* Tip Box */
+        .tip-box {
+            background: rgba(16, 185, 129, 0.08);
+            border-left: 4px solid var(--success);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 24px 0;
+        }
+
+        .tip-box strong { color: var(--success); }
+
+        @media (max-width: 768px) {
+            .comparison-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .score-display { flex-direction: column; gap: 20px; }
+            .btn-group { flex-direction: column; }
+            .btn { width: 100%; }
+            .chapter-header h1 { font-size: 1.8rem; }
+        }
+
+        @media print {
+            body { background: white; color: black; }
+            .nav-header, .btn-group, footer, .quiz-container { display: none; }
+            .content-section { border: 1px solid #ccc; background: white; color: black; }
+            .gold-text { color: #333; -webkit-text-fill-color: #333; }
+            .luxury-table th { background: #eee; color: black; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav-header">
+            <a href="19.html" class="nav-link">← Pertemuan 19</a>
+            <span style="color: var(--text-secondary); font-size: 0.9rem;">Bahasa Indonesia Kelas VII</span>
+            <a href="21.html" class="nav-link">Pertemuan 21 →</a>
+        </nav>
+
+        <!-- Chapter Header -->
+        <div class="chapter-header">
+            <h1>💬 <span class="gold-text">Pertemuan 20</span></h1>
+            <h2 style="font-size: 1.8rem; margin-bottom: 16px; color: var(--text-primary);">Menganalisis Struktur Kalimat Langsung dan Tidak Langsung dalam Teks Naratif</h2>
+            <p>Mempelajari cara penulis menyampaikan dialog atau ucapan tokoh dalam cerita. Memahami perbedaan struktur, tanda baca, dan perubahan kata ganti antara kalimat langsung yang mengutip persis ucapan, dan kalimat tidak langsung yang melaporkan inti sari ucapan.</p>
+            <p style="margin-top: 20px; font-size: 0.9rem; color: var(--gold-primary); font-weight: 600;">Capaian Pembelajaran: Peserta didik mampu menganalisis struktur kalimat langsung dan tidak langsung dalam teks naratif serta memahami aturan penggunaannya.</p>
+        </div>
+
+        <!-- Content A: Pengertian -->
+        <div class="content-section">
+            <h2>A. Hakikat Kalimat Langsung dan Tidak Langsung</h2>
+            <p>Dalam teks naratif (cerita), dialog antar tokoh sangat penting untuk menghidupkan suasana. Cara penyampaian dialog ini dibagi menjadi dua jenis utama: kalimat langsung dan kalimat tidak langsung. Pemahaman terhadap keduanya penting agar tulisan kita tidak membingungkan pembaca.</p>
+            
+            <div class="expert-quote">
+                "Kalimat langsung membawa pembaca masuk ke dalam adegan, seolah mereka mendengar sendiri suara tokoh. Kalimat tidak langsung memberikan jarak yang diperlukan untuk ringkasan dan penjelasan konteks." 
+                <br><span style="font-size: 0.85rem; color: var(--text-secondary);">— Gorys Keraf (2004), <em>Tata Bahasa Baku Bahasa Indonesia</em></span>
+            </div>
+
+            <div class="definition-box">
+                <strong>📌 DEFINISI INTI</strong><br>
+                <strong>Kalimat Langsung</strong> adalah kalimat yang menirukan atau mengutip secara tepat ucapan orang lain. Ciri utamanya adalah penggunaan tanda petik dua ("...").<br><br>
+                <strong>Kalimat Tidak Langsung</strong> adalah kalimat yang menceritakan kembali isi ucapan orang lain tanpa menirukan kata-katanya secara persis. Ciri utamanya adalah tidak menggunakan tanda petik dan adanya perubahan kata ganti.
+            </div>
+
+            <h3>Fungsi dalam Teks Naratif:</h3>
+            <ul style="color: var(--text-secondary); margin-left: 20px; margin-bottom: 16px;">
+                <li><strong style="color: var(--text-primary);">Kalimat Langsung:</strong> Memberikan efek dramatis, menunjukkan emosi tokoh secara nyata, dan membuat cerita lebih hidup.</li>
+                <li><strong style="color: var(--text-primary);">Kalimat Tidak Langsung:</strong> Mempercepat alur cerita, merangkum percakapan panjang, dan memberikan penjelasan latar belakang.</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 Tips Mudah:</strong><br>
+                Jika ada tanda petik dua ("..."), itu pasti Kalimat Langsung. Jika tidak ada tanda petik dan menggunakan kata hubung seperti "bahwa", "agar", atau "untuk", itu Kalimat Tidak Langsung.
+            </div>
+        </div>
+
+        <!-- Content B: Perbandingan Struktur -->
+        <div class="content-section">
+            <h2>B. Perbandingan Struktur dan Aturan</h2>
+            <p>Berikut adalah perbandingan mendetail antara kedua jenis kalimat tersebut, termasuk aturan tanda baca dan perubahan kata gantinya.</p>
+            
+            <div class="comparison-grid">
+                <div class="comp-card direct">
+                    <div class="comp-title">🗣️ Kalimat Langsung</div>
+                    <div class="comp-example">
+                        Ayah berkata, "<strong>Aku</strong> akan pergi ke pasar besok."
+                    </div>
+                    <div class="comp-rules">
+                        <ul>
+                            <li>Menggunakan tanda petik dua ("...").</li>
+                            <li>Huruf pertama setelah tanda petik adalah huruf kapital.</li>
+                            <li>Kata ganti orang tetap (Aku, Kamu, Dia).</li>
+                            <li>Intonasi bagian yang dikutip lebih tinggi/tegas.</li>
+                            <li>Bagian pengiring diakhiri koma sebelum tanda petik.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="comp-card indirect">
+                    <div class="comp-title">📝 Kalimat Tidak Langsung</div>
+                    <div class="comp-example">
+                        Ayah berkata bahwa <strong>ia</strong> akan pergi ke pasar besok.
+                    </div>
+                    <div class="comp-rules">
+                        <ul>
+                            <li>Tidak menggunakan tanda petik.</li>
+                            <li>Diawali dengan kata hubung (bahwa, agar, untuk).</li>
+                            <li>Kata ganti orang berubah (Aku → Ia/Dia).</li>
+                            <li>Intonasi datar seperti kalimat berita biasa.</li>
+                            <li>Bagian pengiring tidak memerlukan koma khusus jika di awal.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content C: Perubahan Kata Ganti -->
+        <div class="content-section">
+            <h2>C. Aturan Perubahan Kata Ganti Orang</h2>
+            <p>Saat mengubah kalimat langsung menjadi tidak langsung, kata ganti orang harus disesuaikan dengan sudut pandang pelapor. Berikut adalah tabel konversinya:</p>
+            
+            <div class="luxury-table-wrapper">
+                <table class="luxury-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Kata Ganti dalam Kalimat Langsung</th>
+                            <th style="width: 25%;">Berubah Menjadi</th>
+                            <th style="width: 50%;">Contoh Konversi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Aku / Saya</strong></td>
+                            <td>Ia / Dia / Nama Orang</td>
+                            <td>"<strong>Aku</strong> lapar," kata Budi. → Budi berkata bahwa <strong>ia</strong> lapar.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Kamu / Anda</strong></td>
+                            <td>Ia / Dia / Nama Orang</td>
+                            <td>"<strong>Kamu</strong> harus belajar," kata Ibu. → Ibu menyuruh <strong>Adik</strong> untuk belajar.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Kita</strong></td>
+                            <td>Mereka / Kami</td>
+                            <td>"<strong>Kita</strong> harus pulang," kata mereka. → Mereka berkata bahwa <strong>mereka</strong> harus pulang.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Kami</strong></td>
+                            <td>Mereka</td>
+                            <td>"<strong>Kami</strong> siap," kata tim itu. → Tim itu mengatakan bahwa <strong>mereka</strong> siap.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Kalian</strong></td>
+                            <td>Mereka</td>
+                            <td>"<strong>Kalian</strong> terlambat," kata Guru. → Guru mengatakan bahwa <strong>mereka</strong> terlambat.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="analysis-box">
+                <h4>⚠️ Catatan Penting tentang Keterangan Waktu</h4>
+                <p>Selain kata ganti, keterangan waktu juga sering berubah. Contoh: "Besok" dalam kalimat langsung bisa berubah menjadi "keesokan harinya" dalam kalimat tidak langsung jika diceritakan di masa lalu. "Di sini" berubah menjadi "di sana".</p>
+            </div>
+        </div>
+
+        <!-- Content D: Posisi Bagian Pengiring -->
+        <div class="content-section">
+            <h2>D. Variasi Posisi Bagian Pengiring</h2>
+            <p>Dalam kalimat langsung, bagian pengiring (siapa yang berbicara) bisa berada di awal, tengah, atau akhir kalimat. Perhatikan penggunaan tanda bacanya:</p>
+            
+            <div class="example-box">
+                <h3 style="margin-top: 0;">1. Pengiring di Awal</h3>
+                <p>Ibu berkata, <strong>"</strong>Jangan lupa makan siang.<strong>"</strong><br>
+                <em>(Gunakan koma setelah kata kerja pengiring)</em></p>
+                
+                <h3 style="margin-top: 16px;">2. Pengiring di Tengah</h3>
+                <p><strong>"</strong>Jangan lupa,<strong>"</strong> kata Ibu, <strong>"</strong>makan siang.<strong>"</strong><br>
+                <em>(Bagian kutipan dipisah, setiap bagian diapit tanda petik)</em></p>
+                
+                <h3 style="margin-top: 16px;">3. Pengiring di Akhir</h3>
+                <p><strong>"</strong>Jangan lupa makan siang,<strong>"</strong> kata Ibu.<br>
+                <em>(Akhir kutipan pakai koma, bukan titik, sebelum tanda petik penutup)</em></p>
+            </div>
+        </div>
+
+        <!-- Content E: Bedah Contoh -->
+        <div class="content-section">
+            <h2>E. Bedah Contoh dalam Teks Naratif</h2>
+            <p>Berikut adalah contoh bagaimana kedua jenis kalimat ini digunakan dalam sebuah cerita pendek untuk menciptakan efek yang berbeda.</p>
+            
+            <div class="example-box" style="border-left: 4px solid var(--gold-primary); border-style: solid;">
+                <h3 style="text-align: center; margin-top: 0; color: var(--text-primary);">Potongan Cerita: "Petualangan Rina"</h3>
+                <p style="text-indent: 20px;">Rina berdiri di depan gerbang tua yang berkarat. Jantungnya berdebar kencang. Tiba-tiba, seorang penjaga muncul dari balik semak-semak.</p>
+                <p style="text-indent: 20px;"><strong>(Kalimat Langsung)</strong> Penjaga itu bertanya dengan suara berat, <strong>"Siapa kamu? Mengapa berani datang ke tempat terlarang ini?"</strong> Rina gemetar namun mencoba tetap tenang.</p>
+                <p style="text-indent: 20px;"><strong>(Kalimat Tidak Langsung)</strong> Rina menjawab bahwa ia hanya tersesat dan bermaksud mencari jalan keluar. Ia menjelaskan bahwa ia tidak berniat jahat.</p>
+                <p style="text-indent: 20px;">Penjaga itu tampak ragu. Akhirnya, ia mengizinkan Rina lewat dengan peringatan agar tidak merusak apapun di dalam hutan.</p>
+            </div>
+
+            <div class="analysis-grid">
+                <div class="analysis-card">
+                    <h4>🔍 Analisis Kalimat Langsung</h4>
+                    <p>Penggunaan kalimat langsung pada pertanyaan penjaga membuat pembaca merasakan ketegangan situasi secara langsung. Kita "mendengar" nada suara berat penjaga tersebut.</p>
+                </div>
+                <div class="analysis-card">
+                    <h4>📝 Analisis Kalimat Tidak Langsung</h4>
+                    <p>Jawaban Rina disampaikan secara tidak langsung karena intinya hanya sebagai informasi bahwa ia tidak berbahaya. Ini mempercepat alur cerita menuju keputusan penjaga.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Keywords -->
+        <div class="keywords-section">
+            <span class="keyword-tag">Kalimat Langsung</span>
+            <span class="keyword-tag">Kalimat Tidak Langsung</span>
+            <span class="keyword-tag">Tanda Petik</span>
+            <span class="keyword-tag">Kata Ganti</span>
+            <span class="keyword-tag">Bagian Pengiring</span>
+            <span class="keyword-tag">Teks Naratif</span>
+            <span class="keyword-tag">Dialog</span>
+            <span class="keyword-tag">Konversi Kalimat</span>
+        </div>
+
+        <div class="content-section" style="text-align: center; padding: 40px;">
+            <p style="font-family: 'Playfair Display', serif; font-size: 1.3rem; font-style: italic; color: var(--gold-light); margin-bottom: 12px;">"Tanda petik adalah jendela kecil yang memungkinkan kita menguping percakapan para tokoh."</p>
+            <cite style="color: var(--text-secondary); font-size: 0.9rem; font-style: normal;">— Refleksi Keterampilan Menulis</cite>
+        </div>
+
+        <!-- Referensi -->
+        <div class="content-section">
+            <h2>F. Referensi & Bacaan Lanjutan</h2>
+            <ul class="references">
+                <li>Kemdikbudristek. (2022). <em>Buku Bahasa Indonesia Kelas VII SMP/MTs (Edisi Revisi)</em>. Jakarta: Pusat Perbukuan.</li>
+                <li>Keraf, Gorys. (2004). <em>Tata Bahasa Baku Bahasa Indonesia</em>. Jakarta: Balai Pustaka.</li>
+                <li>Alwi, Hasan, et al. (2017). <em>Tata Bahasa Baku Bahasa Indonesia (Edisi Keempat)</em>. Jakarta: Badan Pengembangan dan Pembinaan Bahasa.</li>
+                <li>Ramlan, M. R. (2010). <em>Ilmu Bahasa Indonesia: Sintaksis</em>. Yogyakarta: Andi Offset.</li>
+            </ul>
+        </div>
+
+        <!-- UJI FORMATIF -->
+        <div class="quiz-container" id="uji-formatif">
+            <div class="quiz-header">
+                <h2 style="color: var(--gold-primary); margin-bottom: 8px;">📝 Uji Formatif Pertemuan 20</h2>
+                <p style="color: var(--text-secondary);">Materi: Struktur kalimat langsung dan tidak langsung, tanda baca, perubahan kata ganti, dan posisi bagian pengiring.</p>
+            </div>
+
+            <form id="quizForm">
+                <!-- Identitas -->
+                <div class="content-section" style="background: var(--bg-input); border: none;">
+                    <h3 style="margin-top: 0; color: var(--gold-primary);">📋 Identitas Siswa</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nama Lengkap *</label>
+                            <input type="text" id="nama" class="form-control" required placeholder="Masukkan nama lengkap">
+                        </div>
+                        <div class="form-group">
+                            <label>No. Absen / NIS *</label>
+                            <input type="text" id="nis" class="form-control" required placeholder="Contoh: 12345">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Kelas *</label>
+                            <select id="kelas" class="form-control" required>
+                                <option value="">Pilih Kelas</option>
+                                <option value="VII-A">VII-A</option>
+                                <option value="VII-B">VII-B</option>
+                                <option value="VII-C">VII-C</option>
+                                <option value="VII-D">VII-D</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Semester *</label>
+                            <select id="semester" class="form-control" required>
+                                <option value="1 (Ganjil)">1 (Ganjil)</option>
+                                <option value="2 (Genap)">2 (Genap)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bagian A: Pilihan Ganda -->
+                <h3 style="margin: 32px 0 16px; color: var(--text-primary);">📋 Bagian A: Pilihan Ganda</h3>
+                
+                <div class="question-block">
+                    <p class="question-text">1. Ciri utama kalimat langsung adalah... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="A"> <span>A. Menggunakan kata hubung "bahwa"</span></label>
+                        <label><input type="radio" name="q1" value="B"> <span>B. Menggunakan tanda petik dua ("...")</span></label>
+                        <label><input type="radio" name="q1" value="C"> <span>C. Kata ganti orang berubah</span></label>
+                        <label><input type="radio" name="q1" value="D"> <span>D. Tidak ada dialog tokoh</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">2. Manakah yang merupakan contoh kalimat tidak langsung? <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="A"> <span>A. Ibu berkata, "Aku sedang memasak."</span></label>
+                        <label><input type="radio" name="q2" value="B"> <span>B. "Jangan lari-lari!" teriak Pak Guru.</span></label>
+                        <label><input type="radio" name="q2" value="C"> <span>C. Ayah bertanya apakah saya sudah mengerjakan PR.</span></label>
+                        <label><input type="radio" name="q2" value="D"> <span>D. "Saya ingin pergi," kata Budi.</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">3. Dalam kalimat langsung, jika bagian pengiring berada di akhir, tanda baca yang digunakan sebelum tanda petik penutup adalah... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="A"> <span>A. Titik (.)</span></label>
+                        <label><input type="radio" name="q3" value="B"> <span>B. Koma (,)</span></label>
+                        <label><input type="radio" name="q3" value="C"> <span>C. Tanda seru (!)</span></label>
+                        <label><input type="radio" name="q3" value="D"> <span>D. Tanda tanya (?)</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">4. Kata ganti "Aku" dalam kalimat langsung akan berubah menjadi... saat diubah ke kalimat tidak langsung. <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q4" value="A"> <span>A. Kamu</span></label>
+                        <label><input type="radio" name="q4" value="B"> <span>B. Saya</span></label>
+                        <label><input type="radio" name="q4" value="C"> <span>C. Ia / Dia</span></label>
+                        <label><input type="radio" name="q4" value="D"> <span>D. Kita</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">5. Penulisan kalimat langsung yang benar adalah... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q5" value="A"> <span>A. Dia berkata "Saya senang".</span></label>
+                        <label><input type="radio" name="q5" value="B"> <span>B. Dia berkata, "Saya senang."</span></label>
+                        <label><input type="radio" name="q5" value="C"> <span>C. Dia berkata: "Saya senang."</span></label>
+                        <label><input type="radio" name="q5" value="D"> <span>D. "Saya senang" Dia berkata.</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">6. Kata hubung yang sering digunakan dalam kalimat tidak langsung adalah... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q6" value="A"> <span>A. Dan</span></label>
+                        <label><input type="radio" name="q6" value="B"> <span>B. Tetapi</span></label>
+                        <label><input type="radio" name="q6" value="C"> <span>C. Bahwa / Agar</span></label>
+                        <label><input type="radio" name="q6" value="D"> <span>D. Atau</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">7. "Kami akan berangkat besok," kata mereka. Jika diubah menjadi kalimat tidak langsung, kata "besok" sebaiknya diubah menjadi... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q7" value="A"> <span>A. Hari ini</span></label>
+                        <label><input type="radio" name="q7" value="B"> <span>B. Kemarin</span></label>
+                        <label><input type="radio" name="q7" value="C"> <span>C. Keesokan harinya</span></label>
+                        <label><input type="radio" name="q7" value="D"> <span>D. Lusa</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">8. Fungsi kalimat langsung dalam teks naratif adalah... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q8" value="A"> <span>A. Meringkasan cerita</span></label>
+                        <label><input type="radio" name="q8" value="B"> <span>B. Memberikan efek dramatis dan menghidupkan dialog</span></label>
+                        <label><input type="radio" name="q8" value="C"> <span>C. Menjelaskan latar belakang tokoh</span></label>
+                        <label><input type="radio" name="q8" value="D"> <span>D. Menyimpulkan isi cerita</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">9. Manakah penulisan bagian pengiring di tengah yang benar? <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q9" value="A"> <span>A. "Hati-hati" kata Ibu "di jalan."</span></label>
+                        <label><input type="radio" name="q9" value="B"> <span>B. "Hati-hati," kata Ibu, "di jalan."</span></label>
+                        <label><input type="radio" name="q9" value="C"> <span>C. "Hati-hati," kata Ibu. "Di jalan."</span></label>
+                        <label><input type="radio" name="q9" value="D"> <span>D. "Hati-hati" kata Ibu, "di jalan."</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">10. Saat mengubah kalimat perintah langsung menjadi tidak langsung, kita biasanya menggunakan kata... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q10" value="A"> <span>A. Bahwa</span></label>
+                        <label><input type="radio" name="q10" value="B"> <span>B. Agar / Supaya</span></label>
+                        <label><input type="radio" name="q10" value="C"> <span>C. Karena</span></label>
+                        <label><input type="radio" name="q10" value="D"> <span>D. Meskipun</span></label>
+                    </div>
+                </div>
+
+                <!-- Bagian B: Essay -->
+                <h3 style="margin: 32px 0 16px; color: var(--text-primary);">✍️ Bagian B: Essay</h3>
+
+                <div class="question-block">
+                    <p class="question-text">1. Jelaskan perbedaan mendasar antara kalimat langsung dan kalimat tidak langsung! Sebutkan masing-masing satu ciri khasnya! <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay1" class="form-control" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">2. Ubahlah kalimat langsung berikut menjadi kalimat tidak langsung:<br>
+                    "Saya tidak bisa datang ke pestamu karena sakit," kata Rina kepada Dina. <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay2" class="form-control" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">3. Ubahlah kalimat tidak langsung berikut menjadi kalimat langsung:<br>
+                    Ibu menyuruh Adik agar segera mandi karena air sudah panas. <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay3" class="form-control" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">4. Buatlah satu paragraf naratif singkat (3-4 kalimat) yang mengandung minimal satu kalimat langsung dan satu kalimat tidak langsung! <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay4" class="form-control" placeholder="Tulis paragraf Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">5. Mengapa tanda baca koma (,) sangat penting dalam penulisan kalimat langsung ketika bagian pengiring berada di awal atau tengah? Jelaskan dampaknya jika koma tersebut hilang! <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay5" class="form-control" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <!-- Result Box -->
+                <div class="result-box" id="resultBox">
+                    <h3>📊 Hasil Uji Formatif</h3>
+                    <div class="score-display">
+                        <div class="score-item">
+                            <h4 id="scoreMCQ">0</h4>
+                            <p>Pilihan Ganda (/100)</p>
+                        </div>
+                        <div class="score-item">
+                            <h4 id="scoreEssay">0</h4>
+                            <p>Essay (/100)</p>
+                        </div>
+                        <div class="score-item">
+                            <h4 id="scoreFinal" class="gold-text">0</h4>
+                            <p>Skor Akhir (/200)</p>
+                        </div>
+                    </div>
+                    <p class="disclaimer">*Catatan: Skor Essay adalah estimasi otomatis berdasarkan kelengkapan jawaban (jumlah karakter). Penilaian akhir atas ketepatan struktur dan tanda baca tetap berada di tangan guru pengampu.</p>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary" onclick="hitungNilai()">✉️ KIRIM JAWABAN & LIHAT HASIL</button>
+                    <button type="button" class="btn btn-secondary" onclick="unduhPDF()">📥 UNDUH PDF LENGKAP</button>
+                    <button type="button" class="btn btn-secondary" onclick="unduhTXT()">📄 UNDUH SKOR (TXT)</button>
+                    <button type="button" class="btn btn-secondary" onclick="kirimEmail()">📧 KIRIM KE EMAIL GURU</button>
+                    <button type="button" class="btn btn-secondary" onclick="mulaiUlang()">🔄 MULAI ULANG</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div style="margin-bottom: 16px;">
+                <a href="index.html" class="nav-link" style="margin: 0 10px;">📖 Daftar Isi</a>
+                <a href="21.html" class="nav-link" style="margin: 0 10px;">Selanjutnya → Pertemuan 21</a>
+            </div>
+            <p>&copy; 2026 <span class="gold-text">Sumarnis, S. Pd.</span> — MTsN 10 Agam. Hak Cipta Dilindungi Undang-Undang.</p>
+            <p style="margin-top: 8px;">Email: <a href="mailto:Sumarnisanis04@yahoo.com">Sumarnisanis04@yahoo.com</a></p>
+        </footer>
+    </div>
+
+    <!-- JavaScript Logic for Quiz -->
+    <script>
+        // Kunci Jawaban Pilihan Ganda
+        const kunciJawaban = {
+            q1: 'B', q2: 'C', q3: 'B', q4: 'C', q5: 'B',
+            q6: 'C', q7: 'C', q8: 'B', q9: 'B', q10: 'B'
+        };
+
+        let finalScoreData = {
+            nama: '',
+            nis: '',
+            kelas: '',
+            semester: '',
+            skorMCQ: 0,
+            skorEssay: 0,
+            skorAkhir: 0
+        };
+
+        function hitungNilai() {
+            // Validasi Identitas
+            const nama = document.getElementById('nama').value.trim();
+            const nis = document.getElementById('nis').value.trim();
+            const kelas = document.getElementById('kelas').value;
+            
+            if (!nama || !nis || !kelas) {
+                alert('Harap lengkapi Identitas Siswa (Nama, NIS, dan Kelas) sebelum mengirim jawaban!');
+                return;
+            }
+
+            // Hitung Pilihan Ganda
+            let benarMCQ = 0;
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected && selected.value === kunciJawaban[`q${i}`]) {
+                    benarMCQ++;
+                }
+            }
+            const skorMCQ = benarMCQ * 10;
+
+            // Hitung Essay (Simulasi berbasis panjang jawaban untuk demo)
+            let skorEssay = 0;
+            for (let i = 1; i <= 5; i++) {
+                const jawaban = document.getElementById(`essay${i}`).value.trim();
+                if (jawaban.length > 50) {
+                    skorEssay += 20; // Jawaban dianggap lengkap dan baik
+                } else if (jawaban.length > 20) {
+                    skorEssay += 10; // Jawaban pendek
+                }
+            }
+
+            const skorAkhir = skorMCQ + skorEssay;
+
+            // Simpan data
+            finalScoreData = { nama, nis, kelas, semester: document.getElementById('semester').value, skorMCQ, skorEssay, skorAkhir };
+
+            // Tampilkan Hasil
+            document.getElementById('scoreMCQ').innerText = skorMCQ;
+            document.getElementById('scoreEssay').innerText = skorEssay;
+            document.getElementById('scoreFinal').innerText = skorAkhir;
+            
+            const resultBox = document.getElementById('resultBox');
+            resultBox.style.display = 'block';
+            resultBox.scrollIntoView({ behavior: 'smooth' });
+
+            alert(`Terima kasih, ${nama}! Jawaban Anda telah diproses. Silakan lihat hasil di bagian bawah.`);
+        }
+
+        function unduhTXT() {
+            if (finalScoreData.skorAkhir === 0 && finalScoreData.nama === '') {
+                alert('Silakan kerjakan dan klik "KIRIM JAWABAN & LIHAT HASIL" terlebih dahulu.');
+                return;
+            }
+
+            const textContent = `
+HASIL UJI FORMATIF - BAHASA INDONESIA KELAS 7
+Pertemuan 20: Kalimat Langsung & Tidak Langsung
+----------------------------------------
+Nama    : ${finalScoreData.nama}
+NIS     : ${finalScoreData.nis}
+Kelas   : ${finalScoreData.kelas}
+Semester: ${finalScoreData.semester}
+----------------------------------------
+Skor Pilihan Ganda : ${finalScoreData.skorMCQ} / 100
+Skor Essay (Est.)  : ${finalScoreData.skorEssay} / 100
+SKOR AKHIR         : ${finalScoreData.skorAkhir} / 200
+----------------------------------------
+Catatan: Skor Essay adalah estimasi otomatis berdasarkan panjang jawaban.
+Dibuat oleh: Sumarnis, S. Pd. | MTsN 10 Agam
+            `.trim();
+
+            const blob = new Blob([textContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Skor_UjiFormatif_20_${finalScoreData.nama.replace(/\s+/g, '_')}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function unduhPDF() {
+            if (finalScoreData.skorAkhir === 0 && finalScoreData.nama === '') {
+                alert('Silakan kerjakan dan klik "KIRIM JAWABAN & LIHAT HASIL" terlebih dahulu.');
+                return;
+            }
+            window.print();
+        }
+
+        function kirimEmail() {
+            if (finalScoreData.skorAkhir === 0 && finalScoreData.nama === '') {
+                alert('Silakan kerjakan dan klik "KIRIM JAWABAN & LIHAT HASIL" terlebih dahulu.');
+                return;
+            }
+
+            const subject = `Hasil Uji Formatif Pertemuan 20 - ${finalScoreData.nama} (${finalScoreData.kelas})`;
+            const body = `Yth. Ibu Sumarnis, S. Pd.,\n\nBerikut adalah hasil uji formatif saya:\n\nNama: ${finalScoreData.nama}\nNIS: ${finalScoreData.nis}\nKelas: ${finalScoreData.kelas}\n\nSkor Pilihan Ganda: ${finalScoreData.skorMCQ}\nSkor Essay (Estimasi): ${finalScoreData.skorEssay}\nSkor Akhir: ${finalScoreData.skorAkhir}\n\nTerima kasih.`;
+            
+            window.location.href = `mailto:Sumarnisanis04@yahoo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        function mulaiUlang() {
+            if (confirm('Apakah Anda yakin ingin mengosongkan semua jawaban dan memulai ulang?')) {
+                document.getElementById('quizForm').reset();
+                document.getElementById('resultBox').style.display = 'none';
+                finalScoreData = { nama: '', nis: '', kelas: '', semester: '', skorMCQ: 0, skorEssay: 0, skorAkhir: 0 };
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
