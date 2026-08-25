@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 15: Analisis Teks Cerita Fantasi | Bahasa Indonesia Kelas 7</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0B0F19;
+            --bg-card: #151B2B;
+            --bg-input: #1E2538;
+            --gold-primary: #D4AF37;
+            --gold-light: #F4E4BC;
+            --gold-dark: #AA8C2C;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --border-color: #2A3449;
+            --success: #10B981;
+            --error: #EF4444;
+            --magic: #A855F7; /* Purple for Fantasy */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+
+        .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+        .gold-text {
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Navigation */
+        .nav-header {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover { color: var(--gold-primary); }
+
+        /* Chapter Header */
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding: 48px 32px;
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chapter-header::before {
+            content: '✨';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            opacity: 0.2;
+        }
+
+        .chapter-header h1 { font-size: 2.5rem; margin-bottom: 16px; }
+        .chapter-header p { color: var(--text-secondary); max-width: 700px; margin: 0 auto; font-size: 1.1rem; }
+
+        .content-section {
+            margin-bottom: 48px;
+            padding: 32px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .content-section h2 {
+            font-size: 1.6rem;
+            color: var(--gold-primary);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        .content-section h3 { font-size: 1.25rem; margin: 28px 0 16px; color: var(--magic); }
+        .content-section p { margin-bottom: 16px; color: var(--text-secondary); text-align: justify; }
+
+        .definition-box {
+            background: rgba(168, 85, 247, 0.08);
+            border-left: 4px solid var(--magic);
+            padding: 24px;
+            border-radius: 0 8px 8px 0;
+            margin: 24px 0;
+        }
+
+        .expert-quote {
+            font-style: italic;
+            color: var(--text-primary);
+            border-left: 2px solid var(--gold-dark);
+            padding-left: 16px;
+            margin: 20px 0;
+            color: var(--gold-light);
+        }
+
+        .example-box {
+            background: var(--bg-input);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px dashed var(--border-color);
+            margin: 24px 0;
+        }
+
+        .example-box strong { color: var(--gold-primary); }
+
+        /* Fantasy Story Card */
+        .story-card {
+            background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+            border: 1px solid var(--magic);
+            border-radius: 12px;
+            padding: 32px;
+            margin: 24px 0;
+            position: relative;
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.1);
+        }
+
+        .story-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--magic);
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .story-body {
+            color: var(--text-primary);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        /* Luxury Table */
+        .luxury-table-wrapper {
+            overflow-x: auto;
+            margin: 24px 0;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .luxury-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        .luxury-table th {
+            background: rgba(168, 85, 247, 0.15);
+            color: var(--magic);
+            font-weight: 600;
+            text-align: left;
+            padding: 16px;
+            border-bottom: 2px solid var(--magic);
+        }
+
+        .luxury-table td {
+            padding: 16px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .luxury-table tr:last-child td { border-bottom: none; }
+        .luxury-table tr:hover td { background: rgba(255, 255, 255, 0.02); color: var(--text-primary); }
+
+        /* Analysis Grid */
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 24px 0;
+        }
+
+        .analysis-card {
+            background: var(--bg-input);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .analysis-card:hover {
+            border-color: var(--magic);
+            transform: translateY(-4px);
+        }
+
+        .analysis-card h4 {
+            color: var(--magic);
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+
+        .analysis-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* Keywords */
+        .keywords-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 32px 0;
+            justify-content: center;
+        }
+
+        .keyword-tag {
+            background: var(--bg-input);
+            color: var(--magic);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .keyword-tag:hover {
+            background: var(--magic);
+            color: white;
+            cursor: default;
+        }
+
+        /* Quiz Styles */
+        .quiz-container {
+            background: var(--bg-card);
+            border: 1px solid var(--gold-primary);
+            border-radius: 12px;
+            padding: 40px;
+            margin-top: 60px;
+        }
+
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--text-secondary); font-size: 0.9rem; }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus { outline: none; border-color: var(--gold-primary); }
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+        .question-block {
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .question-text { font-weight: 600; margin-bottom: 16px; color: var(--text-primary); }
+
+        .points-badge {
+            float: right;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .options label {
+            display: block;
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text-secondary);
+        }
+
+        .options label:hover { border-color: var(--gold-primary); color: var(--text-primary); }
+        .options input[type="radio"] { margin-right: 12px; accent-color: var(--gold-primary); }
+        .options input[type="radio"]:checked + span { color: var(--gold-primary); font-weight: 500; }
+        .options label:has(input[type="radio"]:checked) {
+            border-color: var(--gold-primary);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        textarea.form-control { min-height: 120px; resize: vertical; }
+
+        .btn-group { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+
+        .btn {
+            padding: 14px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-primary) 100%);
+            color: var(--bg-dark);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--bg-input);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover { border-color: var(--gold-primary); color: var(--gold-primary); }
+
+        .result-box {
+            display: none;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 32px;
+            text-align: center;
+        }
+
+        .result-box h3 { color: var(--success); margin-bottom: 16px; }
+        .score-display { display: flex; justify-content: center; gap: 40px; margin: 24px 0; }
+        .score-item h4 { font-size: 2rem; color: var(--gold-primary); }
+        .score-item p { font-size: 0.9rem; color: var(--text-secondary); }
+
+        .disclaimer { font-size: 0.8rem; color: var(--text-secondary); margin-top: 16px; font-style: italic; }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 80px;
+        }
+
+        footer a { color: var(--gold-primary); text-decoration: none; }
+
+        .references {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 16px;
+            padding-left: 20px;
+        }
+        .references li { margin-bottom: 8px; }
+
+        /* Tip Box */
+        .tip-box {
+            background: rgba(16, 185, 129, 0.08);
+            border-left: 4px solid var(--success);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 24px 0;
+        }
+
+        .tip-box strong { color: var(--success); }
+
+        @media (max-width: 640px) {
+            .form-row { grid-template-columns: 1fr; }
+            .score-display { flex-direction: column; gap: 20px; }
+            .btn-group { flex-direction: column; }
+            .btn { width: 100%; }
+            .chapter-header h1 { font-size: 1.8rem; }
+            .analysis-grid { grid-template-columns: 1fr; }
+        }
+
+        @media print {
+            body { background: white; color: black; }
+            .nav-header, .btn-group, footer, .quiz-container { display: none; }
+            .content-section { border: 1px solid #ccc; background: white; color: black; }
+            .gold-text { color: #333; -webkit-text-fill-color: #333; }
+            .luxury-table th { background: #eee; color: black; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav-header">
+            <a href="14.html" class="nav-link">← Pertemuan 14</a>
+            <span style="color: var(--text-secondary); font-size: 0.9rem;">Bahasa Indonesia Kelas VII</span>
+            <a href="16.html" class="nav-link">Pertemuan 16 (UTS) →</a>
+        </nav>
+
+        <!-- Chapter Header -->
+        <div class="chapter-header">
+            <h1>🐉 <span class="gold-text">Pertemuan 15</span></h1>
+            <h2 style="font-size: 1.8rem; margin-bottom: 16px; color: var(--text-primary);">Menganalisis Gagasan, Pandangan, Arahan, dan Pesan dari Teks Cerita Fantasi</h2>
+            <p>Menjelajahi dunia imajinasi melalui teks cerita fantasi. Mempelajari cara mengidentifikasi gagasan utama, memahami pandangan pengarang terhadap realitas, serta menggali arahan moral dan pesan tersirat yang terkandung dalam kisah-kisah ajaib.</p>
+            <p style="margin-top: 20px; font-size: 0.9rem; color: var(--gold-primary); font-weight: 600;">Capaian Pembelajaran: Peserta didik mampu menganalisis informasi berupa gagasan, pandangan, arahan, dan/atau pesan dari teks cerita fantasi dengan kritis dan apresiatif.</p>
+        </div>
+
+        <!-- Content A: Pengertian & Teori -->
+        <div class="content-section">
+            <h2>A. Hakikat Cerita Fantasi</h2>
+            <p>Cerita fantasi adalah jenis karya sastra yang berisi kejadian-kejadian yang tidak mungkin terjadi dalam kehidupan nyata. Cerita ini penuh dengan keajaiban, makhluk mitologi, kekuatan supranatural, atau dunia alternatif yang berbeda dari dunia kita sehari-hari.</p>
+            
+            <div class="expert-quote">
+                "Fantasi bukan sekadar pelarian dari kenyataan, melainkan sebuah jendela untuk melihat kenyataan dari sudut pandang yang berbeda. Melalui keajaiban, kita belajar tentang keberanian, persahabatan, dan kebaikan." 
+                <br><span style="font-size: 0.85rem; color: var(--text-secondary);">— J.R.R. Tolkien, <em>On Fairy-Stories</em></span>
+            </div>
+
+            <div class="definition-box">
+                <strong>📌 DEFINISI INTI</strong><br>
+                <strong>Teks Cerita Fantasi</strong> adalah narasi fiksi yang mengandung unsur keajaiban, sihir, atau hal-hal yang melampaui hukum alam, yang bertujuan untuk menghibur sekaligus menyampaikan pesan moral atau kritik sosial melalui metafora imajinatif.
+            </div>
+
+            <h3>Jenis-Jenis Cerita Fantasi:</h3>
+            <ul style="color: var(--text-secondary); margin-left: 20px; margin-bottom: 16px;">
+                <li><strong style="color: var(--magic);">Fantasi Total:</strong> Seluruh elemen cerita (latar, tokoh, alur) bersifat imajinatif dan tidak ada di dunia nyata (Contoh: Narnia, Harry Potter).</li>
+                <li><strong style="color: var(--magic);">Fantasi Irisan (Slice of Life):</strong> Menggabungkan unsur nyata dan imajinatif. Tokoh manusia biasa berinteraksi dengan makhluk ajaib di dunia nyata (Contoh: Doraemon, Upin Ipin).</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 Ciri Khas Utama:</strong><br>
+                Adanya <strong>keajaiban/magi</strong>, <strong>tokoh unik</strong (peri, naga, penyihir), <strong>latar waktu/tempat yang tidak biasa</strong> (zaman purba, kerajaan awan), dan <strong>alur yang tidak terduga</strong>.
+            </div>
+        </div>
+
+        <!-- Content B: Unsur Intrinsik -->
+        <div class="content-section">
+            <h2>B. Unsur Intrinsik Cerita Fantasi</h2>
+            <p>Untuk menganalisis cerita fantasi secara mendalam, kita perlu membedah unsur-unsur pembangunnya. Unsur-unsur ini saling berkaitan membentuk keutuhan cerita.</p>
+            
+            <div class="luxury-table-wrapper">
+                <table class="luxury-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 22%;">Unsur</th>
+                            <th style="width: 38%;">Penjelasan dalam Konteks Fantasi</th>
+                            <th style="width: 40%;">Contoh</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1. Tema</strong></td>
+                            <td>Gagasan pokok yang mendasari cerita. Dalam fantasi, tema sering berkaitan dengan perjuangan kebaikan vs kejahatan.</td>
+                            <td>Persahabatan, keberanian, petualangan, keseimbangan alam.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2. Tokoh & Penokohan</strong></td>
+                            <td>Pelaku dalam cerita dan wataknya. Tokoh fantasi sering memiliki kekuatan khusus atau sifat yang dilebih-lebihkan.</td>
+                            <td>Protagonis (pahlawan), Antagonis (penjahat), Tritagonis (penengah).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3. Latar (Setting)</strong></td>
+                            <td>Tempat, waktu, dan suasana terjadinya peristiwa. Latar fantasi seringkali sangat deskriptif dan magis.</td>
+                            <td>Hutan terlarang, kastil melayang, zaman es, dimensi lain.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4. Alur (Plot)</strong></td>
+                            <td>Rangkaian peristiwa. Alur fantasi sering menggunakan konflik besar antara kekuatan magis.</td>
+                            <td>Pengenalan -> Munculnya masalah magis -> Klimaks pertempuran -> Penyelesaian.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>5. Sudut Pandang</strong></td>
+                            <td>Posisi pengarang dalam bercerita (orang pertama "aku" atau orang ketiga "dia").</td>
+                            <td>"Aku menemukan pedang ajaib itu..." (Orang Pertama).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>6. Amanat/Pesan</strong></td>
+                            <td>Nasihat atau nilai moral yang ingin disampaikan penulis kepada pembaca melalui kisah imajinatif tersebut.</td>
+                            <td>Kekuatan terbesar bukanlah sihir, melainkan cinta kasih.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Content C: Bedah Contoh -->
+        <div class="content-section">
+            <h2>C. Bedah Contoh: Analisis Mendalam</h2>
+            <p>Mari kita analisis potongan cerita fantasi berikut untuk melihat bagaimana gagasan dan pesan disampaikan.</p>
+            
+            <div class="story-card">
+                <h3 class="story-title">Pedang Cahaya Bulan</h3>
+                <div class="story-body">
+                    <p>Di kerajaan Aetheria yang tertutup awan abadi, hiduplah seorang ksatria muda bernama Elara. Berbeda dengan ksatria lain yang mengandalkan kekuatan otot, Elara mengandalkan kecerdasan dan hati nuraninya. Suatu hari, Raja mengumumkan bahwa siapa pun yang bisa menyalakan Pedang Cahaya Bulan di puncak Gunung Kristal akan menjadi penerus tahta.</p>
+                    <p>Banyak ksatria gagah berani mencoba, namun mereka gagal karena hanya mengandalkan kekuatan fisik untuk memanjat gunung yang licin dan beracun. Elara datang dengan membawa tanaman obat untuk menetralisir racun di bebatuan. Ia tidak memanjat dengan kasar, tetapi merawat setiap langkahnya. Saat ia menyentuh pedang itu, pedang tersebut bersinar terang bukan karena kekuatan otot, tetapi karena ketulusan hatinya untuk menyelamatkan rakyat dari kabut racun.</p>
+                </div>
+            </div>
+
+            <div class="analysis-grid">
+                <div class="analysis-card">
+                    <h4>🏗️ 1. Analisis Struktur & Unsur</h4>
+                    <p><strong>Tema:</strong> Kepemimpinan berbasis hati nurani, bukan kekuatan fisik.<br>
+                    <strong>Tokoh:</strong> Elara (Protagonis, cerdas, peduli), Ksatria lain (Antagonis minor, mengandalkan kekuatan).<br>
+                    <strong>Latar:</strong> Kerajaan Aetheria (fantasi total), Gunung Kristal (magis).<br>
+                    <strong>Keajaiban:</strong> Pedang yang hanya menyala bagi pemilik hati tulus.</p>
+                </div>
+                <div class="analysis-card">
+                    <h4>💡 2. Analisis Gagasan & Pesan</h4>
+                    <p><strong>Gagasan Utama:</strong> Kekuatan sejati berasal dari kepedulian dan kecerdasan, bukan sekadar otot.<br>
+                    <strong>Pandangan Pengarang:</strong> Kritik terhadap kepemimpinan yang otoriter/kekuasaan fisik. Pengarang memandang bahwa pemimpin haruslah penyembuh/pelayan rakyat.<br>
+                    <strong>Pesan/Arahan:</strong> Jadilah pemimpin yang peduli pada kesejahteraan rakyat, bukan hanya mengejar gelar atau kekuasaan.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content D: Nilai-Nilai dalam Fantasi -->
+        <div class="content-section">
+            <h2>D. Nilai-Nilai Tersembunyi dalam Cerita Fantasi</h2>
+            <p>Meskipun ceritanya tidak nyata, nilai-nilai yang dibawa sangat relevan dengan kehidupan nyata. Berikut adalah nilai-nilai yang sering ditemukan:</p>
+            
+            <div class="luxury-table-wrapper">
+                <table class="luxury-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Jenis Nilai</th>
+                            <th style="width: 75%;">Penjelasan & Contoh dalam Fantasi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Nilai Moral</strong></td>
+                            <td>Pembedaan jelas antara baik dan jahat. Contoh: Ksatria yang jujur vs Penyihir yang curang.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nilai Sosial</strong></td>
+                            <td>Kerjasama tim. Contoh: Kelompok teman dengan keahlian berbeda (sihir, panah, ilmu pengetahuan) bekerja sama mengalahkan monster.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nilai Lingkungan</strong></td>
+                            <td>Pelestarian alam magis. Contoh: Hutan peri yang sekarat karena polusi manusia, mengajarkan pentingnya menjaga alam.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nilai Religius/Spiritual</strong></td>
+                            <td>Keyakinan pada kekuatan tertinggi. Contoh: Doa atau mantra yang hanya berhasil jika diucapkan dengan iman dan ketulusan.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Keywords -->
+        <div class="keywords-section">
+            <span class="keyword-tag">Cerita Fantasi</span>
+            <span class="keyword-tag">Keajaiban</span>
+            <span class="keyword-tag">Tema</span>
+            <span class="keyword-tag">Tokoh Protagonis</span>
+            <span class="keyword-tag">Latar Magis</span>
+            <span class="keyword-tag">Alur</span>
+            <span class="keyword-tag">Amanat</span>
+            <span class="keyword-tag">Nilai Moral</span>
+            <span class="keyword-tag">Imajinasi</span>
+        </div>
+
+        <div class="content-section" style="text-align: center; padding: 40px;">
+            <p style="font-family: 'Playfair Display', serif; font-size: 1.3rem; font-style: italic; color: var(--gold-light); margin-bottom: 12px;">"Fantasi adalah kebenaran yang dibungkus dalam kebohongan indah untuk mengajarkan kita tentang realitas."</p>
+            <cite style="color: var(--text-secondary); font-size: 0.9rem; font-style: normal;">— Refleksi Sastra Fantasi</cite>
+        </div>
+
+        <!-- Referensi -->
+        <div class="content-section">
+            <h2>E. Referensi & Bacaan Lanjutan</h2>
+            <ul class="references">
+                <li>Kemdikbudristek. (2022). <em>Buku Bahasa Indonesia Kelas VII SMP/MTs (Edisi Revisi)</em>. Jakarta: Pusat Perbukuan.</li>
+                <li>Tolkien, J.R.R. (1947). <em>On Fairy-Stories</em>. Oxford University Press.</li>
+                <li>Nurginanjar. (2014). <em>Sastra Anak: Pengantar Pemahaman Dunia Anak</em>. Yogyakarta: Pustaka Pelajar.</li>
+                <li>Sumardjo. (2010). <em>Pengantar Kajian Sastra</em>. Jakarta: Pustaka Jaya.</li>
+            </ul>
+        </div>
+
+        <!-- UJI FORMATIF -->
+        <div class="quiz-container" id="uji-formatif">
+            <div class="quiz-header">
+                <h2 style="color: var(--gold-primary); margin-bottom: 8px;">📝 Uji Formatif Pertemuan 15</h2>
+                <p style="color: var(--text-secondary);">Materi: Analisis gagasan, pandangan, arahan, dan pesan dari teks cerita fantasi beserta unsur intrinsiknya.</p>
+            </div>
+
+            <form id="quizForm">
+                <!-- Identitas -->
+                <div class="content-section" style="background: var(--bg-input); border: none;">
+                    <h3 style="margin-top: 0; color: var(--gold-primary);">📋 Identitas Siswa</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nama Lengkap *</label>
+                            <input type="text" id="nama" class="form-control" required placeholder="Masukkan nama lengkap">
+                        </div>
+                        <div class="form-group">
+                            <label>No. Absen / NIS *</label>
+                            <input type="text" id="nis" class="form-control" required placeholder="Contoh: 12345">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Kelas *</label>
+                            <select id="kelas" class="form-control" required>
+                                <option value="">Pilih Kelas</option>
+                                <option value="VII-A">VII-A</option>
+                                <option value="VII-B">VII-B</option>
+                                <option value="VII-C">VII-C</option>
+                                <option value="VII-D">VII-D</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Semester *</label>
+                            <select id="semester" class="form-control" required>
+                                <option value="1 (Ganjil)">1 (Ganjil)</option>
+                                <option value="2 (Genap)">2 (Genap)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bagian A: Pilihan Ganda -->
+                <h3 style="margin: 32px 0 16px; color: var(--text-primary);">📋 Bagian A: Pilihan Ganda</h3>
+                
+                <div class="question-block">
+                    <p class="question-text">1. Ciri utama cerita fantasi yang membedakannya dari cerita realistis adalah... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="A"> <span>A. Berdasarkan fakta sejarah</span></label>
+                        <label><input type="radio" name="q1" value="B"> <span>B. Mengandung unsur keajaiban atau hal yang tidak mungkin terjadi di dunia nyata</span></label>
+                        <label><input type="radio" name="q1" value="C"> <span>C. Tokohnya adalah manusia biasa tanpa kekuatan khusus</span></label>
+                        <label><input type="radio" name="q1" value="D"> <span>D. Latarnya selalu di sekolah atau rumah</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">2. Jenis cerita fantasi di mana seluruh elemen (tokoh, latar, alur) bersifat imajinatif dan tidak ada di dunia nyata disebut... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="A"> <span>A. Fantasi Irisan</span></label>
+                        <label><input type="radio" name="q2" value="B"> <span>B. Fantasi Total</span></label>
+                        <label><input type="radio" name="q2" value="C"> <span>C. Cerita Rakyat</span></label>
+                        <label><input type="radio" name="q2" value="D"> <span>D. Fabel</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">3. Tokoh utama yang berwatak baik dan menjadi pusat simpati pembaca dalam cerita fantasi disebut... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="A"> <span>A. Antagonis</span></label>
+                        <label><input type="radio" name="q3" value="B"> <span>B. Protagonis</span></label>
+                        <label><input type="radio" name="q3" value="C"> <span>C. Tritagonis</span></label>
+                        <label><input type="radio" name="q3" value="D"> <span>D. Figuran</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">4. "Hutan Elf yang daunnya berwarna perak dan bernyanyi saat ditiup angin." Kutipan tersebut merupakan contoh dari unsur... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q4" value="A"> <span>A. Penokohan</span></label>
+                        <label><input type="radio" name="q4" value="B"> <span>B. Latar (Setting)</span></label>
+                        <label><input type="radio" name="q4" value="C"> <span>C. Tema</span></label>
+                        <label><input type="radio" name="q4" value="D"> <span>D. Amanat</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">5. Pesan moral dalam cerita fantasi seringkali disampaikan melalui... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q5" value="A"> <span>A. Data statistik yang akurat</span></label>
+                        <label><input type="radio" name="q5" value="B"> <span>B. Metafora atau kiasan melalui perjalanan tokoh</span></label>
+                        <label><input type="radio" name="q5" value="C"> <span>C. Daftar harga barang magis</span></label>
+                        <label><input type="radio" name="q5" value="D"> <span>D. Biografi penulis</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">6. Dalam cerita "Pedang Cahaya Bulan", Elara berhasil menyalakan pedang karena... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q6" value="A"> <span>A. Ia memiliki otot paling kuat</span></label>
+                        <label><input type="radio" name="q6" value="B"> <span>B. Ia menggunakan sihir hitam</span></label>
+                        <label><input type="radio" name="q6" value="C"> <span>C. Ketulusan hatinya untuk menyelamatkan rakyat</span></label>
+                        <label><input type="radio" name="q6" value="D"> <span>D. Ia mencuri pedang tersebut</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">7. Sudut pandang orang pertama dalam cerita fantasi ditandai dengan penggunaan kata ganti... <span class="points-badge">10 POIN</span></p>
+                    <div class="options

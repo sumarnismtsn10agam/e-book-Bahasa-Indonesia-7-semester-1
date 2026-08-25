@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemuan 13: Menulis Puisi Rakyat Kreatif | Bahasa Indonesia Kelas 7</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0B0F19;
+            --bg-card: #151B2B;
+            --bg-input: #1E2538;
+            --gold-primary: #D4AF37;
+            --gold-light: #F4E4BC;
+            --gold-dark: #AA8C2C;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --border-color: #2A3449;
+            --success: #10B981;
+            --error: #EF4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+
+        .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+        .gold-text {
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Navigation */
+        .nav-header {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover { color: var(--gold-primary); }
+
+        /* Content Sections */
+        .chapter-header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding: 48px 32px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, transparent 100%);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chapter-header::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 10rem;
+            color: rgba(212, 175, 55, 0.05);
+            line-height: 1;
+        }
+
+        .chapter-header h1 { font-size: 2.5rem; margin-bottom: 16px; }
+        .chapter-header p { color: var(--text-secondary); max-width: 700px; margin: 0 auto; font-size: 1.1rem; }
+
+        .content-section {
+            margin-bottom: 48px;
+            padding: 32px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .content-section h2 {
+            font-size: 1.6rem;
+            color: var(--gold-primary);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        .content-section h3 { font-size: 1.25rem; margin: 28px 0 16px; color: var(--gold-light); }
+        .content-section p { margin-bottom: 16px; color: var(--text-secondary); text-align: justify; }
+
+        .definition-box {
+            background: rgba(212, 175, 55, 0.08);
+            border-left: 4px solid var(--gold-primary);
+            padding: 24px;
+            border-radius: 0 8px 8px 0;
+            margin: 24px 0;
+        }
+
+        .expert-quote {
+            font-style: italic;
+            color: var(--text-primary);
+            border-left: 2px solid var(--gold-dark);
+            padding-left: 16px;
+            margin: 20px 0;
+            color: var(--gold-light);
+        }
+
+        .example-box {
+            background: var(--bg-input);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px dashed var(--border-color);
+            margin: 24px 0;
+        }
+
+        .example-box strong { color: var(--gold-primary); }
+
+        /* Poetry Card Style */
+        .poem-card {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 1px solid var(--gold-primary);
+            border-radius: 12px;
+            padding: 32px;
+            margin: 24px 0;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .poem-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--gold-primary);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .poem-body {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            line-height: 2;
+            color: var(--text-primary);
+            white-space: pre-line;
+        }
+
+        /* Luxury Table */
+        .luxury-table-wrapper {
+            overflow-x: auto;
+            margin: 24px 0;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .luxury-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        .luxury-table th {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            font-weight: 600;
+            text-align: left;
+            padding: 16px;
+            border-bottom: 2px solid var(--gold-dark);
+        }
+
+        .luxury-table td {
+            padding: 16px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .luxury-table tr:last-child td { border-bottom: none; }
+        .luxury-table tr:hover td { background: rgba(255, 255, 255, 0.02); color: var(--text-primary); }
+
+        /* Step Cards */
+        .step-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin: 24px 0;
+        }
+
+        .step-card {
+            background: var(--bg-input);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-card::before {
+            content: attr(data-step);
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            color: rgba(212, 175, 55, 0.08);
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .step-card:hover {
+            border-color: var(--gold-primary);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px -10px rgba(212, 175, 55, 0.3);
+        }
+
+        .step-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .step-card h4 {
+            color: var(--gold-primary);
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Keywords */
+        .keywords-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 32px 0;
+            justify-content: center;
+        }
+
+        .keyword-tag {
+            background: var(--bg-input);
+            color: var(--gold-primary);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .keyword-tag:hover {
+            background: var(--gold-primary);
+            color: var(--bg-dark);
+            cursor: default;
+        }
+
+        /* Quiz Styles */
+        .quiz-container {
+            background: var(--bg-card);
+            border: 1px solid var(--gold-primary);
+            border-radius: 12px;
+            padding: 40px;
+            margin-top: 60px;
+        }
+
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--text-secondary); font-size: 0.9rem; }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus { outline: none; border-color: var(--gold-primary); }
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+        .question-block {
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .question-text { font-weight: 600; margin-bottom: 16px; color: var(--text-primary); }
+
+        .points-badge {
+            float: right;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .options label {
+            display: block;
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text-secondary);
+        }
+
+        .options label:hover { border-color: var(--gold-primary); color: var(--text-primary); }
+        .options input[type="radio"] { margin-right: 12px; accent-color: var(--gold-primary); }
+        .options input[type="radio"]:checked + span { color: var(--gold-primary); font-weight: 500; }
+        .options label:has(input[type="radio"]:checked) {
+            border-color: var(--gold-primary);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        textarea.form-control { min-height: 120px; resize: vertical; }
+
+        .btn-group { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+
+        .btn {
+            padding: 14px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-primary) 100%);
+            color: var(--bg-dark);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--bg-input);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover { border-color: var(--gold-primary); color: var(--gold-primary); }
+
+        .result-box {
+            display: none;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success);
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 32px;
+            text-align: center;
+        }
+
+        .result-box h3 { color: var(--success); margin-bottom: 16px; }
+        .score-display { display: flex; justify-content: center; gap: 40px; margin: 24px 0; }
+        .score-item h4 { font-size: 2rem; color: var(--gold-primary); }
+        .score-item p { font-size: 0.9rem; color: var(--text-secondary); }
+
+        .disclaimer { font-size: 0.8rem; color: var(--text-secondary); margin-top: 16px; font-style: italic; }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 80px;
+        }
+
+        footer a { color: var(--gold-primary); text-decoration: none; }
+
+        .references {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 16px;
+            padding-left: 20px;
+        }
+        .references li { margin-bottom: 8px; }
+
+        /* Tip Box */
+        .tip-box {
+            background: rgba(16, 185, 129, 0.08);
+            border-left: 4px solid var(--success);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 24px 0;
+        }
+
+        .tip-box strong { color: var(--success); }
+
+        @media (max-width: 640px) {
+            .form-row { grid-template-columns: 1fr; }
+            .score-display { flex-direction: column; gap: 20px; }
+            .btn-group { flex-direction: column; }
+            .btn { width: 100%; }
+            .chapter-header h1 { font-size: 1.8rem; }
+            .step-grid { grid-template-columns: 1fr; }
+        }
+
+        @media print {
+            body { background: white; color: black; }
+            .nav-header, .btn-group, footer, .quiz-container { display: none; }
+            .content-section { border: 1px solid #ccc; background: white; color: black; }
+            .gold-text { color: #333; -webkit-text-fill-color: #333; }
+            .luxury-table th { background: #eee; color: black; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav-header">
+            <a href="12.html" class="nav-link">← Pertemuan 12</a>
+            <span style="color: var(--text-secondary); font-size: 0.9rem;">Bahasa Indonesia Kelas VII</span>
+            <a href="14.html" class="nav-link">Pertemuan 14 →</a>
+        </nav>
+
+        <!-- Chapter Header -->
+        <div class="chapter-header">
+            <h1>✍️ <span class="gold-text">Pertemuan 13</span></h1>
+            <h2 style="font-size: 1.8rem; margin-bottom: 16px; color: var(--text-primary);">Menulis Gagasan dan Imajinasi dalam Bentuk Puisi Rakyat secara Kreatif</h2>
+            <p>Mengubah ide, perasaan, dan imajinasi liar menjadi karya sastra terstruktur yang indah. Belajar merangkai kata-kata sesuai aturan rima dan suku kata untuk menciptakan pantun, syair, atau gurindam yang tidak hanya benar secara struktur, tetapi juga menyentuh hati.</p>
+            <p style="margin-top: 20px; font-size: 0.9rem; color: var(--gold-primary); font-weight: 600;">Capaian Pembelajaran: Peserta didik mampu menulis gagasan dan imajinasinya dalam bentuk puisi rakyat (pantun, syair, gurindam) dengan memperhatikan unsur intrinsik secara kreatif.</p>
+        </div>
+
+        <!-- Content A: Pengertian & Teori -->
+        <div class="content-section">
+            <h2>A. Hakikat Kreativitas dalam Puisi Rakyat</h2>
+            <p>Menulis puisi rakyat bukan sekadar mengisi kolom kosong dengan kata-kata asal. Ini adalah seni "bermain dalam kotak". Tantangannya adalah bagaimana menyampaikan pesan yang dalam dan imajinatif di tengah keteraturan aturan baku seperti jumlah suku kata dan pola rima.</p>
+            
+            <div class="expert-quote">
+                "Kreativitas dalam puisi rakyat terletak pada kemampuan menemukan kata-kata yang tepat untuk sampiran yang seolah tidak berhubungan, namun memiliki bunyi akhir yang selaras dengan isi." 
+                <br><span style="font-size: 0.85rem; color: var(--text-secondary);">— Herman J. Waluyo (2003), <em>Teori dan Apresiasi Sastra</em></span>
+            </div>
+
+            <div class="definition-box">
+                <strong>📌 DEFINISI INTI</strong><br>
+                <strong>Menulis Puisi Rakyat Kreatif</strong> adalah proses menciptakan karya sastra lama (pantun, syair, gurindam) yang orisinal, dengan memadukan imajinasi pribadi, pengamatan lingkungan, dan kepatuhan terhadap kaidah struktural (rima, suku kata, bait).
+            </div>
+
+            <h3>Tujuan Menulis Puisi Rakyat:</h3>
+            <ul style="color: var(--text-secondary); margin-left: 20px; margin-bottom: 16px;">
+                <li><strong style="color: var(--text-primary);">Ekspresi Diri:</strong> Menyalurkan perasaan suka, duka, atau kritik sosial melalui bahasa yang halus.</li>
+                <li><strong style="color: var(--text-primary);">Pelestarian Budaya:</strong> Ikut serta menjaga warisan sastra lisan agar tidak punah di era digital.</li>
+                <li><strong style="color: var(--text-primary);">Asah Otak:</strong> Melatih kelancaran berbahasa dan kekayaan kosakata (diksi).</li>
+                <li><strong style="color: var(--text-primary);">Komunikasi Estetis:</strong> Menyampaikan nasihat tanpa terkesan menggurui, melainkan melalui keindahan bahasa.</li>
+            </ul>
+
+            <div class="tip-box">
+                <strong>💡 Prinsip Dasar:</strong><br>
+                Ingat rumus <strong>3I</strong>: <strong>I</strong>de (tema jelas), <strong>I</strong>rama (sesuai rima/suku kata), dan <strong>I</strong>maji (menggunakan kata-kata yang membangkitkan gambar di pikiran).
+            </div>
+        </div>
+
+        <!-- Content B: Langkah-Langkah Menulis -->
+        <div class="content-section">
+            <h2>B. Langkah-Langkah Menulis Puisi Rakyat</h2>
+            <p>Untuk menghasilkan puisi rakyat yang berkualitas, ikuti proses penulisan berikut secara bertahap. Proses ini membantu Anda mengorganisir ide dari abstrak menjadi konkret.</p>
+            
+            <div class="step-grid">
+                <div class="step-card" data-step="1">
+                    <div class="step-icon">💡</div>
+                    <h4>1. Tentukan Tema & Jenis</h4>
+                    <p>Pilih tema (cinta, nasihat, jenaka, agama) dan jenis puisi (pantun, syair, atau gurindam) yang ingin ditulis.</p>
+                </div>
+
+                <div class="step-card" data-step="2">
+                    <div class="step-icon">🔍</div>
+                    <h4>2. Cari Kata Kunci Rima</h4>
+                    <p>Tentukan kata akhir untuk baris-genap (isi). Misalnya untuk pantun a-b-a-b, tentukan dulu kata akhir baris 2 dan 4.</p>
+                </div>
+
+                <div class="step-card" data-step="3">
+                    <div class="step-icon">🌿</div>
+                    <h4>3. Buat Sampiran (Jika Pantun)</h4>
+                    <p>Cari benda atau suasana alam yang berima sama dengan kata kunci isi. Pastikan sampiran tidak nyambung maknanya dengan isi.</p>
+                </div>
+
+                <div class="step-card" data-step="4">
+                    <div class="step-icon">✍️</div>
+                    <h4>4. Tulis Isi/Pesan</h4>
+                    <p>Rangkai kata-kata menjadi kalimat bermakna yang sesuai dengan tema. Pastikan jumlah suku kata 8-12.</p>
+                </div>
+
+                <div class="step-card" data-step="5">
+                    <div class="step-icon">✅</div>
+                    <h4>5. Periksa Kaidah</h4>
+                    <p>Cek ulang: Apakah rimanya cocok? Apakah suku katanya pas? Apakah pesannya tersampaikan?</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content C: Tips Kreatif -->
+        <div class="content-section">
+            <h2>C. Tips Menulis Sampiran yang Unik</h2>
+            <p>Sampiran adalah bagian paling sulit dalam menulis pantun karena harus berima tapi tidak boleh nyambung maknanya. Berikut tips agar sampiranmu kreatif:</p>
+            
+            <div class="luxury-table-wrapper">
+                <table class="luxury-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Tips</th>
+                            <th style="width: 75%;">Penjelasan & Contoh</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Gunakan Alam Sekitar</strong></td>
+                            <td>Ambil inspirasi dari tanaman, hewan, atau cuaca. Contoh: "Pohon kelapa", "Burung dara", "Hujan gerimis".</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hindari Klise</strong></td>
+                            <td>Jangan selalu pakai "jalan-jalan ke kota tua". Coba variasi lain seperti "Memetik jambu di halaman belakang" atau "Melihat awan putih berlalu".</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fokus pada Bunyi Akhir</strong></td>
+                            <td>Jika isi berakhir dengan "-ati" (hati), cari sampiran berakhiran "-ati" juga (pertiwi, sakti, bakti, dll).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Jaga Logika Sampiran</strong></td>
+                            <td>Meski tidak nyambung dengan isi, sampiran harus masuk akal secara mandiri. Jangan menulis hal yang mustahil terjadi.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Content D: Contoh Hasil Karya -->
+        <div class="content-section">
+            <h2>D. Contoh Hasil Karya Siswa</h2>
+            <p>Berikut adalah contoh puisi rakyat hasil kreasi dengan tema yang berbeda-beda. Perhatikan bagaimana aturan struktur dipatuhi sambil tetap menyampaikan pesan yang kuat.</p>
+            
+            <div class="poem-card">
+                <h3 class="poem-title">Pantun Nasihat (Tema: Belajar)</h3>
+                <div class="poem-body">
+Pergi ke laut mencari ikan,
+Ikan didapat pulanglah segera.
+Rajin-rajinlah engkau membaca,
+Agar cerdas sepanjang masa.
+                </div>
+                <div style="margin-top: 16px; font-size: 0.85rem; color: var(--text-secondary);">
+                    <strong>Analisis:</strong> Rima a-b-a-b (ikan-segera-membaca-masa). Suku kata 8-10. Sampiran (baris 1-2) tentang aktivitas nelayan, Isi (baris 3-4) tentang pentingnya belajar.
+                </div>
+            </div>
+
+            <div class="poem-card" style="margin-top: 32px;">
+                <h3 class="poem-title">Syair Persahabatan (Tema: Sosial)</h3>
+                <div class="poem-body">
+Sahabat sejati tiada duanya,
+Selalu ada di saat susah.
+Jangan pernah kau meninggalkannya,
+Nanti hidupmu penuh gelisah.
+                </div>
+                <div style="margin-top: 16px; font-size: 0.85rem; color: var(--text-secondary);">
+                    <strong>Analisis:</strong> Rima a-a-a-a (duanya-susah-tinggalkannya-gelisah). Semua baris adalah isi yang saling berkaitan menceritakan arti persahabatan.
+                </div>
+            </div>
+
+            <div class="poem-card" style="margin-top: 32px;">
+                <h3 class="poem-title">Gurindam Kebijaksanaan</h3>
+                <div class="poem-body">
+Barang siapa mengenal dunia,
+Tahulah ia diri terpada.
+                </div>
+                <div style="margin-top: 16px; font-size: 0.85rem; color: var(--text-secondary);">
+                    <strong>Analisis:</strong> Rima a-a (dunia-terpada). Baris 1 sebab, baris 2 akibat. Mengajarkan bahwa pengalaman luas membantu kita mengenal jati diri.
+                </div>
+            </div>
+        </div>
+
+        <!-- Keywords -->
+        <div class="keywords-section">
+            <span class="keyword-tag">Menulis Kreatif</span>
+            <span class="keyword-tag">Puisi Rakyat</span>
+            <span class="keyword-tag">Sampiran</span>
+            <span class="keyword-tag">Isi</span>
+            <span class="keyword-tag">Rima</span>
+            <span class="keyword-tag">Suku Kata</span>
+            <span class="keyword-tag">Imajinasi</span>
+            <span class="keyword-tag">Tema</span>
+            <span class="keyword-tag">Diksi</span>
+        </div>
+
+        <div class="content-section" style="text-align: center; padding: 40px;">
+            <p style="font-family: 'Playfair Display', serif; font-size: 1.3rem; font-style: italic; color: var(--gold-light); margin-bottom: 12px;">"Puisi adalah ketika perasaan menemukan pikirannya, dan pikiran menemukan kata-katanya."</p>
+            <cite style="color: var(--text-secondary); font-size: 0.9rem; font-style: normal;">— Robert Frost</cite>
+        </div>
+
+        <!-- Referensi -->
+        <div class="content-section">
+            <h2>E. Referensi & Bacaan Lanjutan</h2>
+            <ul class="references">
+                <li>Kemdikbudristek. (2022). <em>Buku Bahasa Indonesia Kelas VII SMP/MTs (Edisi Revisi)</em>. Jakarta: Pusat Perbukuan.</li>
+                <li>Waluyo, Herman J. (2003). <em>Teori dan Apresiasi Sastra</em>. Jakarta: Erlangga.</li>
+                <li>Teeuw, A. (1984). <em>Sastra Indonesia</em>. Jakarta: Pustaka Jaya.</li>
+                <li>Pradopo, Rachmat Djoko. (2012). <em>Pengkajian Puisi</em>. Yogyakarta: Gadjah Mada University Press.</li>
+            </ul>
+        </div>
+
+        <!-- UJI FORMATIF -->
+        <div class="quiz-container" id="uji-formatif">
+            <div class="quiz-header">
+                <h2 style="color: var(--gold-primary); margin-bottom: 8px;">📝 Uji Formatif Pertemuan 13</h2>
+                <p style="color: var(--text-secondary);">Materi: Langkah-langkah menulis puisi rakyat, teknik membuat sampiran, dan praktik menulis kreatif.</p>
+            </div>
+
+            <form id="quizForm">
+                <!-- Identitas -->
+                <div class="content-section" style="background: var(--bg-input); border: none;">
+                    <h3 style="margin-top: 0; color: var(--gold-primary);">📋 Identitas Siswa</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nama Lengkap *</label>
+                            <input type="text" id="nama" class="form-control" required placeholder="Masukkan nama lengkap">
+                        </div>
+                        <div class="form-group">
+                            <label>No. Absen / NIS *</label>
+                            <input type="text" id="nis" class="form-control" required placeholder="Contoh: 12345">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Kelas *</label>
+                            <select id="kelas" class="form-control" required>
+                                <option value="">Pilih Kelas</option>
+                                <option value="VII-A">VII-A</option>
+                                <option value="VII-B">VII-B</option>
+                                <option value="VII-C">VII-C</option>
+                                <option value="VII-D">VII-D</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Semester *</label>
+                            <select id="semester" class="form-control" required>
+                                <option value="1 (Ganjil)">1 (Ganjil)</option>
+                                <option value="2 (Genap)">2 (Genap)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bagian A: Pilihan Ganda -->
+                <h3 style="margin: 32px 0 16px; color: var(--text-primary);">📋 Bagian A: Pilihan Ganda</h3>
+                
+                <div class="question-block">
+                    <p class="question-text">1. Hal pertama yang harus ditentukan sebelum menulis puisi rakyat adalah... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="A"> <span>A. Mencari kertas mahal</span></label>
+                        <label><input type="radio" name="q1" value="B"> <span>B. Menentukan tema dan jenis puisinya</span></label>
+                        <label><input type="radio" name="q1" value="C"> <span>C. Menghafal puisi orang lain</span></label>
+                        <label><input type="radio" name="q1" value="D"> <span>D. Langsung menulis tanpa rencana</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">2. Dalam menulis pantun, bagian yang paling sulit dibuat karena harus berima tapi tidak nyambung dengan isi adalah... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="A"> <span>A. Isi</span></label>
+                        <label><input type="radio" name="q2" value="B"> <span>B. Tema</span></label>
+                        <label><input type="radio" name="q2" value="C"> <span>C. Sampiran</span></label>
+                        <label><input type="radio" name="q2" value="D"> <span>D. Amanat</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">3. Jika baris isi sebuah pantun berakhiran dengan kata "hati", maka kata akhir sampiran yang tepat adalah... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="A"> <span>A. Nasi</span></label>
+                        <label><input type="radio" name="q3" value="B"> <span>B. Budi</span></label>
+                        <label><input type="radio" name="q3" value="C"> <span>C. Sakti</span></label>
+                        <label><input type="radio" name="q3" value="D"> <span>D. Pertiwi</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">4. Jumlah suku kata yang ideal dalam satu baris puisi rakyat adalah... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q4" value="A"> <span>A. 4-6 suku kata</span></label>
+                        <label><input type="radio" name="q4" value="B"> <span>B. 8-12 suku kata</span></label>
+                        <label><input type="radio" name="q4" value="C"> <span>C. 12-15 suku kata</span></label>
+                        <label><input type="radio" name="q4" value="D"> <span>D. Bebas berapa saja</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">5. Manakah yang merupakan ciri sampiran yang baik? <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q5" value="A"> <span>A. Memiliki makna yang sama persis dengan isi</span></label>
+                        <label><input type="radio" name="q5" value="B"> <span>B. Tidak memiliki makna sama sekali</span></label>
+                        <label><input type="radio" name="q5" value="C"> <span>C. Berima dengan isi, namun maknanya tidak berkaitan langsung</span></label>
+                        <label><input type="radio" name="q5" value="D"> <span>D. Menggunakan bahasa asing</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">6. Tema yang cocok untuk syair adalah... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q6" value="A"> <span>A. Cerita panjang, sejarah, atau agama</span></label>
+                        <label><input type="radio" name="q6" value="B"> <span>B. Candaan singkat</span></label>
+                        <label><input type="radio" name="q6" value="C"> <span>C. Tebakan lucu</span></label>
+                        <label><input type="radio" name="q6" value="D"> <span>D. Perkenalan diri</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">7. Langkah terakhir dalam menulis puisi rakyat adalah... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q7" value="A"> <span>A. Membuangnya jika jelek</span></label>
+                        <label><input type="radio" name="q7" value="B"> <span>B. Memeriksa kembali kaidah rima dan suku kata</span></label>
+                        <label><input type="radio" name="q7" value="C"> <span>C. Langsung mempublikasikannya</span></label>
+                        <label><input type="radio" name="q7" value="D"> <span>D. Menyalin karya teman</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">8. "Memetik mangga di pagi hari" adalah contoh dari... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q8" value="A"> <span>A. Isi pantun</span></label>
+                        <label><input type="radio" name="q8" value="B"> <span>B. Sampiran pantun</span></label>
+                        <label><input type="radio" name="q8" value="C"> <span>C. Gurindam</span></label>
+                        <label><input type="radio" name="q8" value="D"> <span>D. Syair</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">9. Kreativitas dalam puisi rakyat ditunjukkan melalui... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q9" value="A"> <span>A. Meniru persis puisi orang lain</span></label>
+                        <label><input type="radio" name="q9" value="B"> <span>B. Penggunaan diksi yang unik dan imajinatif</span></label>
+                        <label><input type="radio" name="q9" value="C"> <span>C. Mengabaikan aturan rima</span></label>
+                        <label><input type="radio" name="q9" value="D"> <span>D. Menulis sebanyak-banyaknya tanpa diedit</span></label>
+                    </div>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">10. Pola rima a-a-a-a digunakan dalam jenis puisi... <span class="points-badge">10 POIN</span></p>
+                    <div class="options">
+                        <label><input type="radio" name="q10" value="A"> <span>A. Pantun</span></label>
+                        <label><input type="radio" name="q10" value="B"> <span>B. Gurindam</span></label>
+                        <label><input type="radio" name="q10" value="C"> <span>C. Syair</span></label>
+                        <label><input type="radio" name="q10" value="D"> <span>D. Puisi Modern</span></label>
+                    </div>
+                </div>
+
+                <!-- Bagian B: Essay -->
+                <h3 style="margin: 32px 0 16px; color: var(--text-primary);">✍️ Bagian B: Essay</h3>
+
+                <div class="question-block">
+                    <p class="question-text">1. Jelaskan langkah-langkah menulis pantun dari awal hingga akhir! <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay1" class="form-control" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">2. Buatlah satu bait pantun jenaka dengan tema "Sekolah"! Perhatikan rima a-b-a-b dan jumlah suku kata 8-12! <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay2" class="form-control" placeholder="Tulis pantun Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">3. Buatlah satu bait syair dengan tema "Persahabatan"! Perhatikan rima a-a-a-a! <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay3" class="form-control" placeholder="Tulis syair Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">4. Mengapa sampiran dalam pantun tidak boleh memiliki makna yang langsung berkaitan dengan isi? Jelaskan alasannya! <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay4" class="form-control" placeholder="Tulis jawaban Anda di sini..."></textarea>
+                </div>
+
+                <div class="question-block">
+                    <p class="question-text">5. Tuliskan satu gurindam ciptaanmu sendiri yang berisi nasihat untuk menghormati orang tua! <span class="points-badge">20 POIN</span></p>
+                    <textarea id="essay5" class="form-control" placeholder="Tulis gurindam Anda di sini..."></textarea>
+                </div>
+
+                <!-- Result Box -->
+                <div class="result-box" id="resultBox">
+                    <h3>📊 Hasil Uji Formatif</h3>
+                    <div class="score-display">
+                        <div class="score-item">
+                            <h4 id="scoreMCQ">0</h4>
+                            <p>Pilihan Ganda (/100)</p>
+                        </div>
+                        <div class="score-item">
+                            <h4 id="scoreEssay">0</h4>
+                            <p>Essay (/100)</p>
+                        </div>
+                        <div class="score-item">
+                            <h4 id="scoreFinal" class="gold-text">0</h4>
+                            <p>Skor Akhir (/200)</p>
+                        </div>
+                    </div>
+                    <p class="disclaimer">*Catatan: Skor Essay adalah estimasi otomatis berdasarkan kelengkapan jawaban (jumlah karakter). Penilaian akhir atas kreativitas dan ketepatan rima tetap berada di tangan guru pengampu.</p>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary" onclick="hitungNilai()">✉️ KIRIM JAWABAN & LIHAT HASIL</button>
+                    <button type="button" class="btn btn-secondary" onclick="unduhPDF()">📥 UNDUH PDF LENGKAP</button>
+                    <button type="button" class="btn btn-secondary" onclick="unduhTXT()">📄 UNDUH SKOR (TXT)</button>
+                    <button type="button" class="btn btn-secondary" onclick="kirimEmail()">📧 KIRIM KE EMAIL GURU</button>
+                    <button type="button" class="btn btn-secondary" onclick="mulaiUlang()">🔄 MULAI ULANG</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div style="margin-bottom: 16px;">
+                <a href="index.html" class="nav-link" style="margin: 0 10px;">📖 Daftar Isi</a>
+                <a href="14.html" class="nav-link" style="margin: 0 10px;">Selanjutnya → Pertemuan 14</a>
+            </div>
+            <p>&copy; 2026 <span class="gold-text">Sumarnis, S. Pd.</span> — MTsN 10 Agam. Hak Cipta Dilindungi Undang-Undang.</p>
+            <p style="margin-top: 8px;">Email: <a href="mailto:Sumarnisanis04@yahoo.com">Sumarnisanis04@yahoo.com</a></p>
+        </footer>
+    </div>
+
+    <!-- JavaScript Logic for Quiz -->
+    <script>
+        // Kunci Jawaban Pilihan Ganda
+        const kunciJawaban = {
+            q1: 'B', q2: 'C', q3: 'D', q4: 'B', q5: 'C',
+            q6: 'A', q7: 'B', q8: 'B', q9: 'B', q10: 'C'
+        };
+
+        let finalScoreData = {
+            nama: '',
+            nis: '',
+            kelas: '',
+            semester: '',
+            skorMCQ: 0,
+            skorEssay: 0,
+            skorAkhir: 0
+        };
+
+        function hitungNilai() {
+            // Validasi Identitas
+            const nama = document.getElementById('nama').value.trim();
+            const nis = document.getElementById('nis').value.trim();
+            const kelas = document.getElementById('kelas').value;
+            
+            if (!nama || !nis || !kelas) {
+                alert('Harap lengkapi Identitas Siswa (Nama, NIS, dan Kelas) sebelum mengirim jawaban!');
+                return;
+            }
+
+            // Hitung Pilihan Ganda
+            let benarMCQ = 0;
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected && selected.value === kunciJawaban[`q${i}`]) {
+                    benarMCQ++;
+                }
+            }
+            const skorMCQ = benarMCQ * 10;
+
+            // Hitung Essay (Simulasi berbasis panjang jawaban untuk demo)
+            let skorEssay = 0;
+            for (let i = 1; i <= 5; i++) {
+                const jawaban = document.getElementById(`essay${i}`).value.trim();
+                if (jawaban.length > 50) {
+                    skorEssay += 20; // Jawaban dianggap lengkap dan baik
+                } else if (jawaban.length > 20) {
+                    skorEssay += 10; // Jawaban pendek
+                }
+            }
+
+            const skorAkhir = skorMCQ + skorEssay;
+
+            // Simpan data
+            finalScoreData = { nama, nis, kelas, semester: document.getElementById('semester').value, skorMCQ, skorEssay, skorAkhir };
+
+            // Tampilkan Hasil
+            document.getElementById('scoreMCQ').innerText = skorMCQ;
+            document.getElementById('scoreEssay').innerText = skorEssay;
+            document.getElementById('scoreFinal').innerText = skorAkhir;
+            
+            const resultBox = document.getElementById('resultBox');
+            resultBox.style.display = 'block';
+            resultBox.scrollIntoView({ behavior: 'smooth' });
+
+            alert(`Terima kasih, ${nama}! Jawaban Anda telah diproses. Silakan lihat hasil di bagian bawah.`);
+        }
+
+        function unduhTXT() {
+            if (finalScoreData.skorAkhir === 0 && finalScoreData.nama === '') {
+                alert('Silakan kerjakan dan klik "KIRIM JAWABAN & LIHAT HASIL" terlebih dahulu.');
+                return;
+            }
+
+            const textContent = `
+HASIL UJI FORMATIF - BAHASA INDONESIA KELAS 7
+Pertemuan 13: Menulis Puisi Rakyat Kreatif
+----------------------------------------
+Nama    : ${finalScoreData.nama}
+NIS     : ${finalScoreData.nis}
+Kelas   : ${finalScoreData.kelas}
+Semester: ${finalScoreData.semester}
+----------------------------------------
+Skor Pilihan Ganda : ${finalScoreData.skorMCQ} / 100
+Skor Essay (Est.)  : ${finalScoreData.skorEssay} / 100
+SKOR AKHIR         : ${finalScoreData.skorAkhir} / 200
+----------------------------------------
+Catatan: Skor Essay adalah estimasi otomatis berdasarkan panjang jawaban.
+Dibuat oleh: Sumarnis, S. Pd. | MTsN 10 Agam
+            `.trim();
+
+            const blob = new Blob([textContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Skor_UjiFormatif_13_${finalScoreData.nama.replace(/\s+/g, '_')}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function unduhPDF() {
+            if (finalScoreData.skorAkhir === 0 && finalScoreData.nama === '') {
+                alert('Silakan kerjakan dan klik "KIRIM JAWABAN & LIHAT HASIL" terlebih dahulu.');
+                return;
+            }
+            window.print();
+        }
+
+        function kirimEmail() {
+            if (finalScoreData.skorAkhir === 0 && finalScoreData.nama === '') {
+                alert('Silakan kerjakan dan klik "KIRIM JAWABAN & LIHAT HASIL" terlebih dahulu.');
+                return;
+            }
+
+            const subject = `Hasil Uji Formatif Pertemuan 13 - ${finalScoreData.nama} (${finalScoreData.kelas})`;
+            const body = `Yth. Ibu Sumarnis, S. Pd.,\n\nBerikut adalah hasil uji formatif saya:\n\nNama: ${finalScoreData.nama}\nNIS: ${finalScoreData.nis}\nKelas: ${finalScoreData.kelas}\n\nSkor Pilihan Ganda: ${finalScoreData.skorMCQ}\nSkor Essay (Estimasi): ${finalScoreData.skorEssay}\nSkor Akhir: ${finalScoreData.skorAkhir}\n\nTerima kasih.`;
+            
+            window.location.href = `mailto:Sumarnisanis04@yahoo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        function mulaiUlang() {
+            if (confirm('Apakah Anda yakin ingin mengosongkan semua jawaban dan memulai ulang?')) {
+                document.getElementById('quizForm').reset();
+                document.getElementById('resultBox').style.display = 'none';
+                finalScoreData = { nama: '', nis: '', kelas: '', semester: '', skorMCQ: 0, skorEssay: 0, skorAkhir: 0 };
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
