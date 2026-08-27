@@ -1,0 +1,1846 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ujian Akhir Semester (UAS) | Bahasa Indonesia Kelas 7</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0B0F19;
+            --bg-card: #151B2B;
+            --bg-input: #1E2538;
+            --gold-primary: #D4AF37;
+            --gold-light: #F4E4BC;
+            --gold-dark: #AA8C2C;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --border-color: #2A3449;
+            --success: #10B981;
+            --error: #EF4444;
+            --info: #3B82F6;
+            --purple: #A855F7;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 600; }
+
+        .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+        .gold-text {
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Navigation */
+        .nav-header {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover { color: var(--gold-primary); }
+
+        /* UTS Header */
+        .uts-header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding: 56px 32px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.12) 0%, rgba(212, 175, 55, 0.03) 100%);
+            border-radius: 12px;
+            border: 2px solid var(--gold-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .uts-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold-dark), var(--gold-primary), var(--gold-dark));
+        }
+
+        .uts-badge {
+            display: inline-block;
+            background: var(--gold-primary);
+            color: var(--bg-dark);
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .uts-header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .uts-header h2 {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .uts-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .uts-info-item {
+            text-align: center;
+        }
+
+        .uts-info-item .label {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 4px;
+        }
+
+        .uts-info-item .value {
+            color: var(--gold-primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Content Sections */
+        .content-section {
+            margin-bottom: 40px;
+            padding: 32px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--gold-primary);
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            color: var(--gold-primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-meta {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .meta-badge {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            padding: 4px 14px;
+            border-radius: 16px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid var(--gold-primary);
+        }
+
+        .section-description {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            padding: 16px;
+            background: var(--bg-input);
+            border-radius: 8px;
+            border-left: 3px solid var(--gold-primary);
+            font-size: 0.95rem;
+        }
+
+        /* Question Styles */
+        .question-block {
+            margin-bottom: 32px;
+            padding: 24px;
+            background: var(--bg-input);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: border-color 0.3s;
+        }
+
+        .question-block:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .question-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: var(--gold-primary);
+            color: var(--bg-dark);
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-right: 12px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .question-text {
+            font-weight: 500;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+            line-height: 1.7;
+            display: inline;
+        }
+
+        .question-header {
+            margin-bottom: 16px;
+        }
+
+        .points-badge {
+            float: right;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            padding: 2px 12px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .options label {
+            display: block;
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text-secondary);
+        }
+
+        .options label:hover {
+            border-color: var(--gold-primary);
+            color: var(--text-primary);
+        }
+
+        .options input[type="radio"],
+        .options input[type="checkbox"] {
+            margin-right: 12px;
+            accent-color: var(--gold-primary);
+        }
+
+        .options input[type="radio"]:checked + span,
+        .options input[type="checkbox"]:checked + span {
+            color: var(--gold-primary);
+            font-weight: 500;
+        }
+
+        .options label:has(input:checked) {
+            border-color: var(--gold-primary);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        /* Complex Multiple Choice Hint */
+        .complex-hint {
+            background: rgba(59, 130, 246, 0.08);
+            border-left: 3px solid var(--info);
+            padding: 12px 16px;
+            margin-bottom: 16px;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.9rem;
+            color: var(--info);
+        }
+
+        /* True/False Styles */
+        .tf-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .tf-options label {
+            text-align: center;
+            padding: 14px;
+        }
+
+        .tf-options input[type="radio"] {
+            margin-right: 8px;
+        }
+
+        /* Matching Styles */
+        .matching-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 16px;
+            align-items: center;
+            margin-top: 16px;
+        }
+
+        .matching-premise {
+            background: var(--bg-card);
+            padding: 14px 18px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .matching-arrow {
+            color: var(--gold-primary);
+            font-size: 1.5rem;
+        }
+
+        .matching-select {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .matching-select:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+        }
+
+        .matching-options-list {
+            background: var(--bg-card);
+            border: 1px solid var(--gold-primary);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .matching-options-list h4 {
+            color: var(--gold-primary);
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+
+        .matching-options-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .matching-options-list li {
+            padding: 8px 0;
+            color: var(--text-secondary);
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .matching-options-list li:last-child {
+            border-bottom: none;
+        }
+
+        .matching-options-list li strong {
+            color: var(--gold-primary);
+            margin-right: 8px;
+        }
+
+        /* Form Styles */
+        .form-group { margin-bottom: 20px; }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* Result Box */
+        .result-box {
+            display: none;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
+            border: 1px solid var(--success);
+            border-radius: 12px;
+            padding: 32px;
+            margin-top: 32px;
+            text-align: center;
+        }
+
+        .result-box h3 {
+            color: var(--success);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .score-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .score-item {
+            background: var(--bg-card);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .score-item h4 {
+            font-size: 1.8rem;
+            color: var(--gold-primary);
+            margin-bottom: 4px;
+        }
+
+        .score-item p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .score-item.final {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%);
+            border-color: var(--gold-primary);
+        }
+
+        .score-item.final h4 {
+            font-size: 2.2rem;
+        }
+
+        .grade-display {
+            margin-top: 20px;
+            padding: 16px;
+            background: var(--bg-card);
+            border-radius: 8px;
+            border: 1px solid var(--gold-primary);
+        }
+
+        .grade-display .grade {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold-primary);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .grade-display .predikat {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+
+        /* Buttons */
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+
+        .btn {
+            padding: 14px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-primary) 100%);
+            color: var(--bg-dark);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--bg-input);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--gold-primary);
+            color: var(--gold-primary);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 80px;
+        }
+
+        footer a { color: var(--gold-primary); text-decoration: none; }
+
+        .disclaimer {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 16px;
+            font-style: italic;
+            padding: 16px;
+            background: var(--bg-input);
+            border-radius: 6px;
+            border-left: 3px solid var(--warning);
+        }
+
+        @media (max-width: 640px) {
+            .form-row { grid-template-columns: 1fr; }
+            .btn-group { flex-direction: column; }
+            .btn { width: 100%; }
+            .uts-header h1 { font-size: 2rem; }
+            .matching-grid { grid-template-columns: 1fr; }
+            .matching-arrow { transform: rotate(90deg); text-align: center; }
+            .tf-options { grid-template-columns: 1fr; }
+        }
+
+        @media print {
+            body { background: white; color: black; }
+            .nav-header, .btn-group, footer { display: none; }
+            .uts-header, .content-section { border: 1px solid #ccc; background: white; color: black; }
+            .gold-text { color: #333; -webkit-text-fill-color: #333; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav-header">
+            <a href="33.html" class="nav-link">← Pertemuan 33</a>
+            <span style="color: var(--text-secondary); font-size: 0.9rem;">Bahasa Indonesia Kelas VII</span>
+            <a href="index.html" class="nav-link">🏠 Beranda</a>
+        </nav>
+
+        <!-- UTS Header -->
+        <div class="uts-header">
+            <div class="uts-badge">Ujian Akhir Semester</div>
+            <h1>UAS <span class="gold-text">Bahasa Indonesia</span></h1>
+            <h2>Kelas VII — Semester Ganjil & Genap</h2>
+            <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto;">Ujian komprehensif mencakup seluruh materi Pertemuan 1 sampai 33, meliputi Teks Deskripsi, Puisi Rakyat, Cerita Fantasi, Teks Prosedur, dan Literasi Multimodal.</p>
+            
+            <div class="uts-info">
+                <div class="uts-info-item">
+                    <div class="label">Materi Ujian</div>
+                    <div class="value">Pertemuan 1–33</div>
+                </div>
+                <div class="uts-info-item">
+                    <div class="label">Jumlah Soal</div>
+                    <div class="value">50 Soal</div>
+                </div>
+                <div class="uts-info-item">
+                    <div class="label">Total Skor</div>
+                    <div class="value">100 Poin</div>
+                </div>
+                <div class="uts-info-item">
+                    <div class="label">Waktu</div>
+                    <div class="value">120 Menit</div>
+                </div>
+            </div>
+        </div>
+
+        <form id="uasForm">
+            <!-- IDENTITAS SISWA -->
+            <div class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">📋 Identitas Siswa</h2>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nama Lengkap *</label>
+                        <input type="text" id="nama" class="form-control" required placeholder="Masukkan nama lengkap">
+                    </div>
+                    <div class="form-group">
+                        <label>No. Absen / NIS *</label>
+                        <input type="text" id="nis" class="form-control" required placeholder="Contoh: 12345">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Kelas *</label>
+                        <select id="kelas" class="form-control" required>
+                            <option value="">Pilih Kelas</option>
+                            <option value="VII-A">VII-A</option>
+                            <option value="VII-B">VII-B</option>
+                            <option value="VII-C">VII-C</option>
+                            <option value="VII-D">VII-D</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Tanggal Ujian</label>
+                        <input type="date" id="tanggal" class="form-control" value="2026-06-15">
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- BAGIAN A: PILIHAN GANDA (20 SOAL × 2 POIN = 40) -->
+            <!-- ========================================== -->
+            <div class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">📋 Bagian A: Pilihan Ganda</h2>
+                    <div class="section-meta">
+                        <span class="meta-badge">20 Soal</span>
+                        <span class="meta-badge">2 Poin/Soal</span>
+                        <span class="meta-badge">Total: 40 Poin</span>
+                    </div>
+                </div>
+                <div class="section-description">
+                    Pilihlah <strong>satu jawaban yang paling tepat</strong> untuk setiap pertanyaan di bawah ini. Soal mencakup materi Pertemuan 1–33.
+                </div>
+
+                <!-- PG 1 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">1</span>
+                        <span class="question-text">Teks yang menggambarkan suatu objek secara terperinci sehingga pembaca seolah-olah melihat, mendengar, dan merasakan sendiri disebut...</span>
+                        <span class="points-badge">2 POIN</span>
+                    </div>
+                    <div class="options">
+                        <label><input type="radio" name="pg1" value="A"> <span>A. Teks Narasi</span></label>
+                        <label><input type="radio" name="pg1" value="B"> <span>B. Teks Deskripsi</span></label>
+                        <label><input type="radio" name="pg1" value="C"> <span>C. Teks Eksposisi</span></label>
+                        <label><input type="radio" name="pg1" value="D"> <span>D. Teks Prosedur</span></label>
+                    </div>
+                </div>
+
+                <!-- PG 2 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">2</span>
+                        <span class="question-text">Struktur teks deskripsi yang berisi perincian bagian objek secara detail (warna, bentuk, suasana) disebut...</span>
+                        <span class="points-badge">2 POIN</span>
+                    </div>
+                    <div class="options">
+                        <label><input type="radio" name="pg2" value="A"> <span>A. Identifikasi</span></label>
+                        <label><input type="radio" name="pg2" value="B"> <span>B. Deskripsi Bagian</span></label>
+                        <label><input type="radio" name="pg2" value="C"> <span>C. Simpulan</span></label>
+                        <label><input type="radio" name="pg2" value="D"> <span>D. Orientasi</span></label>
+                    </div>
+                </div>
+
+                <!-- PG 3 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">3</span>
+                        <span class="question-text">"Angin malam berbisik lembut di sela-sela jendela." Kalimat ini menggunakan majas...</span>
+                        <span class="points-badge">2 POIN</span>
+                    </div>
+                    <div class="options">
+                        <label><input type="radio" name="pg3" value="A"> <span>A. Simile</span></label>
+                        <label><input type="radio" name="pg3" value="B"> <span>B. Metafora</span></label>
+                        <label><input type="radio" name="pg3" value="C"> <span>C. Personifikasi</span></label>
+                        <label><input type="radio" name="pg3" value="D"> <span>D. Hiperbola</span></label>
+                    </div>
+                </div>
+
+                <!-- PG 4 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">4</span>
+                        <span class="question-text">Puisi rakyat yang terdiri dari empat baris per bait dengan pola rima a-b-a-b disebut...</span>
+                        <span class="points-badge">2 POIN</span>
+                    </div>
+                    <div class="options">
+                        <label><input type="radio" name="pg4" value="A"> <span>A. Syair</span></label>
+                        <label><input type="radio" name="pg4" value="B"> <span>B. Gurindam</span></label>
+                        <label><input type="radio" name="pg4" value="C"> <span>C. Pantun</span></label>
+                        <label><input type="radio" name="pg4" value="D"> <span>D. Talibun</span></label>
+                    </div>
+                </div>
+
+                <!-- PG 5 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">5</span>
+                        <span class="question-text">Bagian pantun yang tidak berkaitan langsung dengan isi, tetapi berfungsi sebagai pengantar rima disebut...</span>
+                        <span class="points-badge">2 POIN</span>
+                    </div>
+                    <div class="options">
+                        <label><input type="radio" name="pg5" value="A"> <span>A. Isi</span></label>
+                        <label><input type="radio" name="pg5" value="B"> <span>B. Sampiran</span></label>
+                        <label><input type="radio" name="pg5" value="C"> <span>C. Tema</span></label>
+                        <label><input type="radio" name="pg5" value="D"> <span>D. Amanat</span></label>
+                    </div>
+                </div>
+
+                <!-- PG 6 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">6</span>
+                        <span class="question-text">Ciri utama cerita fantasi yang membedakannya dari cerita realistis adalah...</span>
+                        <span class="points-badge">2 POIN</span>
+                    </div>
+                    <div class="options">
+                        <label><input type="radio" name="pg6" value="A"> <span>A. Berdasarkan fakta sejarah</span></label>
+                        <label><input type="radio" name="pg6" value="B"> <span>B. Mengandung unsur keajaiban atau hal yang tidak mungkin terjadi di dunia nyata</span></label>
+                        <label><input type="radio" name="pg6" value="C"> <span>C. Tokohnya adalah manusia biasa tanpa kekuatan khusus</span></label>
+                        <label><input type="radio" name="pg6" value="D"> <span>D. Latarnya selalu di sekolah atau rumah</span></label>
+                    </div>
+                </div>
+
+                <!-- PG 7 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">7</span>
+                        <span class="question-text">Tokoh utama yang menjadi pusat simpati pembaca dan mendukung jalan cerita positif disebut...</span>
+                        <span class="points-badge">2 POIN</span>
+                    </div>
+                    <div class="options">
+                        <label><input type="radio" name="pg7" value="A"> <span>A. Antagonis</span></label>
+                        <label><input type="radio" name="pg7" value="B"> <span>B. Protagonis</span></label>
+                        <label><input type="radio" name="pg7" value="C"> <span>C. Tritagonis</span></label>
+                        <label><input type="radio" name="pg7" value="D"> <span>D. Figuran</span></label>
+                    </div>
+                </div>
+
+                <!-- PG 8 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">8</span>
+                        <span class="question-text">Majas sindiran yang sangat tajam, kasar, dan menyakitkan hati disebut...</span>
+                        <span class="points-badge">2 POIN</span>
+                    </div>
+                    <div class="options">
+                        <label><input type="radio" name="pg8" value="A"> <span>A. Ironi</span></label>
+                        <label><input type="radio" name="pg8" value="B"> <span>B. Sinisme</span></label>
+                        <label><input type="radio" name="pg8" value="C"> <span>C. Sarkasme</span></label>
+                        <label><input type="radio" name="pg8" value="D"> <span>D. Satire</span></label>
+                    </div>
+                </div>
+
+                <!-- PG 9 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">9</span>
+                        <span class="question-text">Kalimat yang menirukan ucapan orang lain secara persis dengan menggunakan tanda petik disebut kalimat...</span>
+                        <span class="points-badge">2 POIN</span>
+                    </div>
+                    <div class="options">
+                        <label><input type="radio" name="pg9" value="A"> <span>A. Tidak Langsung</span></label>
+                        <label><input type="radio" name="pg9" value="B"> <span>B. Langsung</span></label>
+                        <label><input type="radio" name="pg9" value="C"> <span>C. Pasif</span></label>
+                        <label><input type="radio" name="pg9" value="D"> <span>D. Aktif</span></label>
+                    </div>
+                </div>
+
+                <!-- PG 10 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">10</span>
+                        <span class="question-text">Teks yang berisi langkah-langkah untuk melakukan atau membuat sesuatu disebut...</span>
+                        <span class="points-badge">2 POIN</span>
+                    </div>
+                    <div class="options">
+                        <label><input type="radio" name="pg10" value="A"> <span>A. Teks Deskripsi</span></label>
+                        <label><input type="radio" name="pg10" value="B"> <span>B. Teks Narasi</span></label>
+                        <label><input type="radio" name="pg10" value="C"> <span>C. Teks Prosedur</span></label>
+                        <label><input type="radio" name="pg10" value="D"> <span>D. Teks Eksplanasi</span></label>
+                    </div>
+                </div>
+
+                <!-- PG 11 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">11</span>
+                        <span class="question-text">Representasi visual dari informasi yang menggabungkan teks, gambar, dan data disebut...</span>
+                        <span class="points-badge">2 POIN</span>
+                    </div>
+                    <div class="options">
+                        <label><input type="radio" name="pg11" value="A"> <span>A. Poster</span></label>
+                        <label><input type="radio" name="pg11" value="B"> <span>B. Infografik</span></label>
+                        <label><input type="radio" name="pg11" value="C"> <span>C. Brosur</span></label>
+                        <label><input type="radio" name="pg11" value="D"> <span>D. Pamflet</span></label>
+                    </div>
+                </div>
+
+                <!-- PG 12 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">12</span>
+                        <span class="question-text">Kata kerja yang menunjukkan aktivitas fisik yang dapat dilihat langsung disebut verba...</span>
+                        <span class="points-badge">2 POIN</span>
+                    </div>
+                    <div class="options">
+                        <label><input type="radio" name="pg12" value="A"> <span>A. Tingkah Laku</span></label>
+                        <label><input type="radio" name="pg12" value="B"> <span>B. Material</span></label>
+                        <label><input type="radio" name="pg12" value="C"> <span>C. Relasional</span></label>
+                        <label><input type="radio" name="pg12" value="D"> <span>D. Mental</span></label>
+                    </div>
+                </div>
+
+                <!-- PG 13 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">13</span>
+                        <span class="question-text">Dalam presentasi multimodal, mode "Gestural" merujuk pada...</span>
+                        <span class="points-badge">2 POIN</span>
+                    </div>
+                    <div class="options">
+                        <label><input type="radio" name="pg13" value="A"> <span>A. Kata-kata yang diucapkan</span></label>
+                        <label><input type="radio" name="pg13" value="B"> <span>B. Gambar diam di slide</span></label>
+                        <label><input type="radio" name="pg13" value="C"> <span>C. Gerakan tubuh dan ekspresi wajah presenter</span></label>
+                        <label><input type="radio" name="pg13" value="D"> <span>D. Jenis font yang digunakan</span></label>
+                    </div>
+                </div>
+
+                <!-- PG 14 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">14</span>
+                        <span class="question-text">Makna kata yang sesuai dengan hasil pengamatan panca indra atau makna kamus disebut makna...</span>
+                        <span class="points-badge">2 POIN</span>
+                    </div>
+                    <div class="options">
+                        <label><input type="radio" name="pg14" value="A"> <span>A. Konotatif</span></label>
+                        <label><input type="radio" name="pg14" value="B"> <span>B. Kiasan</span></label>
+                        <label><input type="radio" name="pg14" value="C"> <span>C. Denotatif</span></label>
+                        <label><input type="radio" name="pg14" value="D"> <span>D. Simbolik</span></label>
+                    </div>
+                </div>
+
+                <!-- PG 15 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">15</span>
+                        <span class="question-text">Bagian struktur teks prosedur yang berisi daftar alat dan bahan disebut...</span>
+                        <span class="points-badge">2 POIN</span>
+                    </div>
+                    <div class="options">
+                        <label><input type="radio" name="pg15" value="A"> <span>A. Tujuan</span></label>
+                        <label><input type="radio" name="pg15" value="B"> <span>B. Material</span></label>
+                        <label><input type="radio" name="pg15" value="C"> <span>C. Langkah-Langkah</span></label>
+                        <label><input type="radio" name="pg15" value="D"> <span>D. Penutup</span></label>
+                    </div>
+                </div>
+
+                <!-- PG 16 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">16</span>
+                        <span class="question-text">Konjungsi yang menyatakan urutan waktu dalam teks prosedur disebut konjungsi...</span>
+                        <span class="points-badge">2 POIN</span>
+                    </div>
+                    <div class="options">
+                        <label><input type="radio" name="pg16" value="A"> <span>A. Koordinatif</span></label>
+                        <label><input type="radio" name="pg16" value="B"> <span>B. Temporal</span></label>
+                        <label><input type="radio" name="pg16" value="C"> <span>C. Subordinatif</span></label>
+                        <label><input type="radio" name="pg16" value="D"> <span>D. Antarparagraf</span></label>
+                    </div>
+                </div>
+
+                <!-- PG 17 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">17</span>
+                        <span class="question-text">Tujuan utama mempresentasikan hasil tulisan adalah...</span>
+                        <span class="points-badge">2 POIN</span>
+                    </div>
+                    <div class="options">
+                        <label><input type="radio" name="pg17" value="A"> <span>A. Untuk pamer kepintaran</span></label>
+                        <label><input type="radio" name="pg17" value="B"> <span>B. Untuk berbagi gagasan dan mendapatkan masukan perbaikan</span></label>
+                        <label><input type="radio" name="pg17" value="C"> <span>C. Agar guru memberikan nilai tinggi</span></label>
+                        <label><input type="radio" name="pg17" value="D"> <span>D. Untuk menghabiskan waktu pelajaran</span></label>
+                    </div>
+                </div>
+
+                <!-- PG 18 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">18</span>
+                        <span class="question-text">Menulis ulang kalimat dengan memperbaiki ejaan, tanda baca, dan struktur tanpa mengubah makna asli disebut...</span>
+                        <span class="points-badge">2 POIN</span>
+                    </div>
+                    <div class="options">
+                        <label><input type="radio" name="pg18" value="A"> <span>A. Parafrase</span></label>
+                        <label><input type="radio" name="pg18" value="B"> <span>B. Menulis Ulang</span></label>
+                        <label><input type="radio" name="pg18" value="C"> <span>C. Meringkas</span></label>
+                        <label><input type="radio" name="pg18" value="D"> <span>D. Menyunting</span></label>
+                    </div>
+                </div>
+
+                <!-- PG 19 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">19</span>
+                        <span class="question-text">Partikel penegas yang sering digunakan dalam kalimat perintah untuk memperhalus atau menegaskan adalah...</span>
+                        <span class="points-badge">2 POIN</span>
+                    </div>
+                    <div class="options">
+                        <label><input type="radio" name="pg19" value="A"> <span>A. -lah dan -kan</span></label>
+                        <label><input type="radio" name="pg19" value="B"> <span>B. -nya dan -ku</span></label>
+                        <label><input type="radio" name="pg19" value="C"> <span>C. -mu dan -i</span></label>
+                        <label><input type="radio" name="pg19" value="D"> <span>D. -an dan -me</span></label>
+                    </div>
+                </div>
+
+                <!-- PG 20 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">20</span>
+                        <span class="question-text">Sikap terbaik saat menerima tanggapan atau kritik terhadap karya kita adalah...</span>
+                        <span class="points-badge">2 POIN</span>
+                    </div>
+                    <div class="options">
+                        <label><input type="radio" name="pg20" value="A"> <span>A. Marah dan membantah</span></label>
+                        <label><input type="radio" name="pg20" value="B"> <span>B. Mendengarkan dengan saksama dan mencatat poin penting</span></label>
+                        <label><input type="radio" name="pg20" value="C"> <span>C. Mengabaikan karena merasa sudah sempurna</span></label>
+                        <label><input type="radio" name="pg20" value="D"> <span>D. Menangis dan menyerah</span></label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- BAGIAN B: PILIHAN GANDA KOMPLEKS (10 SOAL × 3 POIN = 30) -->
+            <!-- ========================================== -->
+            <div class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">☑️ Bagian B: Pilihan Ganda Kompleks</h2>
+                    <div class="section-meta">
+                        <span class="meta-badge">10 Soal</span>
+                        <span class="meta-badge">3 Poin/Soal</span>
+                        <span class="meta-badge">Total: 30 Poin</span>
+                    </div>
+                </div>
+                <div class="section-description">
+                    <div class="complex-hint">
+                        <strong>💡 Petunjuk:</strong> Pilihlah <strong>LEBIH DARI SATU jawaban yang benar</strong> untuk setiap soal. Setiap soal memiliki 2-4 jawaban benar. Jawaban benar semua = 3 poin, sebagian benar = 1,5 poin, salah = 0 poin.
+                    </div>
+                </div>
+
+                <!-- PG Kompleks 1 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">1</span>
+                        <span class="question-text">Manakah yang termasuk unsur kebahasaan teks deskripsi? (Pilih semua yang benar)</span>
+                        <span class="points-badge">3 POIN</span>
+                    </div>
+                    <div class="options">
+                        <label><input type="checkbox" name="pgk1" value="A"> <span>A. Kata sifat (adjektiva)</span></label>
+                        <label><input type="checkbox" name="pgk1" value="B"> <span>B. Kata khusus</span></label>
+                        <label><input type="checkbox" name="pgk1" value="C"> <span>C. Majas personifikasi</span></label>
+                        <label><input type="checkbox" name="pgk1" value="D"> <span>D. Kata penghubung temporal (kemudian, lalu)</span></label>
+                    </div>
+                </div>
+
+                <!-- PG Kompleks 2 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">2</span>
+                        <span class="question-text">Manakah ciri-ciri puisi rakyat (pantun)? (Pilih semua yang benar)</span>
+                        <span class="points-badge">3 POIN</span>
+                    </div>
+                    <div class="options">
+                        <label><input type="checkbox" name="pgk2" value="A"> <span>A. Terdiri dari 4 baris per bait</span></label>
+                        <label><input type="checkbox" name="pgk2" value="B"> <span>B. Bersajak a-b-a-b</span></label>
+                        <label><input type="checkbox" name="pgk2" value="C"> <span>C. Baris 1-2 merupakan sampiran, baris 3-4 merupakan isi</span></label>
+                        <label><input type="checkbox" name="pgk2" value="D"> <span>D. Setiap baris terdiri dari 8-12 suku kata</span></label>
+                    </div>
+                </div>
+
+                <!-- PG Kompleks 3 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">3</span>
+                        <span class="question-text">Manakah yang merupakan ciri cerita fantasi? (Pilih semua yang benar)</span>
+                        <span class="points-badge">3 POIN</span>
+                    </div>
+                    <div class="options">
+                        <label><input type="checkbox" name="pgk3" value="A"> <span>A. Mengandung unsur imajinasi dan keajaiban</span></label>
+                        <label><input type="checkbox" name="pgk3" value="B"> <span>B. Memiliki tokoh protagonis dan antagonis</span></label>
+                        <label><input type="checkbox" name="pgk3" value="C"> <span>C. Berdasarkan fakta sejarah yang akurat</span></label>
+                        <label><input type="checkbox" name="pgk3" value="D"> <span>D. Memiliki alur dan latar yang unik</span></label>
+                    </div>
+                </div>
+
+                <!-- PG Kompleks 4 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">4</span>
+                        <span class="question-text">Manakah yang termasuk kriteria evaluasi kualitas infografik? (Pilih semua yang benar)</span>
+                        <span class="points-badge">3 POIN</span>
+                    </div>
+                    <div class="options">
+                        <label><input type="checkbox" name="pgk4" value="A"> <span>A. Kejelasan pesan</span></label>
+                        <label><input type="checkbox" name="pgk4" value="B"> <span>B. Akurasi data</span></label>
+                        <label><input type="checkbox" name="pgk4" value="C"> <span>C. Desain visual yang menarik</span></label>
+                        <label><input type="checkbox" name="pgk4" value="D"> <span>D. Jumlah halaman yang banyak</span></label>
+                    </div>
+                </div>
+
+                <!-- PG Kompleks 5 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">5</span>
+                        <span class="question-text">Manakah teknik vokal yang harus dikuasai dalam presentasi lisan? (Pilih semua yang benar)</span>
+                        <span class="points-badge">3 POIN</span>
+                    </div>
+                    <div class="options">
+                        <label><input type="checkbox" name="pgk5" value="A"> <span>A. Volume suara</span></label>
+                        <label><input type="checkbox" name="pgk5" value="B"> <span>B. Intonasi</span></label>
+                        <label><input type="checkbox" name="pgk5" value="C"> <span>C. Kecepatan berbicara</span></label>
+                        <label><input type="checkbox" name="pgk5" value="D"> <span>D. Jeda (pause)</span></label>
+                    </div>
+                </div>
+
+                <!-- PG Kompleks 6 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">6</span>
+                        <span class="question-text">Manakah yang merupakan strategi mengatasi rasa gugup saat presentasi? (Pilih semua yang benar)</span>
+                        <span class="points-badge">3 POIN</span>
+                    </div>
+                    <div class="options">
+                        <label><input type="checkbox" name="pgk6" value="A"> <span>A. Persiapan matang dan latihan berulang</span></label>
+                        <label><input type="checkbox" name="pgk6" value="B"> <span>B. Teknik pernapasan dalam</span></label>
+                        <label><input type="checkbox" name="pgk6" value="C"> <span>C. Visualisasi positif</span></label>
+                        <label><input type="checkbox" name="pgk6" value="D"> <span>D. Menghindari kontak mata dengan audiens</span></label>
+                    </div>
+                </div>
+
+                <!-- PG Kompleks 7 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">7</span>
+                        <span class="question-text">Manakah perbedaan antara makna denotatif dan konotatif? (Pilih semua yang benar)</span>
+                        <span class="points-badge">3 POIN</span>
+                    </div>
+                    <div class="options">
+                        <label><input type="checkbox" name="pgk7" value="A"> <span>A. Denotatif bersifat objektif, konotatif bersifat subjektif</span></label>
+                        <label><input type="checkbox" name="pgk7" value="B"> <span>B. Denotatif sesuai kamus, konotatif mengandung nilai rasa</span></label>
+                        <label><input type="checkbox" name="pgk7" value="C"> <span>C. Denotatif netral, konotatif emosional</span></label>
+                        <label><input type="checkbox" name="pgk7" value="D"> <span>D. Denotatif hanya untuk puisi, konotatif untuk berita</span></label>
+                    </div>
+                </div>
+
+                <!-- PG Kompleks 8 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">8</span>
+                        <span class="question-text">Manakah fungsi hashtag (#) dalam media sosial? (Pilih semua yang benar)</span>
+                        <span class="points-badge">3 POIN</span>
+                    </div>
+                    <div class="options">
+                        <label><input type="checkbox" name="pgk8" value="A"> <span>A. Mengelompokkan konten berdasarkan topik</span></label>
+                        <label><input type="checkbox" name="pgk8" value="B"> <span>B. Memperluas jangkauan audiens</span></label>
+                        <label><input type="checkbox" name="pgk8" value="C"> <span>C. Menegaskan tema konten</span></label>
+                        <label><input type="checkbox" name="pgk8" value="D"> <span>D. Menggantikan fungsi emoji</span></label>
+                    </div>
+                </div>
+
+                <!-- PG Kompleks 9 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">9</span>
+                        <span class="question-text">Manakah yang termasuk mode dalam teks multimodal? (Pilih semua yang benar)</span>
+                        <span class="points-badge">3 POIN</span>
+                    </div>
+                    <div class="options">
+                        <label><input type="checkbox" name="pgk9" value="A"> <span>A. Linguistik (teks)</span></label>
+                        <label><input type="checkbox" name="pgk9" value="B"> <span>B. Visual (gambar)</span></label>
+                        <label><input type="checkbox" name="pgk9" value="C"> <span>C. Audio (suara)</span></label>
+                        <label><input type="checkbox" name="pgk9" value="D"> <span>D. Gestural (gerak tubuh)</span></label>
+                    </div>
+                </div>
+
+                <!-- PG Kompleks 10 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">10</span>
+                        <span class="question-text">Manakah langkah-langkah merancang teks prosedur? (Pilih semua yang benar)</span>
+                        <span class="points-badge">3 POIN</span>
+                    </div>
+                    <div class="options">
+                        <label><input type="checkbox" name="pgk10" value="A"> <span>A. Menentukan tujuan dan judul</span></label>
+                        <label><input type="checkbox" name="pgk10" value="B"> <span>B. Membuat daftar material (alat/bahan)</span></label>
+                        <label><input type="checkbox" name="pgk10" value="C"> <span>C. Menyusun alur langkah secara logis</span></label>
+                        <label><input type="checkbox" name="pgk10" value="D"> <span>D. Langsung menulis tanpa kerangka</span></label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- BAGIAN C: BENAR/SALAH (10 SOAL × 1 POIN = 10) -->
+            <!-- ========================================== -->
+            <div class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">✓✗ Bagian C: Benar atau Salah</h2>
+                    <div class="section-meta">
+                        <span class="meta-badge">10 Soal</span>
+                        <span class="meta-badge">1 Poin/Soal</span>
+                        <span class="meta-badge">Total: 10 Poin</span>
+                    </div>
+                </div>
+                <div class="section-description">
+                    Tentukan apakah pernyataan berikut <strong>BENAR</strong> atau <strong>SALAH</strong> dengan memilih salah satu opsi.
+                </div>
+
+                <!-- BS 1 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">1</span>
+                        <span class="question-text">Teks deskripsi bertujuan untuk menggambarkan objek secara terperinci sehingga pembaca seolah-olah merasakan sendiri.</span>
+                        <span class="points-badge">1 POIN</span>
+                    </div>
+                    <div class="tf-options">
+                        <label><input type="radio" name="bs1" value="B"> <span>BENAR</span></label>
+                        <label><input type="radio" name="bs1" value="S"> <span>SALAH</span></label>
+                    </div>
+                </div>
+
+                <!-- BS 2 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">2</span>
+                        <span class="question-text">Majas personifikasi adalah membandingkan dua hal menggunakan kata "seperti" atau "bagaikan".</span>
+                        <span class="points-badge">1 POIN</span>
+                    </div>
+                    <div class="tf-options">
+                        <label><input type="radio" name="bs2" value="B"> <span>BENAR</span></label>
+                        <label><input type="radio" name="bs2" value="S"> <span>SALAH</span></label>
+                    </div>
+                </div>
+
+                <!-- BS 3 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">3</span>
+                        <span class="question-text">Pantun terdiri dari 4 baris dengan pola rima a-b-a-b, di mana baris 1-2 adalah sampiran dan baris 3-4 adalah isi.</span>
+                        <span class="points-badge">1 POIN</span>
+                    </div>
+                    <div class="tf-options">
+                        <label><input type="radio" name="bs3" value="B"> <span>BENAR</span></label>
+                        <label><input type="radio" name="bs3" value="S"> <span>SALAH</span></label>
+                    </div>
+                </div>
+
+                <!-- BS 4 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">4</span>
+                        <span class="question-text">Syair berasal dari budaya Melayu dan setiap baitnya terdiri dari 2 baris yang semuanya berisi nasihat.</span>
+                        <span class="points-badge">1 POIN</span>
+                    </div>
+                    <div class="tf-options">
+                        <label><input type="radio" name="bs4" value="B"> <span>BENAR</span></label>
+                        <label><input type="radio" name="bs4" value="S"> <span>SALAH</span></label>
+                    </div>
+                </div>
+
+                <!-- BS 5 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">5</span>
+                        <span class="question-text">Cerita fantasi mengandung unsur imajinasi, keajaiban, atau hal yang tidak mungkin terjadi di dunia nyata.</span>
+                        <span class="points-badge">1 POIN</span>
+                    </div>
+                    <div class="tf-options">
+                        <label><input type="radio" name="bs5" value="B"> <span>BENAR</span></label>
+                        <label><input type="radio" name="bs5" value="S"> <span>SALAH</span></label>
+                    </div>
+                </div>
+
+                <!-- BS 6 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">6</span>
+                        <span class="question-text">Kalimat langsung menggunakan tanda petik dua ("...") untuk mengapit ucapan tokoh.</span>
+                        <span class="points-badge">1 POIN</span>
+                    </div>
+                    <div class="tf-options">
+                        <label><input type="radio" name="bs6" value="B"> <span>BENAR</span></label>
+                        <label><input type="radio" name="bs6" value="S"> <span>SALAH</span></label>
+                    </div>
+                </div>
+
+                <!-- BS 7 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">7</span>
+                        <span class="question-text">Teks prosedur hanya boleh ditulis dalam bentuk tulisan, tidak boleh berbentuk lisan.</span>
+                        <span class="points-badge">1 POIN</span>
+                    </div>
+                    <div class="tf-options">
+                        <label><input type="radio" name="bs7" value="B"> <span>BENAR</span></label>
+                        <label><input type="radio" name="bs7" value="S"> <span>SALAH</span></label>
+                    </div>
+                </div>
+
+                <!-- BS 8 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">8</span>
+                        <span class="question-text">Infografik adalah gabungan teks dan visual untuk menyajikan informasi secara ringkas dan menarik.</span>
+                        <span class="points-badge">1 POIN</span>
+                    </div>
+                    <div class="tf-options">
+                        <label><input type="radio" name="bs8" value="B"> <span>BENAR</span></label>
+                        <label><input type="radio" name="bs8" value="S"> <span>SALAH</span></label>
+                    </div>
+                </div>
+
+                <!-- BS 9 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">9</span>
+                        <span class="question-text">Dalam presentasi multimodal, pembicara harus membaca seluruh teks yang ada di slide agar tidak lupa.</span>
+                        <span class="points-badge">1 POIN</span>
+                    </div>
+                    <div class="tf-options">
+                        <label><input type="radio" name="bs9" value="B"> <span>BENAR</span></label>
+                        <label><input type="radio" name="bs9" value="S"> <span>SALAH</span></label>
+                    </div>
+                </div>
+
+                <!-- BS 10 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">10</span>
+                        <span class="question-text">Makna denotatif adalah makna kiasan atau makna tambahan yang mengandung nilai rasa.</span>
+                        <span class="points-badge">1 POIN</span>
+                    </div>
+                    <div class="tf-options">
+                        <label><input type="radio" name="bs10" value="B"> <span>BENAR</span></label>
+                        <label><input type="radio" name="bs10" value="S"> <span>SALAH</span></label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- BAGIAN D: MENJODOHKAN (10 SOAL × 2 POIN = 20) -->
+            <!-- ========================================== -->
+            <div class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">🔗 Bagian D: Menjodohkan</h2>
+                    <div class="section-meta">
+                        <span class="meta-badge">10 Soal</span>
+                        <span class="meta-badge">2 Poin/Soal</span>
+                        <span class="meta-badge">Total: 20 Poin</span>
+                    </div>
+                </div>
+                <div class="section-description">
+                    Jodohkan pernyataan di kolom kiri dengan jawaban yang tepat di kolom kanan dengan memilih dari dropdown.
+                </div>
+
+                <div class="matching-options-list">
+                    <h4>📌 Pilihan Jawaban:</h4>
+                    <ul>
+                        <li><strong>A.</strong> Teks yang menggambarkan objek secara terperinci</li>
+                        <li><strong>B.</strong> Benda mati diberi sifat manusia</li>
+                        <li><strong>C.</strong> Puisi 4 baris bersajak a-b-a-b (sampiran-isi)</li>
+                        <li><strong>D.</strong> Puisi 2 baris berisi nasihat</li>
+                        <li><strong>E.</strong> Cerita dengan unsur imajinasi</li>
+                        <li><strong>F.</strong> Perbandingan dengan kata "seperti"</li>
+                        <li><strong>G.</strong> Teks berisi langkah-langkah melakukan sesuatu</li>
+                        <li><strong>H.</strong> Gabungan teks, visual, dan audio</li>
+                        <li><strong>I.</strong> Makna sebenarnya/kamus</li>
+                        <li><strong>J.</strong> Tokoh jahat/penghambat</li>
+                    </ul>
+                </div>
+
+                <!-- Menjodohkan 1 -->
+                <div class="question-block" style="margin-top: 24px;">
+                    <div class="question-header">
+                        <span class="question-number">1</span>
+                        <span class="question-text">Teks Deskripsi</span>
+                        <span class="points-badge">2 POIN</span>
+                    </div>
+                    <select class="matching-select" name="mj1">
+                        <option value="">-- Pilih jawaban --</option>
+                        <option value="A">A. Teks yang menggambarkan objek secara terperinci</option>
+                        <option value="B">B. Benda mati diberi sifat manusia</option>
+                        <option value="C">C. Puisi 4 baris bersajak a-b-a-b</option>
+                        <option value="D">D. Puisi 2 baris berisi nasihat</option>
+                        <option value="E">E. Cerita dengan unsur imajinasi</option>
+                        <option value="F">F. Perbandingan dengan kata "seperti"</option>
+                        <option value="G">G. Teks berisi langkah-langkah</option>
+                        <option value="H">H. Gabungan teks, visual, dan audio</option>
+                        <option value="I">I. Makna sebenarnya/kamus</option>
+                        <option value="J">J. Tokoh jahat/penghambat</option>
+                    </select>
+                </div>
+
+                <!-- Menjodohkan 2 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">2</span>
+                        <span class="question-text">Personifikasi</span>
+                        <span class="points-badge">2 POIN</span>
+                    </div>
+                    <select class="matching-select" name="mj2">
+                        <option value="">-- Pilih jawaban --</option>
+                        <option value="A">A. Teks yang menggambarkan objek secara terperinci</option>
+                        <option value="B">B. Benda mati diberi sifat manusia</option>
+                        <option value="C">C. Puisi 4 baris bersajak a-b-a-b</option>
+                        <option value="D">D. Puisi 2 baris berisi nasihat</option>
+                        <option value="E">E. Cerita dengan unsur imajinasi</option>
+                        <option value="F">F. Perbandingan dengan kata "seperti"</option>
+                        <option value="G">G. Teks berisi langkah-langkah</option>
+                        <option value="H">H. Gabungan teks, visual, dan audio</option>
+                        <option value="I">I. Makna sebenarnya/kamus</option>
+                        <option value="J">J. Tokoh jahat/penghambat</option>
+                    </select>
+                </div>
+
+                <!-- Menjodohkan 3 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">3</span>
+                        <span class="question-text">Pantun</span>
+                        <span class="points-badge">2 POIN</span>
+                    </div>
+                    <select class="matching-select" name="mj3">
+                        <option value="">-- Pilih jawaban --</option>
+                        <option value="A">A. Teks yang menggambarkan objek secara terperinci</option>
+                        <option value="B">B. Benda mati diberi sifat manusia</option>
+                        <option value="C">C. Puisi 4 baris bersajak a-b-a-b</option>
+                        <option value="D">D. Puisi 2 baris berisi nasihat</option>
+                        <option value="E">E. Cerita dengan unsur imajinasi</option>
+                        <option value="F">F. Perbandingan dengan kata "seperti"</option>
+                        <option value="G">G. Teks berisi langkah-langkah</option>
+                        <option value="H">H. Gabungan teks, visual, dan audio</option>
+                        <option value="I">I. Makna sebenarnya/kamus</option>
+                        <option value="J">J. Tokoh jahat/penghambat</option>
+                    </select>
+                </div>
+
+                <!-- Menjodohkan 4 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">4</span>
+                        <span class="question-text">Gurindam</span>
+                        <span class="points-badge">2 POIN</span>
+                    </div>
+                    <select class="matching-select" name="mj4">
+                        <option value="">-- Pilih jawaban --</option>
+                        <option value="A">A. Teks yang menggambarkan objek secara terperinci</option>
+                        <option value="B">B. Benda mati diberi sifat manusia</option>
+                        <option value="C">C. Puisi 4 baris bersajak a-b-a-b</option>
+                        <option value="D">D. Puisi 2 baris berisi nasihat</option>
+                        <option value="E">E. Cerita dengan unsur imajinasi</option>
+                        <option value="F">F. Perbandingan dengan kata "seperti"</option>
+                        <option value="G">G. Teks berisi langkah-langkah</option>
+                        <option value="H">H. Gabungan teks, visual, dan audio</option>
+                        <option value="I">I. Makna sebenarnya/kamus</option>
+                        <option value="J">J. Tokoh jahat/penghambat</option>
+                    </select>
+                </div>
+
+                <!-- Menjodohkan 5 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">5</span>
+                        <span class="question-text">Cerita Fantasi</span>
+                        <span class="points-badge">2 POIN</span>
+                    </div>
+                    <select class="matching-select" name="mj5">
+                        <option value="">-- Pilih jawaban --</option>
+                        <option value="A">A. Teks yang menggambarkan objek secara terperinci</option>
+                        <option value="B">B. Benda mati diberi sifat manusia</option>
+                        <option value="C">C. Puisi 4 baris bersajak a-b-a-b</option>
+                        <option value="D">D. Puisi 2 baris berisi nasihat</option>
+                        <option value="E">E. Cerita dengan unsur imajinasi</option>
+                        <option value="F">F. Perbandingan dengan kata "seperti"</option>
+                        <option value="G">G. Teks berisi langkah-langkah</option>
+                        <option value="H">H. Gabungan teks, visual, dan audio</option>
+                        <option value="I">I. Makna sebenarnya/kamus</option>
+                        <option value="J">J. Tokoh jahat/penghambat</option>
+                    </select>
+                </div>
+
+                <!-- Menjodohkan 6 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">6</span>
+                        <span class="question-text">Simile</span>
+                        <span class="points-badge">2 POIN</span>
+                    </div>
+                    <select class="matching-select" name="mj6">
+                        <option value="">-- Pilih jawaban --</option>
+                        <option value="A">A. Teks yang menggambarkan objek secara terperinci</option>
+                        <option value="B">B. Benda mati diberi sifat manusia</option>
+                        <option value="C">C. Puisi 4 baris bersajak a-b-a-b</option>
+                        <option value="D">D. Puisi 2 baris berisi nasihat</option>
+                        <option value="E">E. Cerita dengan unsur imajinasi</option>
+                        <option value="F">F. Perbandingan dengan kata "seperti"</option>
+                        <option value="G">G. Teks berisi langkah-langkah</option>
+                        <option value="H">H. Gabungan teks, visual, dan audio</option>
+                        <option value="I">I. Makna sebenarnya/kamus</option>
+                        <option value="J">J. Tokoh jahat/penghambat</option>
+                    </select>
+                </div>
+
+                <!-- Menjodohkan 7 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">7</span>
+                        <span class="question-text">Teks Prosedur</span>
+                        <span class="points-badge">2 POIN</span>
+                    </div>
+                    <select class="matching-select" name="mj7">
+                        <option value="">-- Pilih jawaban --</option>
+                        <option value="A">A. Teks yang menggambarkan objek secara terperinci</option>
+                        <option value="B">B. Benda mati diberi sifat manusia</option>
+                        <option value="C">C. Puisi 4 baris bersajak a-b-a-b</option>
+                        <option value="D">D. Puisi 2 baris berisi nasihat</option>
+                        <option value="E">E. Cerita dengan unsur imajinasi</option>
+                        <option value="F">F. Perbandingan dengan kata "seperti"</option>
+                        <option value="G">G. Teks berisi langkah-langkah</option>
+                        <option value="H">H. Gabungan teks, visual, dan audio</option>
+                        <option value="I">I. Makna sebenarnya/kamus</option>
+                        <option value="J">J. Tokoh jahat/penghambat</option>
+                    </select>
+                </div>
+
+                <!-- Menjodohkan 8 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">8</span>
+                        <span class="question-text">Teks Multimodal</span>
+                        <span class="points-badge">2 POIN</span>
+                    </div>
+                    <select class="matching-select" name="mj8">
+                        <option value="">-- Pilih jawaban --</option>
+                        <option value="A">A. Teks yang menggambarkan objek secara terperinci</option>
+                        <option value="B">B. Benda mati diberi sifat manusia</option>
+                        <option value="C">C. Puisi 4 baris bersajak a-b-a-b</option>
+                        <option value="D">D. Puisi 2 baris berisi nasihat</option>
+                        <option value="E">E. Cerita dengan unsur imajinasi</option>
+                        <option value="F">F. Perbandingan dengan kata "seperti"</option>
+                        <option value="G">G. Teks berisi langkah-langkah</option>
+                        <option value="H">H. Gabungan teks, visual, dan audio</option>
+                        <option value="I">I. Makna sebenarnya/kamus</option>
+                        <option value="J">J. Tokoh jahat/penghambat</option>
+                    </select>
+                </div>
+
+                <!-- Menjodohkan 9 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">9</span>
+                        <span class="question-text">Makna Denotatif</span>
+                        <span class="points-badge">2 POIN</span>
+                    </div>
+                    <select class="matching-select" name="mj9">
+                        <option value="">-- Pilih jawaban --</option>
+                        <option value="A">A. Teks yang menggambarkan objek secara terperinci</option>
+                        <option value="B">B. Benda mati diberi sifat manusia</option>
+                        <option value="C">C. Puisi 4 baris bersajak a-b-a-b</option>
+                        <option value="D">D. Puisi 2 baris berisi nasihat</option>
+                        <option value="E">E. Cerita dengan unsur imajinasi</option>
+                        <option value="F">F. Perbandingan dengan kata "seperti"</option>
+                        <option value="G">G. Teks berisi langkah-langkah</option>
+                        <option value="H">H. Gabungan teks, visual, dan audio</option>
+                        <option value="I">I. Makna sebenarnya/kamus</option>
+                        <option value="J">J. Tokoh jahat/penghambat</option>
+                    </select>
+                </div>
+
+                <!-- Menjodohkan 10 -->
+                <div class="question-block">
+                    <div class="question-header">
+                        <span class="question-number">10</span>
+                        <span class="question-text">Antagonis</span>
+                        <span class="points-badge">2 POIN</span>
+                    </div>
+                    <select class="matching-select" name="mj10">
+                        <option value="">-- Pilih jawaban --</option>
+                        <option value="A">A. Teks yang menggambarkan objek secara terperinci</option>
+                        <option value="B">B. Benda mati diberi sifat manusia</option>
+                        <option value="C">C. Puisi 4 baris bersajak a-b-a-b</option>
+                        <option value="D">D. Puisi 2 baris berisi nasihat</option>
+                        <option value="E">E. Cerita dengan unsur imajinasi</option>
+                        <option value="F">F. Perbandingan dengan kata "seperti"</option>
+                        <option value="G">G. Teks berisi langkah-langkah</option>
+                        <option value="H">H. Gabungan teks, visual, dan audio</option>
+                        <option value="I">I. Makna sebenarnya/kamus</option>
+                        <option value="J">J. Tokoh jahat/penghambat</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- HASIL & TOMBOL AKSI -->
+            <!-- ========================================== -->
+            <div class="result-box" id="resultBox">
+                <h3>📊 Hasil Ujian Akhir Semester</h3>
+                <div class="score-grid">
+                    <div class="score-item">
+                        <h4 id="scorePG">0</h4>
+                        <p>Pilihan Ganda (/40)</p>
+                    </div>
+                    <div class="score-item">
+                        <h4 id="scorePGK">0</h4>
+                        <p>PG Kompleks (/30)</p>
+                    </div>
+                    <div class="score-item">
+                        <h4 id="scoreBS">0</h4>
+                        <p>Benar/Salah (/10)</p>
+                    </div>
+                    <div class="score-item">
+                        <h4 id="scoreMJ">0</h4>
+                        <p>Menjodohkan (/20)</p>
+                    </div>
+                    <div class="score-item final">
+                        <h4 id="scoreFinal" class="gold-text">0</h4>
+                        <p>SKOR TOTAL (/100)</p>
+                    </div>
+                </div>
+                <div class="grade-display">
+                    <div class="grade" id="gradeDisplay">-</div>
+                    <div class="predikat" id="predikatDisplay">-</div>
+                </div>
+                <div class="disclaimer">
+                    <strong>⚠️ Catatan:</strong> Hasil ini adalah perhitungan otomatis berdasarkan kunci jawaban. Penilaian akhir atas esai dan jawaban terbuka tetap berada di tangan guru pengampu.
+                </div>
+            </div>
+
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary" onclick="hitungNilaiUAS()">✉️ KIRIM JAWABAN & LIHAT HASIL</button>
+                <button type="button" class="btn btn-secondary" onclick="unduhPDF()">📥 UNDUH PDF LENGKAP</button>
+                <button type="button" class="btn btn-secondary" onclick="unduhTXT()">📄 UNDUH SKOR (TXT)</button>
+                <button type="button" class="btn btn-secondary" onclick="kirimEmail()">📧 KIRIM KE EMAIL GURU</button>
+                <button type="button" class="btn btn-secondary" onclick="mulaiUlang()">🔄 MULAI ULANG</button>
+            </div>
+        </form>
+
+        <!-- Footer -->
+        <footer>
+            <div style="margin-bottom: 16px;">
+                <a href="index.html" class="nav-link" style="margin: 0 10px;">📖 Daftar Isi</a>
+                <a href="index.html" class="nav-link" style="margin: 0 10px;">🏠 Kembali ke Beranda</a>
+            </div>
+            <p>&copy; 2026 <span class="gold-text">Sumarnis, S. Pd.</span> — MTsN 10 Agam. Hak Cipta Dilindungi Undang-Undang.</p>
+            <p style="margin-top: 8px;">Email: <a href="mailto:Sumarnisanis04@yahoo.com">Sumarnisanis04@yahoo.com</a></p>
+        </footer>
+    </div>
+
+    <!-- JavaScript Logic for UTS -->
+    <script>
+        // Kunci Jawaban
+        const kunciPG = {
+            pg1: 'B', pg2: 'B', pg3: 'C', pg4: 'C', pg5: 'B',
+            pg6: 'B', pg7: 'B', pg8: 'C', pg9: 'B', pg10: 'C',
+            pg11: 'B', pg12: 'B', pg13: 'C', pg14: 'C', pg15: 'B',
+            pg16: 'B', pg17: 'B', pg18: 'B', pg19: 'A', pg20: 'B'
+        };
+
+        // Kunci PG Kompleks (array jawaban benar)
+        const kunciPGK = {
+            pgk1: ['A', 'B', 'C'], 
+            pgk2: ['A', 'B', 'C', 'D'], 
+            pgk3: ['A', 'B', 'D'], 
+            pgk4: ['A', 'B', 'C'], 
+            pgk5: ['A', 'B', 'C', 'D'], 
+            pgk6: ['A', 'B', 'C'], 
+            pgk7: ['A', 'B', 'C'], 
+            pgk8: ['A', 'B', 'C'], 
+            pgk9: ['A', 'B', 'C', 'D'], 
+            pgk10: ['A', 'B', 'C'] 
+        };
+
+        // Kunci Benar/Salah
+        const kunciBS = {
+            bs1: 'B', bs2: 'S', bs3: 'B', bs4: 'S', bs5: 'B',
+            bs6: 'B', bs7: 'S', bs8: 'B', bs9: 'S', bs10: 'S'
+        };
+
+        // Kunci Menjodohkan
+        const kunciMJ = {
+            mj1: 'A', mj2: 'B', mj3: 'C', mj4: 'D', mj5: 'E',
+            mj6: 'F', mj7: 'G', mj8: 'H', mj9: 'I', mj10: 'J'
+        };
+
+        let finalScoreData = {
+            nama: '',
+            nis: '',
+            kelas: '',
+            tanggal: '',
+            skorPG: 0,
+            skorPGK: 0,
+            skorBS: 0,
+            skorMJ: 0,
+            skorAkhir: 0
+        };
+
+        function hitungNilaiUAS() {
+            // Validasi Identitas
+            const nama = document.getElementById('nama').value.trim();
+            const nis = document.getElementById('nis').value.trim();
+            const kelas = document.getElementById('kelas').value;
+            
+            if (!nama || !nis || !kelas) {
+                alert('Harap lengkapi Identitas Siswa (Nama, NIS, dan Kelas) sebelum mengirim jawaban!');
+                return;
+            }
+
+            // Konfirmasi
+            if (!confirm('Apakah Anda yakin ingin mengirim jawaban? Pastikan semua soal telah dijawab.')) {
+                return;
+            }
+
+            // ====== HITUNG PILIHAN GANDA (20 soal × 2 = 40) ======
+            let benarPG = 0;
+            for (let i = 1; i <= 20; i++) {
+                const selected = document.querySelector(`input[name="pg${i}"]:checked`);
+                if (selected && selected.value === kunciPG[`pg${i}`]) {
+                    benarPG++;
+                }
+            }
+            const skorPG = benarPG * 2;
+
+            // ====== HITUNG PG KOMPLEKS (10 soal × 3 = 30) ======
+            let skorPGK = 0;
+            for (let i = 1; i <= 10; i++) {
+                const checked = document.querySelectorAll(`input[name="pgk${i}"]:checked`);
+                const selectedValues = Array.from(checked).map(c => c.value).sort();
+                const correctValues = kunciPGK[`pgk${i}`].slice().sort();
+                
+                // Cek apakah ada jawaban yang salah
+                const hasWrong = selectedValues.some(v => !correctValues.includes(v));
+                
+                if (hasWrong) {
+                    // Ada jawaban salah = 0 poin
+                    continue;
+                }
+                
+                // Hitung jawaban benar
+                const correctSelected = selectedValues.filter(v => correctValues.includes(v));
+                
+                if (correctSelected.length === correctValues.length && selectedValues.length === correctValues.length) {
+                    // Semua benar dan lengkap = 3 poin
+                    skorPGK += 3;
+                } else if (correctSelected.length > 0) {
+                    // Sebagian benar tanpa salah = 1,5 poin
+                    skorPGK += 1.5;
+                }
+            }
+
+            // ====== HITUNG BENAR/SALAH (10 soal × 1 = 10) ======
+            let benarBS = 0;
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`input[name="bs${i}"]:checked`);
+                if (selected && selected.value === kunciBS[`bs${i}`]) {
+                    benarBS++;
+                }
+            }
+            const skorBS = benarBS * 1;
+
+            // ====== HITUNG MENJODOHKAN (10 soal × 2 = 20) ======
+            let benarMJ = 0;
+            for (let i = 1; i <= 10; i++) {
+                const selected = document.querySelector(`select[name="mj${i}"]`);
+                if (selected && selected.value === kunciMJ[`mj${i}`]) {
+                    benarMJ++;
+                }
+            }
+            const skorMJ = benarMJ * 2;
+
+            // ====== TOTAL ======
+            const skorAkhir = skorPG + skorPGK + skorBS + skorMJ;
+
+            // Simpan data
+            finalScoreData = {
+                nama, nis, kelas,
+                tanggal: document.getElementById('tanggal').value,
+                skorPG, skorPGK, skorBS, skorMJ, skorAkhir
+            };
+
+            // Tampilkan Hasil
+            document.getElementById('scorePG').innerText = skorPG.toFixed(1);
+            document.getElementById('scorePGK').innerText = skorPGK.toFixed(1);
+            document.getElementById('scoreBS').innerText = skorBS;
+            document.getElementById('scoreMJ').innerText = skorMJ;
+            document.getElementById('scoreFinal').innerText = skorAkhir.toFixed(1);
+
+            // Hitung Predikat
+            let grade = '';
+            let predikat = '';
+            if (skorAkhir >= 90) { grade = 'A'; predikat = 'Sangat Baik (Istimewa)'; }
+            else if (skorAkhir >= 80) { grade = 'B'; predikat = 'Baik'; }
+            else if (skorAkhir >= 70) { grade = 'C'; predikat = 'Cukup'; }
+            else if (skorAkhir >= 60) { grade = 'D'; predikat = 'Kurang (Perlu Perbaikan)'; }
+            else { grade = 'E'; predikat = 'Sangat Kurang (Remedial)'; }
+
+            document.getElementById('gradeDisplay').innerText = grade;
+            document.getElementById('predikatDisplay').innerText = predikat;
+            
+            const resultBox = document.getElementById('resultBox');
+            resultBox.style.display = 'block';
+            resultBox.scrollIntoView({ behavior: 'smooth' });
+
+            alert(`Terima kasih, ${nama}!\n\nSkor Anda: ${skorAkhir.toFixed(1)}/100\nPredikat: ${grade} (${predikat})\n\nSilakan lihat hasil detail di bagian bawah.`);
+        }
+
+        function unduhTXT() {
+            if (finalScoreData.skorAkhir === 0 && finalScoreData.nama === '') {
+                alert('Silakan kerjakan dan klik "KIRIM JAWABAN & LIHAT HASIL" terlebih dahulu.');
+                return;
+            }
+
+            let grade = '';
+            let predikat = '';
+            if (finalScoreData.skorAkhir >= 90) { grade = 'A'; predikat = 'Sangat Baik'; }
+            else if (finalScoreData.skorAkhir >= 80) { grade = 'B'; predikat = 'Baik'; }
+            else if (finalScoreData.skorAkhir >= 70) { grade = 'C'; predikat = 'Cukup'; }
+            else if (finalScoreData.skorAkhir >= 60) { grade = 'D'; predikat = 'Kurang'; }
+            else { grade = 'E'; predikat = 'Sangat Kurang'; }
+
+            const textContent = `
+================================================================
+HASIL UJIAN AKHIR SEMESTER (UAS)
+BAHASA INDONESIA KELAS VII
+MTsN 10 AGAM
+================================================================
+Tanggal Ujian : ${finalScoreData.tanggal || '-'}
+Nama Lengkap  : ${finalScoreData.nama}
+NIS           : ${finalScoreData.nis}
+Kelas         : ${finalScoreData.kelas}
+Materi        : Pertemuan 1 - 33
+================================================================
+
+RINCIAN SKOR PER BAGIAN:
+----------------------------------------
+A. Pilihan Ganda          : ${finalScoreData.skorPG.toFixed(1)} / 40
+B. PG Kompleks            : ${finalScoreData.skorPGK.toFixed(1)} / 30
+C. Benar/Salah            : ${finalScoreData.skorBS} / 10
+D. Menjodohkan            : ${finalScoreData.skorMJ} / 20
+----------------------------------------
+SKOR TOTAL                : ${finalScoreData.skorAkhir.toFixed(1)} / 100
+PREDIKAT                  : ${grade} (${predikat})
+================================================================
+
+Catatan: Perhitungan otomatis berdasarkan kunci jawaban.
+Penilaian akhir tetap di tangan guru pengampu.
+
+Dibuat oleh: Sumarnis, S. Pd. | MTsN 10 Agam
+Email: Sumarnisanis04@yahoo.com
+================================================================
+            `.trim();
+
+            const blob = new Blob([textContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Hasil_UAS_${finalScoreData.nama.replace(/\s+/g, '_')}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function unduhPDF() {
+            if (finalScoreData.skorAkhir === 0 && finalScoreData.nama === '') {
+                alert('Silakan kerjakan dan klik "KIRIM JAWABAN & LIHAT HASIL" terlebih dahulu.');
+                return;
+            }
+            window.print();
+        }
+
+        function kirimEmail() {
+            if (finalScoreData.skorAkhir === 0 && finalScoreData.nama === '') {
+                alert('Silakan kerjakan dan klik "KIRIM JAWABAN & LIHAT HASIL" terlebih dahulu.');
+                return;
+            }
+
+            let grade = '';
+            if (finalScoreData.skorAkhir >= 90) grade = 'A';
+            else if (finalScoreData.skorAkhir >= 80) grade = 'B';
+            else if (finalScoreData.skorAkhir >= 70) grade = 'C';
+            else if (finalScoreData.skorAkhir >= 60) grade = 'D';
+            else grade = 'E';
+
+            const subject = `Hasil UAS Bahasa Indonesia - ${finalScoreData.nama} (${finalScoreData.kelas})`;
+            const body = `Yth. Ibu Sumarnis, S. Pd.,\n\nBerikut adalah hasil Ujian Akhir Semester saya:\n\nNama: ${finalScoreData.nama}\nNIS: ${finalScoreData.nis}\nKelas: ${finalScoreData.kelas}\nTanggal: ${finalScoreData.tanggal}\n\nRincian Skor:\n- Pilihan Ganda: ${finalScoreData.skorPG.toFixed(1)}/40\n- PG Kompleks: ${finalScoreData.skorPGK.toFixed(1)}/30\n- Benar/Salah: ${finalScoreData.skorBS}/10\n- Menjodohkan: ${finalScoreData.skorMJ}/20\n\nSkor Total: ${finalScoreData.skorAkhir.toFixed(1)}/100\nPredikat: ${grade}\n\nTerima kasih.`;
+            
+            window.location.href = `mailto:Sumarnisanis04@yahoo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        function mulaiUlang() {
+            if (confirm('Apakah Anda yakin ingin mengosongkan semua jawaban dan memulai ulang UAS?')) {
+                document.getElementById('uasForm').reset();
+                document.getElementById('resultBox').style.display = 'none';
+                finalScoreData = {
+                    nama: '', nis: '', kelas: '', tanggal: '',
+                    skorPG: 0, skorPGK: 0, skorBS: 0, skorMJ: 0, skorAkhir: 0
+                };
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
